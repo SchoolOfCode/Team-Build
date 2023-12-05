@@ -1,13 +1,11 @@
 import CharityRegistration from "../components/charityRegistration";
-import Navbar from "../components/navbar/navbar";
+import Navbar from "../components/navbar";
 import "../globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import developers from "../../public/charity.jpeg";
-
+import developers from "public/developers.png";
 
 export default function Charity() {
-
   return (
     <section>
       <Navbar />
@@ -23,7 +21,7 @@ export default function Charity() {
       <div className="section flex flex-col justify-center items-center border border-black rounded-lg p-2 m-2 bg-yellow-100">
         <h2 className="subTitle text-2xl font-bold p-2">Charities</h2>
         <p>
-          At Tech for Good, we're on a mission to empower non-profit
+          At Tech for Good, we are on a mission to empower non-profit
           organisations with impactful online presence. Simultaneously, we
           create opportunities for junior developers to gain hands-on commercial
           experience. Join us in building a better, more connected world through

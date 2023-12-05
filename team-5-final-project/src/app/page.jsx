@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Navbar from "./components/navbar/navbar";
+import Navbar from "./components/navbar";
 import "../app/globals.css";
 import Image from "next/image";
-import landingPic from "../public/landing.jpeg";
+import landingPic from "public/landing.jpeg";
 
 export default function Home() {
   return (

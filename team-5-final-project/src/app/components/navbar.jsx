@@ -1,10 +1,9 @@
-import "./navbar.css";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <>
-      <div className="navbar-container">
+      <div className="navbar-container display-flex justify-between align-center bg-emerald-300">
         <ul>
           <li>
             <Link href="/">Home</Link>{" "}

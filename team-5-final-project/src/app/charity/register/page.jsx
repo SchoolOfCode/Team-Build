@@ -1,3 +1,4 @@
+"use client";
 import Navbar from "@/app/components/navbar/navbar";
 import "../../globals.css";
 import Link from "next/link";

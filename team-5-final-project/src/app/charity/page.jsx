@@ -10,7 +10,9 @@ export default function Charity() {
     <section>
       <Navbar />
       <div className="headerContainer sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 relative">
-        <h2 className="subTitle text-2xl font-bold p-2 bg-navbar">Charities</h2>
+        <h2 className="subTitle text-center text-2xl font-bold p-2 bg-emerald-300">
+          Charities
+        </h2>
         <Image
           src={charity}
           alt="charity"
@@ -31,7 +33,7 @@ export default function Charity() {
           apply for a tailored online presence
         </p>
         <button className="button m-3">
-          <Link href={"charity/register"}>Find out More</Link>
+          <Link href={"charity/register"}>Register</Link>
         </button>
       </div>
     </section>

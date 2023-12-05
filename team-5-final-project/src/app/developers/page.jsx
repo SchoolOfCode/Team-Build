@@ -39,7 +39,7 @@ export default function Developers() {
           purpose.
         </p>
         <button className="button m-3">
-          <Link href={"developers/register"}>Find out More</Link>
+          <Link href={"developers/register"}>Register</Link>
         </button>
       </div>
     </section>

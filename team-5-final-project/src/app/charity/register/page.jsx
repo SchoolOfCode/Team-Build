@@ -11,7 +11,7 @@ export default function CharityRegister() {
       <Navbar />
       <h1>Charity Register</h1>
       <button className="button">
-        <Link href="/">Submit</Link>
+        <Link href="/"> Back to Home</Link>
         <CharityRegistration />
       </button>
     </div>

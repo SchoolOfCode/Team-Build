@@ -3,14 +3,17 @@ import React, { useState } from "react";
 
 export default function CharityRegistration() {
   const [registration, setRegistration] = useState({
-    name: "",
-    email: "",
+    fullname: "",
+    number: "",
     organisationName: "",
     charityRegNumber: "",
+    password: "",
+    confirmpassword: "",
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInput = (e) => {
     const fieldName = e.target.name;
@@ -27,7 +30,6 @@ export default function CharityRegistration() {
 
     const regUrl = e.target.action;
 
-    // POST the data to the URL of the form
     fetch(regUrl, {
       method: "POST",
       body: JSON.stringify(registration),
@@ -36,16 +38,30 @@ export default function CharityRegistration() {
         accept: "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         setRegSuccess(true);
         setRegSuccessMessage(data.submission_text);
         setRegistration({
-          name: "",
-          email: "",
+          fullname: "",
+          number: "",
           organisationName: "",
           charityRegNumber: "",
+          password: "",
+          confirmpassword: "",
         });
+
+        window.alert("Thank you for your submission!");
+
+        window.history.back();
+      })
+      .catch((error) => {
+        console.error("Error during fetch:", error);
       });
   };
 
@@ -61,45 +77,63 @@ export default function CharityRegistration() {
           onSubmit={submitReg}
         >
           <div>
-            <label>Name</label>
+            <label>Your Full Name:</label>
             <input
               type="text"
-              name="name"
+              name="fullname"
               onChange={handleInput}
-              value={registration.name}
+              value={registration.fullname}
+              style={{ color: "black" }}
             />
           </div>
-
           <div>
-            <label>Email</label>
+            <label>Your Contact Number:</label>
             <input
               type="text"
-              name="email"
+              name="number"
               onChange={handleInput}
-              value={registration.email}
+              value={registration.number}
+              pattern="[0-9]*"
+              style={{ color: "black" }}
             />
           </div>
-
           <div>
             <label>Organisation Name</label>
-            <textarea
+            <input
               name="organisationName"
               onChange={handleInput}
               value={registration.organisationName}
-            ></textarea>
-          </div>
-
-          <div>
-            <label>Charity Reg Number</label>
-            <input
-              type="text"
-              name="charityRegNumber"
-              onChange={handleInput}
-              value={registration.charityRegNumber}
+              style={{ color: "black" }}
             />
           </div>
-
-          <button type="submit">Send message</button>
+          <div>
+            <label>Password:</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="password"
+              onChange={handleInput}
+              value={registration.password}
+              style={{ color: "black" }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"} Password
+            </button>
+          </div>
+          <div>
+            <label>Confirm Password:</label>
+            <input
+              type={showPassword ? "text" : "password"}
+              name="confirmpassword"
+              onChange={handleInput}
+              value={registration.confirmpassword}
+              style={{ color: "black" }}
+            />
+          </div>
+          <button type="submit" style={{ color: "black" }}></button>
+          Submit Form
         </form>
       )}
     </div>

@@ -3,14 +3,17 @@ import React, { useState } from "react";
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
-    name: "",
+    fullname: "",
+    number: "",
+    technicalbackground: "",
     email: "",
-    organisationName: "",
-    charityRegNumber: "",
+    password: "",
+    confirmpassword: "",
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInput = (e) => {
     const fieldName = e.target.name;
@@ -27,7 +30,6 @@ export default function DeveloperRegistration() {
 
     const regUrl = e.target.action;
 
-    // POST the data to the URL of the form
     fetch(regUrl, {
       method: "POST",
       body: JSON.stringify(registration),
@@ -36,16 +38,30 @@ export default function DeveloperRegistration() {
         accept: "application/json",
       },
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         setRegSuccess(true);
         setRegSuccessMessage(data.submission_text);
         setRegistration({
-          name: "",
+          fullname: "",
+          number: "",
+          technicalbackground: "",
           email: "",
-          organisationName: "",
-          charityRegNumber: "",
+          password: "",
+          confirmpassword: "",
         });
+
+        window.alert("Thank you for your submission!");
+
+        window.history.back();
+      })
+      .catch((error) => {
+        console.error("Error during fetch:", error);
       });
   };
 
@@ -57,49 +73,82 @@ export default function DeveloperRegistration() {
       ) : (
         <form
           method="POST"
-          action="https://team-5-final-project-pi.vercel.app/developers/register"
+          action="https://team-5-final-project-pi.vercel.app/charity/register"
           onSubmit={submitReg}
         >
           <div>
-            <label>Name</label>
+            <label>Your Full Name:</label>
             <input
               type="text"
-              name="name"
+              name="fullname"
               onChange={handleInput}
-              value={registration.name}
+              value={registration.fullname}
+              style={{ color: "black" }}
             />
           </div>
 
           <div>
-            <label>Email</label>
+            <label>Your Contact Number:</label>
+            <input
+              type="text"
+              name="number"
+              onChange={handleInput}
+              value={registration.number}
+              pattern="[0-9]*"
+              style={{ color: "black" }}
+            />
+          </div>
+
+          <div>
+            <label>Please share your technical background:</label>
+            <textarea
+              name="technicalbackground"
+              onChange={handleInput}
+              value={registration.technicalbackground}
+              style={{ color: "black" }}
+            ></textarea>
+          </div>
+
+          <div>
+            <label>Your Email:</label>
             <input
               type="text"
               name="email"
               onChange={handleInput}
               value={registration.email}
+              style={{ color: "black" }}
             />
           </div>
 
           <div>
-            <label>Organisation Name</label>
-            <textarea
-              name="organisationName"
-              onChange={handleInput}
-              value={registration.organisationName}
-            ></textarea>
-          </div>
-
-          <div>
-            <label>Charity Reg Number</label>
+            <label>Password:</label>
             <input
-              type="text"
-              name="charityRegNumber"
+              type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
+              name="password"
               onChange={handleInput}
-              value={registration.charityRegNumber}
+              value={registration.password}
+              style={{ color: "black" }}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              {showPassword ? "Hide" : "Show"} Password
+            </button>
+          </div>
+
+          <div>
+            <label>Confirm Password:</label>
+            <input
+              type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
+              name="confirmpassword"
+              onChange={handleInput}
+              value={registration.confirmpassword}
+              style={{ color: "black" }}
             />
           </div>
 
-          <button type="submit">Send message</button>
+          <button type="submit">Submit Form</button>
         </form>
       )}
     </div>

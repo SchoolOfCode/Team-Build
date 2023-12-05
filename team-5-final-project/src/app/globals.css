@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 .button {
-  background-color: 
-  bg-red-400 text-white font-bold py-2 px-4 rounded;
+  background-color: #F17063;
+
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 5px;
 }

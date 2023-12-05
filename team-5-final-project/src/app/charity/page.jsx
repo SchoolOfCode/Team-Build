@@ -3,7 +3,7 @@ import Navbar from "../components/navbar";
 import "../globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import developers from "public/developers.png";
+import charity from "public/charity.jpeg";
 
 export default function Charity() {
   return (
@@ -12,7 +12,7 @@ export default function Charity() {
       <div className="headerContainer sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 relative">
         <h2 className="subTitle text-2xl font-bold p-2 bg-navbar">Charities</h2>
         <Image
-          src={developers}
+          src={charity}
           alt="charity"
           width={500}
           className="headerImage"

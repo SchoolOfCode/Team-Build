@@ -1,3 +1,10 @@
+import Navbar from "../components/navbar/navbar";
+
 export default function Developers() {
-  return <h1>Developers Landing Page</h1>;
+  return (
+    <div>
+      <Navbar />
+      <h1>Developers Landing Page</h1>
+    </div>
+  );
 }

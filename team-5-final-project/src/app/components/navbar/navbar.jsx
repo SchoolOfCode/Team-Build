@@ -1,9 +1,10 @@
+import "./navbar.css";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <>
-      <div>
+      <div className="navbar-container">
         <ul>
           <li>
             <Link href="/">Home</Link>{" "}

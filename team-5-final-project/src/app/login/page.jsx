@@ -1,3 +1,10 @@
+import Navbar from "../components/navbar/navbar";
+
 export default function Login() {
-    return <h1>Log In</h1>;
-  }
+  return (
+    <div>
+      <Navbar />
+      <h1>Log In</h1>
+    </div>
+  );
+}

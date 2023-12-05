@@ -1,3 +1,10 @@
+import Navbar from "@/app/components/navbar/navbar";
+
 export default function DeveloperRegister() {
-    return <h1>Developer Register</h1>;
-  }
+  return (
+    <div>
+      <Navbar />
+      <h1>Developer Register</h1>
+    </div>
+  );
+}

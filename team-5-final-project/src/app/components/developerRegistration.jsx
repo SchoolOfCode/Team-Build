@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-export default function CharityRegistration() {
+export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
     name: "",
     email: "",
@@ -57,7 +57,7 @@ export default function CharityRegistration() {
       ) : (
         <form
           method="POST"
-          action="https://team-5-final-project-pi.vercel.app/charity/register"
+          action="https://team-5-final-project-pi.vercel.app/developers/register"
           onSubmit={submitReg}
         >
           <div>

@@ -1,10 +1,13 @@
+import CharityRegistration from "../components/charityRegistration";
 import Navbar from "../components/navbar/navbar";
 import "../globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import developers from "../../public/charity.jpeg";
 
+
 export default function Charity() {
+
   return (
     <section>
       <Navbar />

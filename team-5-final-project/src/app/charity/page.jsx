@@ -2,6 +2,7 @@ import Navbar from "../components/navbar/navbar";
 import "../globals.css";
 import Link from "next/link";
 
+
 export default function Charities() {
   return (
     <div>
@@ -13,3 +14,4 @@ export default function Charities() {
     </div>
   );
 }
+

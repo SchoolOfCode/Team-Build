@@ -1,3 +1,10 @@
+import Navbar from "./components/navbar/navbar";
+
 export default function Home() {
-  return <h1>Home Landing Page</h1>;
+  return (
+    <div>
+      <h1>Tech For Good</h1>
+      <Navbar />
+    </div>
+  );
 }

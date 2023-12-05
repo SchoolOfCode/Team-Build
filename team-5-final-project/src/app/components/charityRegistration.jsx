@@ -26,12 +26,12 @@ export default function CharityRegistration() {
     const regUrl = e.target.action;
     const data = new registration();
 
-    Object.entries(formData).forEach(([key, value]) => {
+    Object.entries(regSuccess).forEach(([key, value]) => {
       data.append(key, value);
     });
 
     // POST the data to the URL of the form
-    fetch(formURL, {
+    fetch(regUrl, {
       method: "POST",
       body: data,
       headers: {
@@ -40,31 +40,36 @@ export default function CharityRegistration() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setFormData({
+        setRegSuccess({
           name: "",
           email: "",
-          message: "",
+          organisationName: "",
+          charityRegNumber: "",
         });
 
-        setFormSuccess(true);
-        setFormSuccessMessage(data.submission_text);
+        setRegSuccess(true);
+        setRegSuccessMessage(data.submission_text);
       });
   };
 
   return (
     <div>
-      <h1>Contact form</h1>
-      {formSuccess ? (
-        <div>{formSuccessMessage}</div>
+      <h1>Registration form</h1>
+      {regSuccessSuccess ? (
+        <div>{regSuccessMessage}</div>
       ) : (
-        <form method="POST" action="https://" onSubmit={submitForm}>
+        <form
+          method="POST"
+          action="https://team-5-final-project-pi.vercel.app/charity/register"
+          onSubmit={submitForm}
+        >
           <div>
             <label>Name</label>
             <input
               type="text"
               name="name"
               onChange={handleInput}
-              value={formData.name}
+              value={regData.name}
             />
           </div>
 
@@ -74,17 +79,27 @@ export default function CharityRegistration() {
               type="text"
               name="email"
               onChange={handleInput}
-              value={formData.email}
+              value={regData.email}
             />
           </div>
 
           <div>
-            <label>Message</label>
+            <label>Organisation Name</label>
             <textarea
-              name="message"
+              name="organisationName"
               onChange={handleInput}
-              value={formData.message}
+              value={regData.organisationName}
             ></textarea>
+          </div>
+
+          <div>
+            <label>Charity Reg Number</label>
+            <input
+              type="text"
+              name="charityRegNumber"
+              onChange={handleInput}
+              value={regData.charityRegNumber}
+            />
           </div>
 
           <button type="submit">Send message</button>

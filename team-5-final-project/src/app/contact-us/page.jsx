@@ -1,3 +1,10 @@
+import Navbar from "../components/navbar/navbar";
+
 export default function ContactUs() {
-    return <h1>Contact Us</h1>;
-  }
+  return (
+    <div>
+      <Navbar />
+      <h1>Contact Us Landing Page</h1>
+    </div>
+  );
+}

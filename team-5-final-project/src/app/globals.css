@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 .button {
-  @apply bg-red-400 text-white font-bold py-2 px-4 rounded;
+  background-color: 
+  bg-red-400 text-white font-bold py-2 px-4 rounded;
 }

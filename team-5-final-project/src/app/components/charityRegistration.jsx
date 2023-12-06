@@ -135,7 +135,6 @@ export default function CharityRegistration() {
                 required
               />
             </div>
-
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
                 Surname:
@@ -149,7 +148,6 @@ export default function CharityRegistration() {
                 required
               />
             </div>
-
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
                 Contact Number:
@@ -236,7 +234,7 @@ export default function CharityRegistration() {
                 />
                 <span className="text-sm text-gray-600">
                   Click here to agree to the{" "}
-                  <Link href="../terms&conditions/page.jsx">
+                  <Link href="../termsandconditions">
                     <u>
                       <b>Terms and Conditions</b>
                     </u>
@@ -244,14 +242,12 @@ export default function CharityRegistration() {
                 </span>
               </div>
             </div>
-
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded-md"
             >
               Submit Form
             </button>
-
             {!isValid && (
               <div className="text-red-500">
                 Please fill in all required fields.

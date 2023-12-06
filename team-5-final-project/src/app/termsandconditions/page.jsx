@@ -1,10 +1,10 @@
 import Navbar from "../components/navbar";
 
-export default function TermsAndConditons() {
+export default function TermsAndConditions() {
   return (
     <div>
       <Navbar />
-      <h1>Terms & Conditions</h1>
+      <h1>terms and conditions</h1>
     </div>
   );
 }

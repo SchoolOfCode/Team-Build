@@ -1,6 +1,20 @@
 "use client";
 import React, { useState } from "react";
 
+//Snippet of code to insert to the database when the submit registration button is pressed
+import {v4 as uuidv4} from "uuid";
+import {supabase} from "../../../supabase.js";
+
+// Insert to the main_users table
+const usersId = uuidv4();
+const {  error } = await supabase.from('main_users').insert({id: {usersId}, email: 'developer3@email.com', type: 'DEV'});
+
+// // Insert to the dev_user_pref table
+// const {  error2 } = await supabase.from('dev_user_pref').insert({id: {usersId}, first_name: 'David', surname: 'Dixon', contact_number: '0676534251', tech_background: 'I am a javascript developer', t_and_c: true, hours_range: 2, possible_mentor: false});
+
+// // end of snippet
+
+
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
     name: "",

@@ -1,9 +1,14 @@
+"use client";
 import Link from "next/link";
+import React from "react";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [navbar, setNavbar] = useState(false);
+
   return (
-    <>
-      <div className="navbar-container display-flex justify-between align-center bg-emerald-300">
+    <div>
+      <nav className="navbar-container w-full top-0 left-0 right-0 display-flex justify-between align-center bg-emerald-300">
         <ul>
           <li>
             <Link href="/">Home</Link>{" "}
@@ -31,7 +36,7 @@ export default function Navbar() {
           </li>
         </ul>
         <Link href="/login">User</Link>
-      </div>
-    </>
+      </nav>
+    </div>
   );
 }

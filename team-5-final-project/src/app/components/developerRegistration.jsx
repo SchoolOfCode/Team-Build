@@ -3,17 +3,23 @@ import React, { useState } from "react";
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
-    fullname: "",
-    number: "",
-    technicalbackground: "",
+    first_name: "",
+    surname: "",
+    contact_number: "",
+    tech_background: "",
+    hours_range: "",
     email: "",
+    possible_mentor: false,
     password: "",
     confirmpassword: "",
+    t_and_c: false,
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [isValid, setIsValid] = useState(true);
+  const [submissionMessage, setSubmissionMessage] = useState("");
 
   const handleInput = (e) => {
     const fieldName = e.target.name;
@@ -25,8 +31,29 @@ export default function DeveloperRegistration() {
     }));
   };
 
+  const validateForm = () => {
+    const isValidForm =
+      registration.first_name &&
+      registration.contact_number &&
+      registration.tech_background &&
+      registration.hours_range &&
+      registration.possible_mentor &&
+      registration.email &&
+      registration.password &&
+      registration.password === registration.confirmpassword;
+    registration.t_and_c && setIsValid(isValidForm);
+    return isValidForm;
+  };
+
   const submitReg = (e) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      alert(
+        "Please fill in all required fields and make sure passwords match."
+      );
+      return;
+    }
 
     const regUrl = e.target.action;
 
@@ -48,109 +75,205 @@ export default function DeveloperRegistration() {
         setRegSuccess(true);
         setRegSuccessMessage(data.submission_text);
         setRegistration({
-          fullname: "",
-          number: "",
-          technicalbackground: "",
+          first_name: "",
+          surname: "",
+          contact_number: "",
+          tech_background: "",
+          hours_range: "",
           email: "",
+          possible_mentor: "",
           password: "",
           confirmpassword: "",
+          t_and_c: "",
         });
+        setSubmissionMessage("Thank you for your submission!");
 
-        window.alert("Thank you for your submission!");
+        alert("Thank you for your submission!");
 
         window.history.back();
       })
       .catch((error) => {
         console.error("Error during fetch:", error);
+
+        let errorMessage = "An error occurred. Please try again later.";
+
+        if (error.message.includes("NetworkError")) {
+          errorMessage =
+            "Network error. Please check your internet connection.";
+        } else if (error.message.includes("HTTP error! Status:")) {
+          errorMessage = "Server error. Please try again later.";
+        }
+        alert(errorMessage);
+
+        setError(errorMessage);
       });
   };
 
   return (
-    <div>
-      <h1>Registration form</h1>
-      {regSuccess ? (
-        <div>{regSuccessMessage}</div>
-      ) : (
-        <form
-          method="POST"
-          action="https://team-5-final-project-pi.vercel.app/charity/register"
-          onSubmit={submitReg}
-        >
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
+        <h1 className="text-2xl font-bold mb-4">Register as a Developer</h1>
+        {regSuccess ? (
           <div>
-            <label>Your Full Name:</label>
-            <input
-              type="text"
-              name="fullname"
-              onChange={handleInput}
-              value={registration.fullname}
-              style={{ color: "black" }}
-            />
+            {regSuccessMessage}
+            <div className="text-green-500">{submissionMessage}</div>
           </div>
+        ) : (
+          <form
+            className="space-y-4"
+            method="POST"
+            action="https://team-5-final-project-pi.vercel.app/developer/register"
+            onSubmit={submitReg}
+          >
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                First Name:
+              </label>
+              <input
+                type="text"
+                name="first_name"
+                onChange={handleInput}
+                value={registration.first_name}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Contact Number:
+              </label>
+              <input
+                type="text"
+                name="contact_number"
+                onChange={handleInput}
+                value={registration.contact_number}
+                pattern="[0-9]*"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Technical Background:
+              </label>
+              <input
+                type="VARCHAR"
+                name="tech_background"
+                onChange={handleInput}
+                value={registration.tech_background}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              ></input>
+            </div>
+            <div>
+              <div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-black">
+                    How many hours are you available for?
+                  </label>
+                  <select
+                    name="hours_range"
+                    onChange={handleInput}
+                    value={registration.hours_range}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select your hour range
+                    </option>
+                    <option value="2 hours">0 - 2</option>
+                    <option value="4 hours">3 - 4</option>
+                    <option value="6 hours">5 - 6</option>
+                  </select>
+                </div>
+              </div>
 
-          <div>
-            <label>Your Contact Number:</label>
-            <input
-              type="text"
-              name="number"
-              onChange={handleInput}
-              value={registration.number}
-              pattern="[0-9]*"
-              style={{ color: "black" }}
-            />
-          </div>
-
-          <div>
-            <label>Please share your technical background:</label>
-            <textarea
-              name="technicalbackground"
-              onChange={handleInput}
-              value={registration.technicalbackground}
-              style={{ color: "black" }}
-            ></textarea>
-          </div>
-
-          <div>
-            <label>Your Email:</label>
-            <input
-              type="text"
-              name="email"
-              onChange={handleInput}
-              value={registration.email}
-              style={{ color: "black" }}
-            />
-          </div>
-
-          <div>
-            <label>Password:</label>
-            <input
-              type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
-              name="password"
-              onChange={handleInput}
-              value={registration.password}
-              style={{ color: "black" }}
-            />
+              <div>
+                <label className="block text-sm font-semibold mb-1 text-black">
+                  Do you have a mentor?
+                </label>
+                <input
+                  type="checkbox"
+                  name="possible_mentor"
+                  onChange={handleInput}
+                  value={registration.possible_mentor}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Email:
+              </label>
+              <input
+                type="text"
+                name="email"
+                onChange={handleInput}
+                value={registration.email}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Password:
+              </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="password"
+                onChange={handleInput}
+                value={registration.password}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="text-blue-500 text-sm mt-2 inline-block"
+              >
+                {showPassword ? "Hide" : "Show"} Password
+              </button>
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Confirm Password:
+              </label>
+              <input
+                type={showPassword ? "text" : "password"}
+                name="confirmpassword"
+                onChange={handleInput}
+                value={registration.confirmpassword}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Terms & Conditions:
+              </label>
+              <input
+                type="checkbox"
+                name="t_and_c"
+                onChange={handleInput}
+                value={registration.t_and_c}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
             <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
+              type="submit"
+              className="w-full bg-blue-500 text-white py-2 rounded-md"
             >
-              {showPassword ? "Hide" : "Show"} Password
+              Submit Form
             </button>
-          </div>
 
-          <div>
-            <label>Confirm Password:</label>
-            <input
-              type={showPassword ? "text" : "password"} // Toggle between "text" and "password"
-              name="confirmpassword"
-              onChange={handleInput}
-              value={registration.confirmpassword}
-              style={{ color: "black" }}
-            />
-          </div>
-
-          <button type="submit">Submit Form</button>
-        </form>
-      )}
+            {!isValid && (
+              <div className="text-red-500">
+                Please fill in all required fields.
+              </div>
+            )}
+          </form>
+        )}
+      </div>
     </div>
   );
 }

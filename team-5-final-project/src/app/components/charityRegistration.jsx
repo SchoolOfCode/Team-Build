@@ -3,12 +3,14 @@ import React, { useState } from "react";
 
 export default function CharityRegistration() {
   const [registration, setRegistration] = useState({
-    fullname: "",
-    number: "",
-    organisationName: "",
-    charityRegNumber: "",
+    first_name: "",
+    surname: "",
+    contact_number: "",
+    org_name: "",
+    charity_reg_no: "",
     password: "",
     confirmpassword: "",
+    t_and_c: "",
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
@@ -29,14 +31,14 @@ export default function CharityRegistration() {
 
   const validateForm = () => {
     const isValidForm =
-      registration.fullname &&
-      registration.number &&
-      registration.organisationName &&
-      registration.charityRegNumber &&
+      registration.first_name &&
+      registration.surname &&
+      registration.contact_number &&
+      registration.org_name &&
+      registration.charity_reg_no &&
       registration.password &&
       registration.password === registration.confirmpassword;
-
-    setIsValid(isValidForm);
+    registration.t_and_c && setIsValid(isValidForm);
     return isValidForm;
   };
 
@@ -70,12 +72,14 @@ export default function CharityRegistration() {
         setRegSuccess(true);
         setRegSuccessMessage(data.submission_text);
         setRegistration({
-          fullname: "",
-          number: "",
-          organisationName: "",
-          charityRegNumber: "",
+          first_name: "",
+          surname: "",
+          contact_number: "",
+          org_name: "",
+          charity_reg_no: "",
           password: "",
           confirmpassword: "",
+          t_and_c: "",
         });
         setSubmissionMessage("Thank you for your submission!");
 
@@ -119,26 +123,41 @@ export default function CharityRegistration() {
           >
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Your Full Name:
+                First Name:
               </label>
               <input
                 type="text"
-                name="fullname"
+                name="first_name"
                 onChange={handleInput}
-                value={registration.fullname}
+                value={registration.first_name}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
             </div>
+
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Your Contact Number:
+                Surname:
               </label>
               <input
                 type="text"
-                name="number"
+                name="surname"
                 onChange={handleInput}
-                value={registration.number}
+                value={registration.surname}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Contact Number:
+              </label>
+              <input
+                type="text"
+                name="contact_number"
+                onChange={handleInput}
+                value={registration.contact_number}
                 pattern="[0-9]*"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
@@ -149,9 +168,9 @@ export default function CharityRegistration() {
                 Organisation Name:
               </label>
               <input
-                name="organisationName"
+                name="org_name"
                 onChange={handleInput}
-                value={registration.organisationName}
+                value={registration.org_name}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
@@ -162,9 +181,9 @@ export default function CharityRegistration() {
               </label>
               <input
                 type="text"
-                name="charityRegNumber"
+                name="charity_reg_no"
                 onChange={handleInput}
-                value={registration.charityRegNumber}
+                value={registration.charity_reg_no}
                 pattern="[0-9]*"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
@@ -196,13 +215,26 @@ export default function CharityRegistration() {
               </label>
               <input
                 type={showPassword ? "text" : "password"}
-                name="confirmpassword"
+                name="confirm_password"
                 onChange={handleInput}
-                value={registration.confirmpassword}
+                value={registration.confirm_password}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
             </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Terms & Conditions:
+              </label>
+              <input
+                name="t_and_c"
+                onChange={handleInput}
+                value={registration.t_and_c}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded-md"

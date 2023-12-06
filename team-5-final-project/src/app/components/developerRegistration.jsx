@@ -3,12 +3,16 @@ import React, { useState } from "react";
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
-    fullname: "",
-    number: "",
-    technicalbackground: "",
+    first_name: "",
+    surname: "",
+    contact_number: "",
+    tech_background: "",
+    hours_range: "",
     email: "",
+    possible_mentor: false,
     password: "",
     confirmpassword: "",
+    t_and_c: false,
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
@@ -29,14 +33,15 @@ export default function DeveloperRegistration() {
 
   const validateForm = () => {
     const isValidForm =
-      registration.fullname &&
-      registration.number &&
-      registration.technicalbackground &&
+      registration.first_name &&
+      registration.contact_number &&
+      registration.tech_background &&
+      registration.hours_range &&
+      registration.possible_mentor &&
       registration.email &&
       registration.password &&
       registration.password === registration.confirmpassword;
-
-    setIsValid(isValidForm);
+    registration.t_and_c && setIsValid(isValidForm);
     return isValidForm;
   };
 
@@ -70,12 +75,16 @@ export default function DeveloperRegistration() {
         setRegSuccess(true);
         setRegSuccessMessage(data.submission_text);
         setRegistration({
-          fullname: "",
-          number: "",
-          technicalbackground: "",
+          first_name: "",
+          surname: "",
+          contact_number: "",
+          tech_background: "",
+          hours_range: "",
           email: "",
+          possible_mentor: "",
           password: "",
           confirmpassword: "",
+          t_and_c: "",
         });
         setSubmissionMessage("Thank you for your submission!");
 
@@ -118,26 +127,26 @@ export default function DeveloperRegistration() {
           >
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Your Full Name:
+                First Name:
               </label>
               <input
                 type="text"
-                name="fullname"
+                name="first_name"
                 onChange={handleInput}
-                value={registration.fullname}
+                value={registration.first_name}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Your Contact Number:
+                Contact Number:
               </label>
               <input
                 type="text"
-                name="number"
+                name="contact_number"
                 onChange={handleInput}
-                value={registration.number}
+                value={registration.contact_number}
                 pattern="[0-9]*"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
@@ -147,17 +156,53 @@ export default function DeveloperRegistration() {
               <label className="block text-sm font-semibold mb-1 text-black">
                 Technical Background:
               </label>
-              <textarea
-                name="technicalbackground"
+              <input
+                type="VARCHAR"
+                name="tech_background"
                 onChange={handleInput}
-                value={registration.technicalbackground}
+                value={registration.tech_background}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
-              ></textarea>
+              ></input>
             </div>
             <div>
+              <div>
+                <div>
+                  <label className="block text-sm font-semibold mb-1 text-black">
+                    How many hours are you available for?
+                  </label>
+                  <select
+                    name="hours_range"
+                    onChange={handleInput}
+                    value={registration.hours_range}
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select your hour range
+                    </option>
+                    <option value="2 hours">0 - 2</option>
+                    <option value="4 hours">3 - 4</option>
+                    <option value="6 hours">5 - 6</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold mb-1 text-black">
+                  Do you have a mentor?
+                </label>
+                <input
+                  type="checkbox"
+                  name="possible_mentor"
+                  onChange={handleInput}
+                  value={registration.possible_mentor}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
+                />
+              </div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Your Email:
+                Email:
               </label>
               <input
                 type="text"
@@ -197,6 +242,19 @@ export default function DeveloperRegistration() {
                 name="confirmpassword"
                 onChange={handleInput}
                 value={registration.confirmpassword}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Terms & Conditions:
+              </label>
+              <input
+                type="checkbox"
+                name="t_and_c"
+                onChange={handleInput}
+                value={registration.t_and_c}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />

@@ -78,7 +78,7 @@ export default function CharityRegistration() {
           org_name: "",
           charity_reg_no: "",
           password: "",
-          confirmpassword: "",
+          confirm_password: "",
           t_and_c: "",
         });
         setSubmissionMessage("Thank you for your submission!");
@@ -226,13 +226,20 @@ export default function CharityRegistration() {
               <label className="block text-sm font-semibold mb-1 text-black">
                 Terms & Conditions:
               </label>
-              <input
-                name="t_and_c"
-                onChange={handleInput}
-                value={registration.t_and_c}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="terms&conditions"
+                  name="t_and_c"
+                  onChange={handleInput}
+                  value={registration.t_and_c}
+                  className="mr-2" // Add some margin to separate checkbox and text
+                  required
+                />
+                <span className="text-sm text-gray-600">
+                  I agree to the terms and conditions
+                </span>
+              </div>
             </div>
 
             <button

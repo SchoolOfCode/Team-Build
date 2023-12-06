@@ -114,9 +114,9 @@ export default function pitchForm() {
               </label>
               <input
                 type="text"
-                name="first_name"
+                name="Project_Title"
                 onChange={handleInput}
-                value={registration.first_name}
+                value={registration.Project_Title}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
@@ -127,9 +127,9 @@ export default function pitchForm() {
               </label>
               <input
                 type="text"
-                name="contact_number"
+                name="short_descr"
                 onChange={handleInput}
-                value={registration.contact_number}
+                value={registration.Short_Descr}
                 pattern="[0-9]*"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
@@ -137,98 +137,35 @@ export default function pitchForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Technical Background:
-              </label>
+              Long_Descr              
+         </label>
               <input
                 type="VARCHAR"
-                name="tech_background"
+                name="Long_descr"
                 onChange={handleInput}
-                value={registration.tech_background}
+                value={registration.Long_Descr}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               ></input>
             </div>
-            <div>
+            
               <div>
                 <div>
                   <label className="block text-sm font-semibold mb-1 text-black">
-                    How many hours are you available for?
+                   YouTube Video Link:
                   </label>
-                  <select
-                    name="hours_range"
+                    <input
+
+                    name="Video_Link"
                     onChange={handleInput}
-                    value={registration.hours_range}
+                    value={registration.Video_Link}
                     className="w-full px-4 py-2 border border-gray-300 rounded-md"
                     required
-                  >
-                    <option value="" disabled>
-                      Select your hour range
-                    </option>
-                    <option value="2 hours">0 - 2</option>
-                    <option value="4 hours">3 - 4</option>
-                    <option value="6 hours">5 - 6</option>
-                  </select>
-                </div>
+              ></input>
+            </div>
               </div>
 
-              <div>
-                <label className="block text-sm font-semibold mb-1 text-black">
-                  Do you have a mentor?
-                </label>
-                <input
-                  type="checkbox"
-                  name="possible_mentor"
-                  onChange={handleInput}
-                  value={registration.possible_mentor}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Email:
-              </label>
-              <input
-                type="text"
-                name="email"
-                onChange={handleInput}
-                value={registration.email}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Password:
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="password"
-                onChange={handleInput}
-                value={registration.password}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="text-blue-500 text-sm mt-2 inline-block"
-              >
-                {showPassword ? "Hide" : "Show"} Password
-              </button>
-            </div>
-            <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Confirm Password:
-              </label>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="confirmpassword"
-                onChange={handleInput}
-                value={registration.confirmpassword}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
-            </div>
+{/*              
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
                 Terms & Conditions:
@@ -241,7 +178,7 @@ export default function pitchForm() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded-md"

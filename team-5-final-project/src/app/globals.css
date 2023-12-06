@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.button {
-  background-color: #F17063;
+/* .button {
+  background-color: #f17063;
 
-  color: #FFFFFF;
+  color: black;
   padding: 10px 20px;
   border-radius: 5px;
-}
+} */

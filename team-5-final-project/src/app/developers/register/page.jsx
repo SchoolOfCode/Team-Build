@@ -9,7 +9,7 @@ export default function DeveloperRegister() {
       <Navbar />
       <h1>Developer Register</h1>
       <button className="button">
-        <Link href="/">Submit</Link>
+        <Link href="/">Back to Home</Link>
         <DeveloperRegistration />
       </button>
     </div>

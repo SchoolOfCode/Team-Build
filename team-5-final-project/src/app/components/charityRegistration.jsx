@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export default function CharityRegistration() {
@@ -223,9 +224,6 @@ export default function CharityRegistration() {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Terms & Conditions:
-              </label>
               <div className="flex items-center">
                 <input
                   type="checkbox"
@@ -233,11 +231,16 @@ export default function CharityRegistration() {
                   name="t_and_c"
                   onChange={handleInput}
                   value={registration.t_and_c}
-                  className="mr-2" // Add some margin to separate checkbox and text
+                  className="mr-2"
                   required
                 />
                 <span className="text-sm text-gray-600">
-                  I agree to the terms and conditions
+                  Click here to agree to the{" "}
+                  <Link href="../terms&conditions/page.jsx">
+                    <u>
+                      <b>Terms and Conditions</b>
+                    </u>
+                  </Link>
                 </span>
               </div>
             </div>

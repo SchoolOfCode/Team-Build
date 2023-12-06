@@ -92,6 +92,12 @@ export default function Navbar() {
                     ABOUT US
                   </Link>
                 </li>
+                <li className="pb-6 text-4xl text-black font-bold py-6 px-6 text-center md:border-b-0 bg-emerald-300">
+                  <Link
+                    href="/termsandconditions"
+                    onClick={() => setNavbar(!navbar)}
+                  ></Link>
+                </li>
               </ul>
             </div>
           </div>

@@ -4,7 +4,7 @@ export default function PitchForm() {
   return (
     <div>
       <Navbar />
-      <PitchForm />
+      <pitchForm />
     </div>
   );
 }

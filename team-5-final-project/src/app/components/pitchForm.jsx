@@ -6,7 +6,7 @@ export default function pitchForm() {
     Project_Title: "",
     Short_Descr: "",
     Long_Descr: "",
-    Video_Link: ""
+    Video_Link: "",
   });
 
   const [regSuccess, setRegSuccess] = useState(false);
@@ -103,7 +103,7 @@ export default function pitchForm() {
           </div>
         ) : (
           <form
-            className="space-y-4"
+            className="bg-white rounded px-8 pt-6 pb-8 mb-4"
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
@@ -127,7 +127,7 @@ export default function pitchForm() {
               </label>
               <input
                 type="text"
-                name="short_descr"
+                name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
                 pattern="[0-9]*"
@@ -141,7 +141,7 @@ export default function pitchForm() {
          </label>
               <input
                 type="VARCHAR"
-                name="Long_descr"
+                name="Long_Descr"
                 onChange={handleInput}
                 value={registration.Long_Descr}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"

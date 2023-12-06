@@ -54,7 +54,7 @@ export default function Navbar() {
           </div>
           <div>
             <div
-              className={`flex-1 bg-green-800 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+              className={`flex-1 bg-emerald-300 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
                 navbar ? "md:p-0 block" : "hidden"
               }`}
             >

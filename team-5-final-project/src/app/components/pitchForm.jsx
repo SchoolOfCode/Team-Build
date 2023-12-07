@@ -91,9 +91,8 @@ export default function PitchForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
-        <h1 className="text-2xl font-bold mb-4">Your Pitch Form</h1>
+    <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
+      <div className="">
         {regSuccess ? (
           <div>
             {regSuccessMessage}
@@ -101,12 +100,12 @@ export default function PitchForm() {
           </div>
         ) : (
           <form
-            className="bg-white rounded px-8 pt-6 pb-8 mb-4"
+            className=""
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
           >
-            <div>
+            <div className="">
               <label className="block text-sm font-semibold mb-1 text-black">
                 Project Title:
               </label>
@@ -115,7 +114,7 @@ export default function PitchForm() {
                 name="Project_Title"
                 onChange={handleInput}
                 value={registration.Project_Title}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="w-80 px-4 py-2 border border-gray-300 rounded"
                 required
               />
             </div>
@@ -161,7 +160,7 @@ export default function PitchForm() {
               </div>
             </div>
 
-            <div>
+            <div className="flex flex-wrap justify-between">
               <label className="block text-sm font-semibold mb-1 text-black">
                 Terms & Conditions:
               </label>

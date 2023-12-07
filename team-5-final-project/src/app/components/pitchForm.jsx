@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-export default function pitchForm() {
+export default function PitchForm() {
   const [registration, setRegistration] = useState({
     Project_Title: "",
     Short_Descr: "",
@@ -30,7 +30,7 @@ export default function pitchForm() {
       registration.Project_Title &&
       registration.Short_Descr &&
       registration.Long_Descr &&
-      registration.Video_Link 
+      registration.Video_Link;
     return isValidForm;
   };
 
@@ -38,9 +38,7 @@ export default function pitchForm() {
     e.preventDefault();
 
     if (!validateForm()) {
-      alert(
-        "Please fill in all required fields"
-      );
+      alert("Please fill in all required fields");
       return;
     }
 
@@ -67,7 +65,7 @@ export default function pitchForm() {
           Project_Title: "",
           Short_Descr: "",
           Long_Descr: "",
-          Video_Link: ""
+          Video_Link: "",
         });
         setSubmissionMessage("Thank you for your submission!");
 
@@ -137,8 +135,8 @@ export default function pitchForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-              Long_Descr              
-         </label>
+                Long_Descr
+              </label>
               <input
                 type="VARCHAR"
                 name="Long_Descr"
@@ -148,24 +146,22 @@ export default function pitchForm() {
                 required
               ></input>
             </div>
-            
+
+            <div>
               <div>
-                <div>
-                  <label className="block text-sm font-semibold mb-1 text-black">
-                   YouTube Video Link:
-                  </label>
-                    <input
-
-                    name="Video_Link"
-                    onChange={handleInput}
-                    value={registration.Video_Link}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                    required
-              ></input>
-            </div>
+                <label className="block text-sm font-semibold mb-1 text-black">
+                  YouTube Video Link:
+                </label>
+                <input
+                  name="Video_Link"
+                  onChange={handleInput}
+                  value={registration.Video_Link}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  required
+                ></input>
               </div>
+            </div>
 
-{/*              
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
                 Terms & Conditions:
@@ -178,7 +174,7 @@ export default function pitchForm() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
-            </div> */}
+            </div>
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-2 rounded-md"

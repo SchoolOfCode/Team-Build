@@ -1,10 +1,11 @@
 import Navbar from "@/app/components/navbar";
-import pitchForm from "@/app/components/pitchForm";
-export default function PitchForm() {
+import PitchForm from "@/app/components/pitchForm";
+
+export default function PitchRegistration() {
   return (
     <div>
       <Navbar />
-      <pitchForm />
+      <PitchForm />
     </div>
   );
 }

@@ -1,5 +1,7 @@
 "use client";
 import React, { useState } from "react";
+import {v4 as uuidv4} from "uuid";
+import {supabase} from "../../../supabase.js";
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
@@ -45,7 +47,7 @@ export default function DeveloperRegistration() {
     return isValidForm;
   };
 
-  const submitReg = (e) => {
+  const  submitReg = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -55,58 +57,84 @@ export default function DeveloperRegistration() {
       return;
     }
 
-    const regUrl = e.target.action;
+   
+// Pass the registration form data to the database to complete the registration.
+// This is achieved by inserting a main_users row for the new user and then attaching a dev_user_pref table row to that new user
 
-    fetch(regUrl, {
-      method: "POST",
-      body: JSON.stringify(registration),
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRegSuccess(true);
-        setRegSuccessMessage(data.submission_text);
-        setRegistration({
-          first_name: "",
-          surname: "",
-          contact_number: "",
-          tech_background: "",
-          hours_range: "",
-          email: "",
-          possible_mentor: "",
-          password: "",
-          confirmpassword: "",
-          t_and_c: "",
+// Insert the new user into the main_users table
+
+const usersId = uuidv4();
+try {
+  const { error } = await supabase
+    .from("main_users")
+    .insert({
+      id: usersId,
+      email: registration.email,
+      type: "DEV",
+      password: registration.password,
+    });
+  if (error) {
+    console.log(error);
+    return;
+  } else 
+  {
+
+    // Now Insert the new users preferences into the dev_user_pref table
+    try {
+      const { error2 } = await supabase
+        .from("dev_user_pref")
+        .insert({
+          id: usersId,
+          first_name: registration.first_name,
+          surname: 'richardson',
+          contact_number: registration.contact_number,
+          tech_background: registration.tech_background,
+          t_and_c: registration.t_and_c,
+          hours_range: 1,
+          possible_mentor: registration.possible_mentor,
         });
-        setSubmissionMessage("Thank you for your submission!");
+        if (error2) {
+        console.log(error2);
+        return;
 
-        alert("Thank you for your submission!");
+        // Both database insets are successful so refresh the page.
+      } else {
+         
+          setRegSuccess(true);
+          setRegistration({
+            first_name: "",
+            surname: "",
+            contact_number: "",
+            tech_background: "",
+            hours_range: "",
+            email: "",
+            possible_mentor: "",
+            password: "",
+            confirmpassword: "",
+            t_and_c: "",
+          });
+          setSubmissionMessage("Thank you for your submission!");
 
-        window.history.back();
-      })
-      .catch((error) => {
-        console.error("Error during fetch:", error);
+          alert("Thank you for your submission!");
 
-        let errorMessage = "An error occurred. Please try again later.";
+          // window.history.back();
+                return;
+      }
+      
+    } catch (error) {
+      console.log("Failed to add to dev_user_pref");
+      return;
+    }
+  }
+} catch (error) {
+  console.log("Failed to add to main_users");
+  return;
+}
 
-        if (error.message.includes("NetworkError")) {
-          errorMessage =
-            "Network error. Please check your internet connection.";
-        } else if (error.message.includes("HTTP error! Status:")) {
-          errorMessage = "Server error. Please try again later.";
-        }
-        alert(errorMessage);
 
-        setError(errorMessage);
-      });
+
+
+  
   };
 
   return (

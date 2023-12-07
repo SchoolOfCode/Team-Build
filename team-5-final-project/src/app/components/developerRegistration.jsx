@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import {v4 as uuidv4} from "uuid";
 import {supabase} from "../../../supabase.js";
 
@@ -27,19 +28,29 @@ export default function DeveloperRegistration() {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
+    console.log(fieldName, fieldValue);
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,
     }));
   };
 
+  const handleChkBoxInput = (e) => {
+    const { name, type, checked, value } = e.target;
+  
+    setRegistration((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
   const validateForm = () => {
     const isValidForm =
       registration.first_name &&
+      registration.surname &&
       registration.contact_number &&
       registration.tech_background &&
       registration.hours_range &&
-      registration.possible_mentor &&
       registration.email &&
       registration.password &&
       registration.password === registration.confirmpassword;
@@ -86,11 +97,11 @@ try {
         .insert({
           id: usersId,
           first_name: registration.first_name,
-          surname: 'richardson',
+          surname: registration.surname,
           contact_number: registration.contact_number,
           tech_background: registration.tech_background,
           t_and_c: registration.t_and_c,
-          hours_range: 1,
+          hours_range: registration.hours_range,
           possible_mentor: registration.possible_mentor,
         });
         if (error2) {
@@ -117,6 +128,7 @@ try {
 
           alert("Thank you for your submission!");
 
+          <Link href={'developers/dashboard'}></Link>
           // window.history.back();
                 return;
       }
@@ -152,6 +164,7 @@ try {
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
+
           >
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
@@ -162,6 +175,19 @@ try {
                 name="first_name"
                 onChange={handleInput}
                 value={registration.first_name}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black">
+                Surname:
+              </label>
+              <input
+                type="text"
+                name="surname"
+                onChange={handleInput}
+                value={registration.surname}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
@@ -209,25 +235,26 @@ try {
                     <option value="" disabled>
                       Select your hour range
                     </option>
-                    <option value="2 hours">0 - 2</option>
-                    <option value="4 hours">3 - 4</option>
-                    <option value="6 hours">5 - 6</option>
+                    <option value="1">0 - 2</option>
+                    <option value="2">2 - 5</option>
+                    <option value="3">5 - 10</option>
+                    <option value="4">10 - 20</option>
+                    <option value="5">20+</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-semibold mb-1 text-black">
-                  Do you have a mentor?
+                  Would you be willing to mentor a junior dev?
                 </label>
                 <input
                   type="checkbox"
                   name="possible_mentor"
-                  onChange={handleInput}
+                  onChange={handleChkBoxInput}
                   value={registration.possible_mentor}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                  required
-                />
+                  />
               </div>
               <label className="block text-sm font-semibold mb-1 text-black">
                 Email:
@@ -275,17 +302,25 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Terms & Conditions:
-              </label>
-              <input
-                type="checkbox"
-                name="t_and_c"
-                onChange={handleInput}
-                value={registration.t_and_c}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
+            <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="terms&conditions"
+                  name="t_and_c"
+                  onChange={handleChkBoxInput}
+                  value={registration.t_and_c}
+                  className="mr-2"
+                  required
+                />
+                <span className="text-sm text-gray-600">
+                  Click here to agree to the{" "}
+                  <Link href="../termsandconditions">
+                    <u>
+                      <b>Terms and Conditions</b>
+                    </u>
+                  </Link>
+                </span>
+              </div>
             </div>
             <button
               type="submit"

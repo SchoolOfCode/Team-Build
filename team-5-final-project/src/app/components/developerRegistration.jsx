@@ -1,8 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import { v4 as uuidv4 } from "uuid";
+import { supabase } from "../../../supabase.js";
+import { useRouter } from "next/navigation"
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
@@ -17,6 +18,8 @@ export default function DeveloperRegistration() {
     confirmpassword: "",
     t_and_c: false,
   });
+
+  const router = useRouter();
 
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
@@ -127,10 +130,10 @@ try {
           setSubmissionMessage("Thank you for your submission!");
 
           alert("Thank you for your submission!");
-
-          <Link href={'developers/dashboard'}></Link>
-          // window.history.back();
-                return;
+         
+          router.push('/developers/dashboard');
+          
+          return;
       }
       
     } catch (error) {

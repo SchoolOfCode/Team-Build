@@ -1,7 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
+import { supabase } from "../../../supabase.js";
+import { useRouter } from "next/navigation"
 
 export default function DeveloperRegistration() {
   const [registration, setRegistration] = useState({
@@ -17,6 +19,8 @@ export default function DeveloperRegistration() {
     t_and_c: false,
   });
 
+  const router = useRouter();
+
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -27,19 +31,29 @@ export default function DeveloperRegistration() {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
+    console.log(fieldName, fieldValue);
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,
     }));
   };
 
+  const handleChkBoxInput = (e) => {
+    const { name, type, checked, value } = e.target;
+  
+    setRegistration((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
   const validateForm = () => {
     const isValidForm =
       registration.first_name &&
+      registration.surname &&
       registration.contact_number &&
       registration.tech_background &&
       registration.hours_range &&
-      registration.possible_mentor &&
       registration.email &&
       registration.password &&
       registration.password === registration.confirmpassword;
@@ -86,11 +100,11 @@ try {
         .insert({
           id: usersId,
           first_name: registration.first_name,
-          surname: 'richardson',
+          surname: registration.surname,
           contact_number: registration.contact_number,
           tech_background: registration.tech_background,
           t_and_c: registration.t_and_c,
-          hours_range: 1,
+          hours_range: registration.hours_range,
           possible_mentor: registration.possible_mentor,
         });
         if (error2) {
@@ -116,9 +130,10 @@ try {
           setSubmissionMessage("Thank you for your submission!");
 
           alert("Thank you for your submission!");
-
-          // window.history.back();
-                return;
+         
+          router.push('/developers/dashboard');
+          
+          return;
       }
       
     } catch (error) {
@@ -138,8 +153,8 @@ try {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
+    <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
+      <div className="max-w-md w-full p-6 shadow-md rounded-md">
         <h1 className="text-2xl font-bold mb-4">Register as a Developer</h1>
         {regSuccess ? (
           <div>
@@ -152,9 +167,10 @@ try {
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
+
           >
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 First Name:
               </label>
               <input
@@ -167,7 +183,20 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
+                Surname:
+              </label>
+              <input
+                type="text"
+                name="surname"
+                onChange={handleInput}
+                value={registration.surname}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Contact Number:
               </label>
               <input
@@ -181,7 +210,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Technical Background:
               </label>
               <input
@@ -196,40 +225,43 @@ try {
             <div>
               <div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1 text-black">
+                  <label className="block text-sm font-semibold mb-1 text-black text-left">
                     How many hours are you available for?
                   </label>
                   <select
                     name="hours_range"
                     onChange={handleInput}
                     value={registration.hours_range}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md mb-1"
                     required
                   >
                     <option value="" disabled>
                       Select your hour range
                     </option>
-                    <option value="2 hours">0 - 2</option>
-                    <option value="4 hours">3 - 4</option>
-                    <option value="6 hours">5 - 6</option>
+                    <option value="1">0 - 2</option>
+                    <option value="2">2 - 5</option>
+                    <option value="3">5 - 10</option>
+                    <option value="4">10 - 20</option>
+                    <option value="5">20+</option>
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-1 text-black">
-                  Do you have a mentor?
-                </label>
-                <input
+                <label className="block text-sm font-semibold mb-3 mt-3 text-black text-left">
+                  Willing to mentor a junior dev?
+                  <input
                   type="checkbox"
                   name="possible_mentor"
-                  onChange={handleInput}
+                  onChange={handleChkBoxInput}
                   value={registration.possible_mentor}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                  required
-                />
+                  className="ml-2"
+                  // className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  />
+                </label>
+                
               </div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Email:
               </label>
               <input
@@ -242,7 +274,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Password:
               </label>
               <input
@@ -256,13 +288,13 @@ try {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-blue-500 text-sm mt-2 inline-block"
+                className="text-blue-500 text-sm mt-2 inline-block text-left"
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Confirm Password:
               </label>
               <input
@@ -275,17 +307,25 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Terms & Conditions:
-              </label>
-              <input
-                type="checkbox"
-                name="t_and_c"
-                onChange={handleInput}
-                value={registration.t_and_c}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
+            <div className="flex items-center">
+                                <span className="text-sm text-gray-600">
+                  I agree to the{" "}
+                  <Link href="../termsandconditions">
+                    <u>
+                      <b>Terms and Conditions</b>
+                    </u>
+                    <input
+                  type="checkbox"
+                  id="terms&conditions"
+                  name="t_and_c"
+                  onChange={handleChkBoxInput}
+                  value={registration.t_and_c}
+                  className="ml-2"
+                  required
+                />
+                  </Link>
+                </span>
+              </div>
             </div>
             <button
               type="submit"

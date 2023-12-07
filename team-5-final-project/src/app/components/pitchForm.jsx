@@ -1,7 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import { v4 as uuidv4 } from "uuid";
+import { supabase } from "../../../supabase.js";
+
 export default function PitchForm() {
   const [registration, setRegistration] = useState({
     Project_Title: "",
@@ -35,31 +36,38 @@ export default function PitchForm() {
     return isValidForm;
   };
 
-  const submitReg = (e) => {
+  const submitReg = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
       alert("Please fill in all required fields");
       return;
     }
+
     const projectId = uuidv4();
     try {
-      const { error } = await supabase
-        .from("projects")
-        .insert({
-          id: uuidv4,
-          status: 1,
-          title: "registration.Project_Title",
-          short_desc: "registration.Short_Descr",
-          long_desc: "registration.Long_Descr",
-          video_link: "registration.Video_Link"
-        });
+      const { error } = await supabase.from("projects").insert({
+        id: projectId,
+        status: 1,
+        title: registration.Project_Title,
+        short_desc: registration.Short_Descr,
+        long_desc: registration.Long_Descr,
+        video_link: registration.Video_Link,
+      });
+
       if (error) {
-        console.log(error);
+        console.error(error);
         return;
       }
+
+      setRegSuccess(true);
+      setRegSuccessMessage("Registration successful!");
+      setSubmissionMessage("Your project has been submitted.");
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
-    
     <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
       <div className="">
         {regSuccess ? (

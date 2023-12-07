@@ -14,7 +14,7 @@ export default function Navbar() {
       <nav className="w-full top-0 left-0 right-0">
         <div className="justify-between mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div>
-            <div className="flex items-center justify-between pl-3 py-2 md:py-5 md:block bg-emerald-700">
+            <div className="flex items-center justify-between pl-3 py-2 md:py-5 md:block bg-emerald-300">
               {/* LOGO */}
               <Link href="/">
                 <Image

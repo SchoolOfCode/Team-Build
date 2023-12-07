@@ -1,10 +1,14 @@
 import Navbar from "@/app/components/navbar";
+import PitchForm from "@/app/components/pitchForm";
 
-export default function PitchForm() {
+export default function PitchRegistration() {
   return (
     <div>
       <Navbar />
-      <h1>Pitch Form</h1>
+      <h2 className="subTitle text-center text-4xl font-bold p-2 bg-emerald-300">
+        Your Pitch Form
+      </h2>
+      <PitchForm />
     </div>
   );
 }

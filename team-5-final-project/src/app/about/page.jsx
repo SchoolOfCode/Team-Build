@@ -1,7 +1,6 @@
 import Navbar from "../components/navbar";
 
 export default function About() {
- 
   return (
     <section>
       <Navbar />
@@ -10,7 +9,7 @@ export default function About() {
           About us
         </h2>
       </div>
-      <div className="section flex flex-col justify-center items-center border border-black rounded-lg p-2 m-2 bg-yellow-100">
+      <div className="section flex flex-col justify-center items-center border border-black rounded-lg p-2 m-2 bg-amber-50">
         <h2 className="subTitle text-2xl font-bold p-2">Our Vision</h2>
         <p>Tech that Brings Us Together, for a Better Tomorrow</p>
         <br />
@@ -21,7 +20,7 @@ export default function About() {
           future where technology reflects the stories of all of us.
         </p>
       </div>
-      <div className="section flex flex-col justify-center items-center border border-black rounded-lg p-2 m-2 bg-yellow-100">
+      <div className="section flex flex-col justify-center items-center border border-black rounded-lg p-2 m-2 bg-amber-50">
         <h2 className="subTitle text-2xl font-bold p-2">Our Mission</h2>
         <p>Empowering People, Changing Tech, Doing Good</p>
         <br />

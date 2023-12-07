@@ -42,29 +42,29 @@ export default function PitchForm() {
     if (!validateForm()) {
       alert("Please fill in all required fields");
       return;
-    }
 
-    const projectId = uuidv4();
-    try {
-      const { error } = await supabase.from("projects").insert({
-        id: projectId,
-        status: 1,
-        title: registration.Project_Title,
-        short_desc: registration.Short_Descr,
-        long_desc: registration.Long_Descr,
-        video_link: registration.Video_Link,
-      });
+      const projectId = uuidv4();
+      try {
+        const { error } = await supabase.from("projects").insert({
+          id: projectId,
+          status: 1,
+          title: registration.Project_Title,
+          Short_desc: registration.Short_Descr,
+          Long_desc: registration.Long_Descr,
+          ideo_link: registration.Video_Link,
+        });
 
-      if (error) {
+        if (error) {
+          console.error(error);
+          return;
+        }
+
+        setRegSuccess(true);
+        setRegSuccessMessage("Registration successful!");
+        setSubmissionMessage("Your project has been submitted.");
+      } catch (error) {
         console.error(error);
-        return;
       }
-
-      setRegSuccess(true);
-      setRegSuccessMessage("Registration successful!");
-      setSubmissionMessage("Your project has been submitted.");
-    } catch (error) {
-      console.error(error);
     }
   };
   return (
@@ -101,7 +101,7 @@ export default function PitchForm() {
               </label>
               <input
                 type="text"
-                name="short_descr"
+                name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"

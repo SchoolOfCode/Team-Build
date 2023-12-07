@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
-
+import {v4 as uuidv4} from "uuid";
+import {supabase} from "../../../supabase.js";
 export default function PitchForm() {
   const [registration, setRegistration] = useState({
     Project_Title: "",
@@ -41,56 +42,24 @@ export default function PitchForm() {
       alert("Please fill in all required fields");
       return;
     }
-
-    const regUrl = e.target.action;
-
-    fetch(regUrl, {
-      method: "POST",
-      body: JSON.stringify(registration),
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRegSuccess(true);
-        setRegSuccessMessage(data.submission_text);
-        setRegistration({
-          Project_Title: "",
-          Short_Descr: "",
-          Long_Descr: "",
-          Video_Link: "",
+    const projectId = uuidv4();
+    try {
+      const { error } = await supabase
+        .from("projects")
+        .insert({
+          id: uuidv4,
+          status: 1,
+          title: "registration.Project_Title",
+          short_desc: "registration.Short_Descr",
+          long_desc: "registration.Long_Descr",
+          video_link: "registration.Video_Link"
         });
-        setSubmissionMessage("Thank you for your submission!");
-
-        alert("Thank you for your submission!");
-
-        window.history.back();
-      })
-      .catch((error) => {
-        console.error("Error during fetch:", error);
-
-        let errorMessage = "An error occurred. Please try again later.";
-
-        if (error.message.includes("NetworkError")) {
-          errorMessage =
-            "Network error. Please check your internet connection.";
-        } else if (error.message.includes("HTTP error! Status:")) {
-          errorMessage = "Server error. Please try again later.";
-        }
-        alert(errorMessage);
-
-        setError(errorMessage);
-      });
-  };
-
+      if (error) {
+        console.log(error);
+        return;
+      }
   return (
+    
     <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
       <div className="">
         {regSuccess ? (

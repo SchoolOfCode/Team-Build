@@ -1,5 +1,9 @@
 "use client";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { supabase } from "../../../supabase.js";
+import Link from "next/link.js";
+import { useRouter } from "next/navigation";
 
 export default function PitchForm() {
   const [registration, setRegistration] = useState({
@@ -9,9 +13,10 @@ export default function PitchForm() {
     Video_Link: "",
   });
 
+  const router = useRouter();
+
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [submissionMessage, setSubmissionMessage] = useState("");
 
@@ -34,7 +39,7 @@ export default function PitchForm() {
     return isValidForm;
   };
 
-  const submitReg = (e) => {
+  const submitReg = async (e) => {
     e.preventDefault();
 
     if (!validateForm()) {
@@ -42,52 +47,47 @@ export default function PitchForm() {
       return;
     }
 
-    const regUrl = e.target.action;
-
-    fetch(regUrl, {
-      method: "POST",
-      body: JSON.stringify(registration),
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRegSuccess(true);
-        setRegSuccessMessage(data.submission_text);
-        setRegistration({
-          Project_Title: "",
-          Short_Descr: "",
-          Long_Descr: "",
-          Video_Link: "",
-        });
-        setSubmissionMessage("Thank you for your submission!");
-
-        alert("Thank you for your submission!");
-
-        window.history.back();
-      })
-      .catch((error) => {
-        console.error("Error during fetch:", error);
-
-        let errorMessage = "An error occurred. Please try again later.";
-
-        if (error.message.includes("NetworkError")) {
-          errorMessage =
-            "Network error. Please check your internet connection.";
-        } else if (error.message.includes("HTTP error! Status:")) {
-          errorMessage = "Server error. Please try again later.";
-        }
-        alert(errorMessage);
-
-        setError(errorMessage);
+    const projectId = uuidv4();
+    try {
+      const { error } = await supabase.from("projects").insert({
+        project_id: projectId,
+        status: 1,
+        title: registration.Project_Title,
+        short_desc: registration.Short_Descr,
+        long_desc: registration.Long_Descr,
+        link_to_video: registration.Video_Link,
       });
+
+      if (error) {
+        console.error(error);
+        return;
+      } else {
+        try {
+          const { error2 } = await supabase.from("roles_of_users").insert({
+            id: "169adbae-cb11-4c74-aa55-99c6c8c559df",
+            project_id: projectId,
+            role: 1,
+          });
+          if (error2) {
+            console.error(error2);
+            return;
+          } else {
+            setRegSuccess(true);
+            setRegSuccessMessage("Registration successful!");
+            setSubmissionMessage("Your project has been submitted.");
+
+            router.push("/charity/dashboard");
+            return;
+          }
+        } catch (error) {
+          console.log("Failed to add to roles_of_users");
+          return;
+        }
+      }
+    } catch (error) {
+      console.error(`Failed to add project to db ${error}`);
+      return;
+    }
   };
 
   return (
@@ -124,7 +124,7 @@ export default function PitchForm() {
               </label>
               <input
                 type="text"
-                name="short_descr"
+                name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
@@ -142,7 +142,7 @@ export default function PitchForm() {
                 value={registration.Long_Descr}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
-              ></input>
+              />
             </div>
 
             <div>
@@ -156,26 +156,28 @@ export default function PitchForm() {
                   value={registration.Video_Link}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
                   required
-                ></input>
+                />
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-between">
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Terms & Conditions:
+            <div className="flex flex-row justify-between py-2 mr-1">
+              <label className="flex justify-start text-sm font-semibold mb-1 text-black">
+                <Link href="/termsandconditions">
+                  <u>Terms & Conditions:</u>
+                </Link>
               </label>
               <input
                 type="checkbox"
                 name="t_and_c"
                 onChange={handleInput}
                 value={registration.t_and_c}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="border border-gray-300 rounded-md"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md"
+              className="w-full bg-red-400 text-white py-2 rounded-md"
             >
               Submit Form
             </button>

@@ -65,7 +65,6 @@ export default function DeveloperRegistration() {
 
 const usersId = uuidv4();
 try {
-  console.log(supabase);
   const { error } = await supabase
     .from("main_users")
     .insert({
@@ -82,8 +81,6 @@ try {
 
     // Now Insert the new users preferences into the dev_user_pref table
     try {
-      console.log(supabase);
-      console.log(registration);
       const { error2 } = await supabase
         .from("dev_user_pref")
         .insert({
@@ -96,17 +93,14 @@ try {
           hours_range: 1,
           possible_mentor: registration.possible_mentor,
         });
-        console.log(error2);
-      if (error2) {
+        if (error2) {
         console.log(error2);
         return;
 
         // Both database insets are successful so refresh the page.
       } else {
-        console.log(data);
-        (data) => {
+         
           setRegSuccess(true);
-          setRegSuccessMessage(data.submission_text);
           setRegistration({
             first_name: "",
             surname: "",
@@ -123,9 +117,8 @@ try {
 
           alert("Thank you for your submission!");
 
-          window.history.back();
-        };
-        return;
+          // window.history.back();
+                return;
       }
       
     } catch (error) {

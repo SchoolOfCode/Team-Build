@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { supabase } from "../../../supabase.js";
+import Link from "next/link.js";
+import { useRouter } from "next/navigation";
 
 export default function PitchForm() {
   const [registration, setRegistration] = useState({
@@ -10,6 +12,8 @@ export default function PitchForm() {
     Long_Descr: "",
     Video_Link: "",
   });
+
+  const router = useRouter();
 
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
@@ -57,13 +61,32 @@ export default function PitchForm() {
       if (error) {
         console.error(error);
         return;
-      }
+      } else {
+        try {
+          const { error2 } = await supabase.from("roles_of_users").insert({
+            id: "169adbae-cb11-4c74-aa55-99c6c8c559df",
+            project_id: projectId,
+            role: 1,
+          });
+          if (error2) {
+            console.error(error2);
+            return;
+          } else {
+            setRegSuccess(true);
+            setRegSuccessMessage("Registration successful!");
+            setSubmissionMessage("Your project has been submitted.");
 
-      setRegSuccess(true);
-      setRegSuccessMessage("Registration successful!");
-      setSubmissionMessage("Your project has been submitted.");
+            router.push("/charity/dashboard");
+            return;
+          }
+        } catch (error) {
+          console.log("Failed to add to roles_of_users");
+          return;
+        }
+      }
     } catch (error) {
       console.error(`Failed to add project to db ${error}`);
+      return;
     }
   };
 
@@ -137,22 +160,24 @@ export default function PitchForm() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-between">
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Terms & Conditions:
+            <div className="flex flex-row justify-between py-2 mr-1">
+              <label className="flex justify-start text-sm font-semibold mb-1 text-black">
+                <Link href="/termsandconditions">
+                  <u>Terms & Conditions:</u>
+                </Link>
               </label>
               <input
                 type="checkbox"
                 name="t_and_c"
                 onChange={handleInput}
                 value={registration.t_and_c}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="border border-gray-300 rounded-md"
                 required
               />
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md"
+              className="w-full bg-red-400 text-white py-2 rounded-md"
             >
               Submit Form
             </button>

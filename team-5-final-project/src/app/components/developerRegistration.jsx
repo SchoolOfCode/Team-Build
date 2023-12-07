@@ -153,8 +153,8 @@ try {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
+    <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
+      <div className="max-w-md w-full p-6 shadow-md rounded-md">
         <h1 className="text-2xl font-bold mb-4">Register as a Developer</h1>
         {regSuccess ? (
           <div>
@@ -170,7 +170,7 @@ try {
 
           >
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 First Name:
               </label>
               <input
@@ -183,7 +183,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Surname:
               </label>
               <input
@@ -196,7 +196,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Contact Number:
               </label>
               <input
@@ -210,7 +210,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Technical Background:
               </label>
               <input
@@ -225,14 +225,14 @@ try {
             <div>
               <div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1 text-black">
+                  <label className="block text-sm font-semibold mb-1 text-black text-left">
                     How many hours are you available for?
                   </label>
                   <select
                     name="hours_range"
                     onChange={handleInput}
                     value={registration.hours_range}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-md mb-1"
                     required
                   >
                     <option value="" disabled>
@@ -248,18 +248,20 @@ try {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-1 text-black">
-                  Would you be willing to mentor a junior dev?
-                </label>
-                <input
+                <label className="block text-sm font-semibold mb-3 mt-3 text-black text-left">
+                  Willing to mentor a junior dev?
+                  <input
                   type="checkbox"
                   name="possible_mentor"
                   onChange={handleChkBoxInput}
                   value={registration.possible_mentor}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  className="ml-2"
+                  // className="w-full px-4 py-2 border border-gray-300 rounded-md"
                   />
+                </label>
+                
               </div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Email:
               </label>
               <input
@@ -272,7 +274,7 @@ try {
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Password:
               </label>
               <input
@@ -286,13 +288,13 @@ try {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-blue-500 text-sm mt-2 inline-block"
+                className="text-blue-500 text-sm mt-2 inline-block text-left"
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
+              <label className="block text-sm font-semibold mb-1 text-black text-left">
                 Confirm Password:
               </label>
               <input
@@ -306,21 +308,21 @@ try {
             </div>
             <div>
             <div className="flex items-center">
-                <input
+                                <span className="text-sm text-gray-600">
+                  I agree to the{" "}
+                  <Link href="../termsandconditions">
+                    <u>
+                      <b>Terms and Conditions</b>
+                    </u>
+                    <input
                   type="checkbox"
                   id="terms&conditions"
                   name="t_and_c"
                   onChange={handleChkBoxInput}
                   value={registration.t_and_c}
-                  className="mr-2"
+                  className="ml-2"
                   required
                 />
-                <span className="text-sm text-gray-600">
-                  Click here to agree to the{" "}
-                  <Link href="../termsandconditions">
-                    <u>
-                      <b>Terms and Conditions</b>
-                    </u>
                   </Link>
                 </span>
               </div>

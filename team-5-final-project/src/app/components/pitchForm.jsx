@@ -108,7 +108,7 @@ export default function PitchForm() {
           >
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                First Name:
+                Project Title:
               </label>
               <input
                 type="text"
@@ -121,21 +121,20 @@ export default function PitchForm() {
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Contact Number:
+                Brief Summary:
               </label>
               <input
                 type="text"
-                name="Short_Descr"
+                name="short_descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
-                pattern="[0-9]*"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 required
               />
             </div>
             <div>
               <label className="block text-sm font-semibold mb-1 text-black">
-                Long_Descr
+                Detailed Description:
               </label>
               <input
                 type="VARCHAR"

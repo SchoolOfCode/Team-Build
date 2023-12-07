@@ -122,22 +122,6 @@ try {
       }
       
     } catch (error) {
-      //   .catch((error) => {
-      //     console.error("Error during fetch:", error);
-
-      //     let errorMessage = "An error occurred. Please try again later.";
-
-      //     if (error.message.includes("NetworkError")) {
-      //       errorMessage =
-      //         "Network error. Please check your internet connection.";
-      //     } else if (error.message.includes("HTTP error! Status:")) {
-      //       errorMessage = "Server error. Please try again later.";
-      //     }
-      //     alert(errorMessage);
-
-      //     setError(errorMessage);
-      //   });
-      // }
       console.log("Failed to add to dev_user_pref");
       return;
     }

@@ -1,10 +1,16 @@
 import Link from "next/link";
 import Navbar from "./components/navbar";
+import { domine } from "./font/font";
+import { arimo } from "./font/font";
 
 export default function Home() {
   return (
     <div>
-      <h1 className="font-sans">Tech Talent, Charitable Hearts</h1>
+      <h1 className="domine">Tech Talent, Charitable Hearts</h1>
+      <div className="arimo">
+        <h2 className="">Empowering Causes, Building Futures</h2>
+        <h3>Tech for Good, Websites for Change.</h3>
+      </div>
     </div>
   );
 }

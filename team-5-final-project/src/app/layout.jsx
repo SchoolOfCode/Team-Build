@@ -1,5 +1,6 @@
 import { arimo, domine } from "./font/font";
 import "./globals.css";
+// import Navbar from "./components/navbar";
 
 export const metadata = {
   title: "Tech for Good",
@@ -8,8 +9,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${domine.variable} ${arimo.variable}`}>{children}</body>
+   <html lang="en">
+
+      <body className={`${domine.variable} ${arimo.variable}`}>
+      {children}</body>
+  
     </html>
+
   );
 }
+

@@ -17,6 +17,7 @@ export default function Home() {
           <Link href={"../developers"}>Work with us</Link>{" "}
         </button>
       </div>
+      <Footer />
     </div>
   );
 }

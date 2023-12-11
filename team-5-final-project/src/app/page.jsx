@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Navbar from "./components/navbar";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -20,23 +21,17 @@ export default function Home() {
           </button>
         </div>
       </div>
-<<<<<<< HEAD
       <Footer />
-    </div>
-=======
-    </section>
->>>>>>> 95aa8da473cce40ca198fce5ebf83621311d7ea8
-  );
-}
 
-/*
+ </section>
+  )};
 
 
-*/
-//     <div>
+
+/* //     <div>
 //       <Navbar />
 //       <div className="headerContainer sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 relative">
-//         <Image
+//         <Image */}
 //           src={landingPic}
 //           alt="landing"
 //           width={500}

@@ -7,10 +7,12 @@
   src: url("/public/Fonts/Superclarendon.otf") format("opentype");
 }
 
-body {
-  font-family: 'Superclarendon', sans-serif;
+h1 {
+  font-family: var(--domine-font);
 }
 
-
+p {
+  font-family: var(--arimo-font);
+}
 
 

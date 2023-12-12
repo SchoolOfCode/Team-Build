@@ -134,132 +134,123 @@ export default function CharityRegistration() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-md w-full p-6 bg-white shadow-md rounded-md">
-        <h1 className="text-2xl font-bold mb-4">Register as a Charity</h1>
+    <div className="bg-yellow-100 text-left mx-3 lg:flex lg:justify-center lg:align-middle  lg:items-center ">
+      <div className="">
+        <h1 className="text-4xl font-bold">
+          Register as a{" "}
+          <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
+            Charity
+          </span>
+        </h1>
         {regSuccess ? (
           <div>
             {regSuccessMessage}
-            <div className="text-green-500">{submissionMessage}</div>
+            <div className="">{submissionMessage}</div>
           </div>
         ) : (
           <form
-            className="space-y-4"
+            className="bg-green-300 mt-5 tracking-wider flex flex-col w-full"
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/charity/register"
             onSubmit={submitReg}
           >
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                First Name:
-              </label>
+              <label className="">First Name:</label>
               <input
                 type="text"
                 name="first_name"
                 onChange={handleInput}
                 value={registration.first_name}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="w-full lg:w-1/2"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Surname:
-              </label>
+              <label className="">Surname:</label>
               <input
                 type="text"
                 name="surname"
                 onChange={handleInput}
                 value={registration.surname}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Contact Number:
-              </label>
+              <label className="">Contact Number:</label>
               <input
                 type="text"
                 name="contact_number"
                 onChange={handleInput}
                 value={registration.contact_number}
                 pattern="[0-9]*"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Organisation Name:
-              </label>
+              <label className="">Organisation Name:</label>
               <input
                 name="org_name"
                 onChange={handleInput}
                 value={registration.org_name}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Charity Registration Number:
-              </label>
+              <label className="">Charity Registration Number:</label>
               <input
                 type="text"
                 name="charity_reg_no"
                 onChange={handleInput}
                 value={registration.charity_reg_no}
                 pattern="[0-9]*"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Password:
-              </label>
+              <label className="">Password:</label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 onChange={handleInput}
                 value={registration.password}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-blue-500 text-sm mt-2 inline-block"
+                className=""
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Confirm Password:
-              </label>
+              <label className="">Confirm Password:</label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="confirm_password"
                 onChange={handleInput}
                 value={registration.confirm_password}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className=""
                 required
               />
             </div>
             <div>
-              <div className="flex items-center">
+              <div className="">
                 <input
                   type="checkbox"
                   id="terms&conditions"
                   name="t_and_c"
                   onChange={handleInput}
                   value={registration.t_and_c}
-                  className="mr-2"
+                  className=""
                   required
                 />
-                <span className="text-sm text-gray-600">
+                <span className="">
                   Click here to agree to the{" "}
                   <Link href="../termsandconditions">
                     <u>
@@ -269,16 +260,11 @@ export default function CharityRegistration() {
                 </span>
               </div>
             </div>
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 rounded-md"
-            >
+            <button type="submit" className="">
               Submit Form
             </button>
             {!isValid && (
-              <div className="text-red-500">
-                Please fill in all required fields.
-              </div>
+              <div className="">Please fill in all required fields.</div>
             )}
           </form>
         )}

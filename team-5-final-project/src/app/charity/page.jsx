@@ -1,17 +1,12 @@
 import Link from "next/link";
 
-import Navbar from "./components/navbar";
-import Footer from "./components/Footer";
-
 export default function Charity() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-
       <section className="flex-grow">
         <div className="flex flex-col justify-evenly ml-6 lg:flex lg:mx-40 gap-20">
           <h1 className="mt-10 leading-snug text-6xl font-bold lg:text-8xl lg:max-w-3xl lg:leading-snug lg:w-1/2">
-            ech Talent, Charitable{" "}
+            Tech Talent, Charitable{" "}
             <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
               Hearts
             </span>
@@ -27,8 +22,6 @@ export default function Charity() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

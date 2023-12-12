@@ -1,10 +1,8 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useState } from "react";
 import menuclosed from "public/menu-closed.svg";
-import user from "public/user.svg";
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -15,14 +13,12 @@ export default function Navbar() {
         <div className="justify-between mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
           <div className="flex items-center justify-between pl-3 py-2 md:py-5 md:block bg-zinc-100">
             {/* LOGO */}
-            <Link href="/">
-              <span className="md:hidden">
-                <h1 className="text-4xl text-black z-10">B</h1>
-              </span>
-              <span className="hidden md:block">
-                <h1 className="text-4xl text-black z-10">Build</h1>
-              </span>
-            </Link>
+            <span className="md:hidden">
+              <h1 className="text-4xl text-black z-10">B</h1>
+            </span>
+            <span className="hidden md:block">
+              <h1 className="text-4xl text-black z-10">Build</h1>
+            </span>
             {/* HAMBURGER BUTTON FOR MOBILE */}
             <div className="md:hidden">
               <button
@@ -46,37 +42,37 @@ export default function Navbar() {
               <li className="">
                 <Link href="/">HOME</Link>{" "}
               </li>
-              <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+              <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
 
               <li className="">
                 <Link href="/developers" onClick={() => setNavbar(!navbar)}>
                   DEVELOPERS
                 </Link>
-                <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
                 <Link href="/charity" onClick={() => setNavbar(!navbar)}>
                   CHARITIES
                 </Link>
-                <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
                 <Link href="/partners" onClick={() => setNavbar(!navbar)}>
                   OUR PARTNERS
                 </Link>
-                <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
                 <Link href="/testimonials" onClick={() => setNavbar(!navbar)}>
                   TESTIMONIALS
                 </Link>
-                <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
                 <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
                   CONTACT US
                 </Link>
-                <hr class="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
                 <Link href="/about" onClick={() => setNavbar(!navbar)}>
@@ -217,7 +213,7 @@ export default function Navbar() {
                   </svg>
                 </Link>
               </span>
-              <hr class="md:hidden ml-5 mt-1 h-1 w-44 bg-emerald-400"></hr>
+              <hr className="md:hidden ml-5 mt-1 h-1 w-44 bg-emerald-400"></hr>
             </ul>
           </div>
 

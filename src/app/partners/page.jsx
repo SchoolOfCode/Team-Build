@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import partners from "public/partners.jpeg";
 
 export default function Page() {
   return (
@@ -11,7 +10,7 @@ export default function Page() {
           Partners
         </h2>
         <Image
-          src={partners}
+          src="/partners.jpeg"
           alt="partners"
           width={500}
           className="headerImage"

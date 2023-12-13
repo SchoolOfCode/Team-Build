@@ -1,6 +1,5 @@
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import testimonials from "public/testimonials.jpeg";
 
 export default function Testimonials() {
   return (
@@ -19,7 +18,7 @@ export default function Testimonials() {
         </p>
       </div>
       <Image
-        src={testimonials}
+        src="/testimonials.jpeg"
         alt="testimonials"
         width={500}
         className="headerImage"

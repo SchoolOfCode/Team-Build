@@ -3,8 +3,6 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
-import menuclosed from "public/menu-closed.svg";
-import user from "public/user.svg";
 
 export default function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -18,7 +16,7 @@ export default function Navbar() {
               {/* LOGO */}
               <Link href="/">
                 <Image
-                  src={user}
+                  src="/user.svg"
                   alt="user"
                   width={30}
                   height={30}
@@ -33,7 +31,7 @@ export default function Navbar() {
                 >
                   {navbar ? (
                     <Image
-                      src={menuclosed}
+                      src="/menu-closed.svg"
                       alt="landing"
                       width={30}
                       height={30}
@@ -41,7 +39,7 @@ export default function Navbar() {
                     />
                   ) : (
                     <Image
-                      src={menuclosed}
+                      src="/menu-closed.svg"
                       alt="landing"
                       width={30}
                       height={30}

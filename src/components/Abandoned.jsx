@@ -67,7 +67,7 @@ useEffect(() => {
 
 
  };
-}
+
 
 return (<>
 <div className="section flex flex-col justify-top items-center border border-black rounded-lg p-2 m-2 bg-yellow-100 h-40 mt-7">

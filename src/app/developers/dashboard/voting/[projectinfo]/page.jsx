@@ -1,5 +1,5 @@
-import Navbar from "@/app/components/navbar";
-import FetchProjectById from "@/app/db-components/FetchProjectById";
+import Navbar from "@/components/navbar";
+import FetchProjectById from "@/db-components/FetchProjectById";
 
 
 

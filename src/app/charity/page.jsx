@@ -1,9 +1,8 @@
 
 "use client";
-import Navbar from "@/app/components/navbar";
-
+import Navbar from "@/components/navbar";
 import Link from "next/link";
-import Footer from "@/app/components/Footer";
+import Footer from "@/components/Footer";
 
 export default function Charity() {
   return (

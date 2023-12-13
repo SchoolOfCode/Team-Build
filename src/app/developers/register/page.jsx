@@ -1,10 +1,9 @@
+import Navbar from "@/components/navbar";
+import Footer from "@/components/Footer";
 
-import Navbar from "@/app/components/navbar";
-import Footer from "@/app/components/Footer";
-
-import "../../globals.css";
+import "../../../../globals.css"
 import Link from "next/link";
-import DeveloperRegistration from "@/app/components/DeveloperRegistration";
+import DeveloperRegistration from "@/components/developerRegistration";
 
 export default function DeveloperRegister() {
   return (

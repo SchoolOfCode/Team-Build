@@ -1,7 +1,7 @@
-import { arimo, domine } from "./font/font";
-import "./globals.css";
-import Footer from "./components/Footer";
-import Navbar from "./components/navbar";
+import "./globals.css"
+import { arimo, domine } from "@/font/font";
+// import Footer from "@/components/Footer";
+// import Navbar from "@/components/navbar";
 // import Navbar from "./components/navbar";
 
 export const metadata = {

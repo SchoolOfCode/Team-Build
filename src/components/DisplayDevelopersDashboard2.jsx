@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import FetchRolesByDevId from "@/app/db-components/FetchRolesByDevId";
-import FetchProjectsByStatus from "@/app/db-components/FetchProjectsByStatus";
-import InsertRolesOfUsers from "@/app/db-components/InsertRolesOfUsers";
-import DevelopersActiveProject from "@/app/components/DevelopersActiveProject";
-import DevelopersInterestedProject from "@/app/components/DevelopersInterestedProject";
-import DevelopersAvailableProjectsList from "@/app/components/DevelopersAvailableProjectsList";
+import FetchRolesByDevId from "@/db-components/FetchRolesByDevId";
+import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
+import InsertRolesOfUsers from "@/db-components/InsertRolesOfUsers"
+import DevelopersActiveProject from "./DevelopersActiveProject";
+import DevelopersInterestedProject from "./DevelopersInterestedProject";
+import DevelopersAvailableProjectsList from "./DevelopersAvailableProjectsList";
 
 export default function DisplayDevelopersDashboard2() {
   console.log("I'm here");

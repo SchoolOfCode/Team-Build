@@ -1,5 +1,5 @@
 import Navbar from "../components/navbar";
-import "../globals.css";
+import "../../../globals.css"
 import Link from "next/link";
 import Image from "next/image";
 import developers from "/public/developers.png";

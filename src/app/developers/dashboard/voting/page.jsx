@@ -1,9 +1,9 @@
 
 
 import React from 'react';
-import Navbar from "@/app/components/Navbar";
-import FetchProjectsByStatus from "@/app/db-components/FetchProjectsByStatus.jsx";
-import ProjectVotingCard from '@/app/components/ProjectVotingCard';
+import Navbar from '@/components/navbar';
+import FetchProjectsByStatus from '@/db-components/FetchProjectsByStatus';
+import ProjectVotingCard from '@/components/ProjectVotingCard';
 
 //clear the cache of projects fetched every 5 seconds?
 export const revalidate = 5;

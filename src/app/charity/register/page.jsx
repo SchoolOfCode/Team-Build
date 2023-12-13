@@ -1,9 +1,9 @@
 "use client";
-import Navbar from "@/app/components/Navbar";
-import "../../globals.css";
+import Navbar from "@/components/navbar";
+import "../../../../globals.css"
 import Link from "next/link";
-import CharityRegistration from "@/app/components/charityRegistration";
-import Footer from "@/app/components/Footer";
+import CharityRegistration from "@/components/charityRegistration";
+import Footer from "@/components/Footer";
 
 
 export default function CharityRegister() {

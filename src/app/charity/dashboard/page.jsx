@@ -1,7 +1,7 @@
-import Navbar from "@/app/components/Navbar";
+import Navbar from "@/components/navbar";
 import Link from "next/link";
-import Footer from "@/app/components/Footer";
-import CharityDash from "@/app/components/charityDashboard";
+import Footer from "@/components/Footer";
+import CharityDash from "@/components/charityDashboard";
 
 export default function CharityDashboard() {
   return (

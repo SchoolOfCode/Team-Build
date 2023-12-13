@@ -1,7 +1,7 @@
-import Navbar from "@/app/components/navbar";
-import "../../globals.css";
+import Navbar from "@/components/navbar";
+import "../../../../globals.css"
 import Link from "next/link";
-import DisplayDevelopersDashboard2 from "@/app/components/DisplayDevelopersDashboard2";
+import DisplayDevelopersDashboard2 from "@/components/DisplayDevelopersDashboard2";
 
 export default function DeveloperDasboard() {
   return (

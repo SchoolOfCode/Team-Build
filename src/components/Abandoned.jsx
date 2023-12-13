@@ -1,9 +1,9 @@
 "use client";
-import FetchRolesByDevId from "@/app/db-components/FetchRolesByDevId";
-import FetchProjectsByStatus from "@/app/db-components/FetchProjectsByStatus";
-import DevelopersActiveProject from "@/app/components/DevelopersActiveProject";
-import DevelopersAvailableProjectsList from "@/app/components/DevelopersActiveProject";
-import InsertUsersOfRoles from "../db-components/InsertRolesOfUsers";
+import FetchRolesByDevId from "@/db-components/FetchRolesByDevId";
+import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
+import DevelopersActiveProject from "./DevelopersActiveProject";
+import DevelopersAvailableProjectsList from "./DevelopersAvailableProjectsList";
+import InsertUsersOfRoles from "@/db-components/InsertRolesOfUsers";
 import React, { useState, useEffect } from "react";
 
   

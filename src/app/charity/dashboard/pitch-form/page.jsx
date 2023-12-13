@@ -1,8 +1,8 @@
 "use client";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/navbar";
 import Link from "next/link";
-import Footer from "@/app/components/Footer";
-import PitchForm from "@/app/components/pitchForm";
+import Footer from "@/components/Footer";
+import PitchForm from "@/components/pitchForm";
 
 export default function PitchRegistration() {
   return (
@@ -18,11 +18,11 @@ export default function PitchRegistration() {
 
 /*
 "use client";
-import Navbar from "@/app/components/navbar";
+import Navbar from "@/components/navbar";
 import "../../globals.css";
 import Link from "next/link";
-import CharityRegistration from "@/app/components/charityRegistration";
-import Footer from "@/app/components/Footer";
+import CharityRegistration from "@/components/charityRegistration";
+import Footer from "@/components/Footer";
 
 export default function CharityRegister() {
   return (

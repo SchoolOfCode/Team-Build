@@ -89,7 +89,7 @@ export default function DisplayDevelopersDashboard2() {
           </div> 
           <div className="section flex flex-col justify-top items-center border border-black rounded-lg p-2 m-2 bg-yellow-100 h-40 mt-7">
             <h2 className="subTitle text-2xl font-bold p-2">Available Projects</h2>
-            <DevelopersAvailableProjectsList project={availableProjects} regInterestInProjectFunc={regInterestInProject} />;
+            <DevelopersAvailableProjectsList projectsArray={availableProjects} regInterestInProjectFunc={regInterestInProject} />;
           </div>
          
     </>

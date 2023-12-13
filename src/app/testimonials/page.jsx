@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "@/components/navbar";
 import Image from "next/image";
 import testimonials from "public/testimonials.jpeg";
 

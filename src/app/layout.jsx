@@ -1,4 +1,4 @@
-import "./globals.css"
+import "../../globals.css"
 import { arimo, domine } from "@/font/font";
 // import Footer from "@/components/Footer";
 // import Navbar from "@/components/navbar";

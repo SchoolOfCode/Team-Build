@@ -4,7 +4,7 @@ import DevelopersAvailableProject from "./DevelopersAvailableProject";
  
  // Return the line item for the developers active project
  export default async function  DevelopersAvailableProjectsList({projectsArray, regInterestInProjectsFunc}) {
-   const projectsArray = await FetchProjectsByStatus("3");
+   let projectsArray = await FetchProjectsByStatus("3");
  
      return (
         <ol>

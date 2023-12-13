@@ -18,7 +18,7 @@ export default function CharityRegister() {
   );
 }
 
-<div className="flex flex-col min-h-screen">
+{/* <div className="flex flex-col min-h-screen">
   <Navbar />
   <section className="flex-grow">
     <div className="flex flex-col justify-evenly ml-6 lg:flex lg:mx-40 gap-20">
@@ -39,4 +39,4 @@ export default function CharityRegister() {
   </section>
 
   <Footer />
-</div>;
+</div>; */}

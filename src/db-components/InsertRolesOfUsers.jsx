@@ -1,4 +1,4 @@
-import { supabase } from "../../../supabase.js";
+import { supabase } from "../../supabase.js";
 
 // This function takes in deveopers id, project id and role as parameters
 //  It inserts a new instance of users_of_roles

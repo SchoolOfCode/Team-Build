@@ -1,4 +1,4 @@
-import { supabase } from "../../../supabase.js";
+import { supabase } from "../../supabase.js";
 
 // This function updates the total_score of the instance of the projects table
 // using the project_id and score to be added that is input

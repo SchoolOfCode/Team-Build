@@ -19,7 +19,7 @@ Desktop Div container: corner radius - 22
 
 //Snippet of code to insert to the dev database when the submit registration button is pressed
 import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import {supabase} from "./supabase.js";
 
 // Insert to the main_users table
 const usersId = uuidv4();
@@ -38,7 +38,7 @@ const { error2 } = await supabase.from('dev_user_pref').insert({id: usersId, fir
 
 //Snippet of code to insert to the charity database when the submit registration button is pressed
 import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import {supabase} from "./supabase.js";
 
 // Insert to the main_users table
 const usersId = uuidv4();
@@ -57,7 +57,7 @@ const { error2 } = await supabase.from('charity_user_pref').insert({id: usersId,
 
 //Snippet of code to insert to the project database when the submit registration button is pressed
 import {v4 as uuidv4} from "uuid";
-import {supabase} from "../../../supabase.js";
+import {supabase} from "./supabase.js";
 
 // Insert to the projects table
 const projectId = uuidv4();

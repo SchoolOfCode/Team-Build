@@ -1,4 +1,4 @@
-import { supabase } from "../../../supabase.js";
+import { supabase } from "../../supabase.js";
 
 //Fetch all projects with the status code  & Developers Id passed in as a parameter
 export default async function FetchRolesByDevId(id) {

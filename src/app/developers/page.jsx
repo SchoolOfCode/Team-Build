@@ -2,7 +2,7 @@ import Navbar from "../components/navbar";
 import "../../../globals.css"
 import Link from "next/link";
 import Image from "next/image";
-import developers from "/public/developers.png";
+// import developers from "/public/developers.png";
 ​
 export default function Developers() {
   return (
@@ -10,7 +10,7 @@ export default function Developers() {
       <Navbar />
       <div className="headerContainer sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 relative">
         <Image
-          src={developers}
+          src="/developers.png"
           alt="developers"
           width={500}
           className="headerImage"

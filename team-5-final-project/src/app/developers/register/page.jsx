@@ -1,17 +1,19 @@
+
 import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/Footer";
+
 import "../../globals.css";
 import Link from "next/link";
-import DeveloperRegistration from "@/app/components/developerRegistration";
+import DeveloperRegistration from "@/app/components/DeveloperRegistration";
 
 export default function DeveloperRegister() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      {/* <h1>Developer Register</h1> */}
-      <button className="button">
-        <Link href="/">Back to Home</Link>
+      <div className="lg:flex lg:flex-col lg:items-center lg:justify-center lg:flex-grow">
         <DeveloperRegistration />
-      </button>
+      </div>
+      <Footer />
     </div>
   );
 }

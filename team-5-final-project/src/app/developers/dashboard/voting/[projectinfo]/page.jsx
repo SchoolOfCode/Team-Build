@@ -1,0 +1,20 @@
+import Navbar from "@/app/components/navbar";
+import FetchProjectById from "@/app/db-components/FetchProjectById";
+
+
+
+export default async function ProjectInfo({ params }) {
+  const currProjectArrray = await FetchProjectById(params.projectinfo);
+  const currProject = currProjectArrray[0];
+
+
+  return (
+    <div>
+      <Navbar />
+      <h1>Project Information</h1>
+      <h2>{currProject.title}</h2>
+      <p>{currProject.long_desc}</p>
+      <p>{currProject.link_to_video}</p>
+    </div>
+  );
+}

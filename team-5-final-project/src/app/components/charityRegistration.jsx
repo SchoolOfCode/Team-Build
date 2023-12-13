@@ -53,7 +53,6 @@ export default function CharityRegistration() {
       registration.contact_number &&
       registration.org_name &&
       registration.charity_reg_no &&
-      registration.email &&
       registration.password &&
       registration.password === registration.confirmpassword;
     registration.t_and_c && setIsValid(isValidForm);
@@ -106,7 +105,6 @@ export default function CharityRegistration() {
           contact_number: "",
           org_name: "",
           charity_reg_no: "",
-          email: "",
           password: "",
           confirm_password: "",
           t_and_c: "",
@@ -136,11 +134,13 @@ export default function CharityRegistration() {
   };
 
   return (
-    <div className="text-left mx-3 lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-3/4 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+    <div className="bg-yellow-100 text-left mx-3 lg:flex lg:justify-center lg:align-middle  lg:items-center ">
       <div className="">
-        <h1 className="text-4xl font-bold mt-3 leading-relaxed">
+        <h1 className="text-4xl font-bold">
           Register as a{" "}
-          <span className="bg-emerald-400 py-1 px-2 rounded-md">Charity</span>
+          <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
+            Charity
+          </span>
         </h1>
         {regSuccess ? (
           <div>
@@ -149,134 +149,118 @@ export default function CharityRegistration() {
           </div>
         ) : (
           <form
-            className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:grid lg:grid-cols-2 lg:gap-10 gap-5"
+            className="bg-green-300 mt-5 tracking-wider flex flex-col w-full"
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/charity/register"
             onSubmit={submitReg}
           >
             <div>
+              <label className="">First Name:</label>
               <input
                 type="text"
                 name="first_name"
                 onChange={handleInput}
                 value={registration.first_name}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="First Name:"
+                className="w-full lg:w-1/2"
                 required
               />
             </div>
             <div>
+              <label className="">Surname:</label>
               <input
                 type="text"
                 name="surname"
                 onChange={handleInput}
                 value={registration.surname}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Last Name:"
+                className=""
                 required
               />
             </div>
             <div>
+              <label className="">Contact Number:</label>
               <input
                 type="text"
                 name="contact_number"
                 onChange={handleInput}
                 value={registration.contact_number}
                 pattern="[0-9]*"
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Contact Number:"
+                className=""
                 required
               />
             </div>
             <div>
-              <input
-                type={showPassword ? "text" : "password"}
-                name="email"
-                onChange={handleInput}
-                value={registration.email}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Email:"
-                required
-              />
-            </div>
-
-            <div>
+              <label className="">Organisation Name:</label>
               <input
                 name="org_name"
                 onChange={handleInput}
                 value={registration.org_name}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Organisation Name:"
+                className=""
                 required
               />
             </div>
             <div>
+              <label className="">Charity Registration Number:</label>
               <input
                 type="text"
                 name="charity_reg_no"
                 onChange={handleInput}
                 value={registration.charity_reg_no}
                 pattern="[0-9]*"
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Charity Registration Number:"
+                className=""
                 required
               />
             </div>
-
             <div>
+              <label className="">Password:</label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
                 onChange={handleInput}
                 value={registration.password}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Password:"
+                className=""
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-sm text-gray-600"
+                className=""
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
             </div>
             <div>
+              <label className="">Confirm Password:</label>
               <input
                 type={showPassword ? "text" : "password"}
                 name="confirm_password"
                 onChange={handleInput}
                 value={registration.confirm_password}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Confirm Password:"
+                className=""
                 required
               />
             </div>
             <div>
-              <div className="flex">
-                <span className="text-sm text-gray-700">
-                  <input
-                    type="checkbox"
-                    id="terms&conditions"
-                    name="t_and_c"
-                    onChange={handleInput}
-                    value={registration.t_and_c}
-                    className="mr-2 mt-1 "
-                    required
-                  />
-                  Click here to agree to the
+              <div className="">
+                <input
+                  type="checkbox"
+                  id="terms&conditions"
+                  name="t_and_c"
+                  onChange={handleInput}
+                  value={registration.t_and_c}
+                  className=""
+                  required
+                />
+                <span className="">
+                  Click here to agree to the{" "}
                   <Link href="../termsandconditions">
                     <u>
-                      <b className="ml">Terms and Conditions</b>
+                      <b>Terms and Conditions</b>
                     </u>
                   </Link>
                 </span>
               </div>
             </div>
-            <button
-              type="submit"
-              className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
-            >
+            <button type="submit" className="">
               Submit Form
             </button>
             {!isValid && (

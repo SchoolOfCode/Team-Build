@@ -6,22 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "rd": "next resetdb.js"
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
   },
   "dependencies": {
+    "@next/font": "^14.0.4",
     "@supabase/supabase-js": "^2.39.0",
-    "dotenv": "^16.3.1",
-    "next": "14.0.3",
-    "react": "^18",
-    "react-dom": "^18",
-    "uuidv4": "^6.2.13"
+    "next": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "server-only": "^0.0.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.3",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "@testing-library/jest-dom": "6.1.2",
+    "@testing-library/react": "14.0.0",
+    "@testing-library/user-event": "14.4.3",
+    "@types/jest": "29.5.5",
+    "@types/react": "18.2.8",
+    "jest": "29.6.4",
+    "jest-environment-jsdom": "29.6.4",
+    "typescript": "5.2.2"
   }
 }

@@ -3,7 +3,7 @@ import "../globals.css";
 import Link from "next/link";
 import Image from "next/image";
 import developers from "/public/developers.png";
-
+​
 export default function Developers() {
   return (
     <section>

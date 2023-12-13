@@ -1,5 +1,5 @@
-import Navbar from "../components/navbar";
-import ContactForm from "../components/contactForm";
+import Navbar from "../components/Navbar";
+import ContactForm from "../components/ContactForm";
 
 export default function ContactUs() {
   return (

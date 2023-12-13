@@ -1,9 +1,9 @@
 
 "use client";
 import Navbar from "@/components/navbar";
-
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import CharityRegistration from "@/components/charityRegistration";
 
 export default function Login() {
   return (

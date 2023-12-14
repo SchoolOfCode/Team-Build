@@ -38,19 +38,19 @@ export default function NavbarComponent() {
             {/* LOGO */}
             <span className="md:hidden">
               <Link href={"/"}>
-                <div class="flex justify-center items-center">
+                {/* <div class="flex justify-center items-center">
                   <div class="inset-0 flex justify-center items-center relative">
                     <h1 class="text-5xl text-black pt-1 pl-1">B</h1>
                     <div class="absolute inset-0 flex justify-center items-center">
                       <h1 class="text-5xl text-emerald-500 shadow-black">B</h1>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Link>
             </span>
             <span className="hidden md:block">
               <Link href={"/"}>
-                <div class="flex justify-center items-center">
+                {/* <div class="flex justify-center items-center">
                   <div class="inset-0 flex justify-center items-center relative">
                     <h1 class="text-5xl text-black pt-1 pl-1">Build</h1>
                     <div class="absolute inset-0 flex justify-center items-center">
@@ -59,7 +59,7 @@ export default function NavbarComponent() {
                       </h1>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </Link>
             </span>
             {/* HAMBURGER BUTTON FOR MOBILE */}

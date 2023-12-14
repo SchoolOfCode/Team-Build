@@ -1,6 +1,6 @@
 
 
-export default async function  DevelopersActiveProject({project}) {
+export default function  DevelopersActiveProject({project}) {
 
    // Return the line item for the developers active project
    return (

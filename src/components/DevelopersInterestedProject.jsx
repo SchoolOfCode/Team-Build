@@ -1,6 +1,6 @@
 
 // Return the line item for the developers interested projects list
-export default async function  DevelopersInterestedProject({project}) {
+export default function  DevelopersInterestedProject({project}) {
 
     return (
       <li>

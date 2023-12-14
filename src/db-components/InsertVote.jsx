@@ -5,7 +5,7 @@ import { supabase } from "../../supabase.js";
 
 export default async function InsertVote({ devsId, project_id, score }) {
   
-  try {
+   try {
     const { error } = await supabase.from("votes").insert({
       id: devsId,
       project_id: project_id,

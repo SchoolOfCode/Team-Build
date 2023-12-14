@@ -1,11 +1,14 @@
-
 // Return the line item for the developers active project
-export default async function  DevelopersAvailableProject({project, regInterestInProjectFunc}) {
+export default function  DevelopersAvailableProject({project, regInterestInProjectFunc}) {
 
-    return (
-      <li>
-       <p>{project.title}</p>
-       <button onClick={regInterestInProjectFunc(project.project_id)}>I am interested</button>
-       </li>
-    );
- }
+   function handleClick() {
+      return regInterestInProjectFunc(project.project_id);
+    }
+   
+       return (
+         <li>
+          <p>{project.title}</p>
+          <button onClick={handleClick}>I am interested</button> 
+          </li>
+       );
+    }

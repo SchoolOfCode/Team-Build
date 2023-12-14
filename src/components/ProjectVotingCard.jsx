@@ -13,14 +13,14 @@ export default async function  ProjectVotingCard({project}) {
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table, 
   //and adds one to the total_score for the project using a database trigger function.
 async function handleClickOne() {
-  await InsertVote({ devsId: "7e771949-799e-4868-abea-b01caf067d67", project_id: project.project_id, score: 1 })
+  await InsertVote({ devsId: "bd688fda-9486-4c46-9651-89afb301fe91", project_id: project.project_id, score: 1 })
 };
 
  //Function that is invoked when the upvote 2 button is clicked. This inserts a votes intersection table, 
   //and adds two to the total_score for the project using a database trigger function.
 async function handleClickTwo() {
   console.log('hello')
-  await InsertVote({ devsId: "a1b95395-e0f2-4031-a18f-50e36006baae", project_id: project.project_id, score: 2 })
+  await InsertVote({ devsId: "bd688fda-9486-4c46-9651-89afb301fe91", project_id: project.project_id, score: 2 })
    };
 
    return (

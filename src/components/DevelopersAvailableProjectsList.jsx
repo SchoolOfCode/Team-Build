@@ -2,7 +2,7 @@
 import DevelopersAvailableProject from "./DevelopersAvailableProject";
  
  // Return the line item for the developers active project
- export default async function  DevelopersAvailableProjectsList({projectsArray, regInterestInProjectsFunc}) {
+ export default function  DevelopersAvailableProjectsList({projectsArray, regInterestInProjectsFunc}) {
  
      return (
         <ol>

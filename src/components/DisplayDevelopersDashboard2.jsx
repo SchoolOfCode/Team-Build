@@ -59,8 +59,8 @@ export default function DisplayDevelopersDashboard2() {
    
     console.log("here")
     FetchRolesByDevId(DevsId)
-    
       .then((data) => setInterestedProjects(data.filter((interestedProject) => interestedProject.role == 2)));
+      return;
   }
 
   return (

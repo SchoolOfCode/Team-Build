@@ -77,7 +77,9 @@ export default function NavbarComponent() {
           </div>
 
           {/* MOBILE MENU */}
-          <div className={`absolute z-20 ${navbar ? "block" : "hidden"}`}>
+          <div
+            className={`lg:hidden absolute z-20 ${navbar ? "block" : "hidden"}`}
+          >
             <ul className="flex flex-col text-md text-right p-4 ml-32 mr-6 gap-3 bg-zinc-100 w-60 font-bold text-xl mt-7 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-md">
               <li className="">
                 <Link

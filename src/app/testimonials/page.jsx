@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-
 export default function Testimonials() {
   return (
-    <div className="flex flex-col min-h-screen mr-5">
+    <div className="flex flex-col mr-5">
       <section className="flex-grow">
         <div className="flex flex-col justify-evenly ml-6 lg:flex lg:mx-40 gap-20">
           <h1 className="mt-10 leading-snug text-5xl font-bold lg:text-8xl lg:max-w-3xl lg:leading-snug lg:w-1/2">

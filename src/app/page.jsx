@@ -3,8 +3,8 @@ import Link from "next/link";
 export default function Testimonials() {
   return (
     //  <div className="flex flex-col">
-     <div>
-    <div className="lg:absolute lg:top-[120px] lg:-right-[375px] lg:w-[750px] lg:h-[750px] lg:bg-stone-100 lg:  rounded-full"></div>
+    <div>
+      <div className="lg:absolute lg:top-[110px] lg:-right-[0px] lg:w-[375px] lg:h-[750px] lg:bg-stone-100 lg:rounded-bl-full lg:rounded-tl-full"></div>
       <section className="flex-grow">
         <div className="flex flex-col justify-evenly ml-6 lg:flex lg:mx-40 gap-20">
           <h1 className="mt-10 leading-snug text-6xl font-bold lg:text-8xl lg:max-w-3xl lg:leading-snug lg:w-1/2">

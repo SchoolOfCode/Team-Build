@@ -8,6 +8,7 @@ import React, { useState } from "react";
 //State variable "Registration" and function "setRegistration" to update state
 //"Registration" state is an object that holds the form fields and its initial values
 // Each field is initially set to an empty string, this will update when user interacts with form entering values.
+//
 
 export default function CharityRegistration() {
   const [registration, setRegistration] = useState({

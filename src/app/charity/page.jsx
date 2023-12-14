@@ -1,13 +1,8 @@
-
 "use client";
-import Navbar from "@/components/navbar";
 import Link from "next/link";
-import Footer from "@/components/Footer";
-
 export default function Charity() {
   return (
-    <div className="flex flex-col min-h-screen justify-between">
-      <Navbar />
+    <div className="flex flex-col justify-between">
       <div className="lg:mx-40 ml-6">
         <h1 className="mt-10 leading-snug text-6xl font-bold lg:text-8xl lg:max-w-3xl lg:leading-snug lg:w-1/2">
           Tech Talent, Charitable{" "}
@@ -24,7 +19,6 @@ export default function Charity() {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

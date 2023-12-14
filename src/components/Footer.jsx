@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <div className="bg-zinc-100 flex flex-col md:flex-row justify-around items-center py-5">
+    <div className="bg-zinc-100 flex flex-col md:flex-row justify-around items-center py-2 lg:py-5 z-50 fixed  inset-x-0  bottom-0">
       <div className="hidden md:inline-block">
         <Link href="">
           <p className="text-zinc-500 underline underline-offset-4 hover:text-grey-900 text-xl">

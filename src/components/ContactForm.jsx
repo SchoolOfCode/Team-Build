@@ -87,8 +87,12 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" flex py-6 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
+    <div className="text-left mx-3 lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <div className="">
+        <h1 className="text-4xl font-bold mt-3 leading-relaxed">
+          Get in{" "}
+          <span className="bg-emerald-400 py-1 px-2 rounded-md">Touch</span>
+        </h1>
         {regSuccess ? (
           <div>
             {regSuccessMessage}
@@ -96,53 +100,50 @@ export default function ContactForm() {
           </div>
         ) : (
           <form
-            className=""
+            className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:gap-10 gap-5"
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
           >
             <div className="">
-              <label className="block text-lg py-2 font-semibold mb-1 text-black">
-                Full Name:
-              </label>
               <input
                 type="text"
                 name="Full_Name"
                 onChange={handleInput}
                 value={registration.Full_Name}
-                className="w-80 px-4 py-2 border border-gray-300 rounded"
+                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                placeholder="Full Name:"
                 required
               />
             </div>
             <div>
-              <label className="block text-lg py-4 font-semibold text-black">
-                Email:
-              </label>
               <input
                 type="text"
                 name="User_Email"
                 onChange={handleInput}
                 value={registration.User_Email}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                placeholder="Email:"
                 required
               />
             </div>
-            <div className="">
-              <label className="block text-lg py-4 font-semibold text-black">
+            <div>
+              <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
                 Message:
               </label>
+
               <input
                 type="VARCHAR"
                 name="Long_Descr"
                 onChange={handleInput}
                 value={registration.Long_Descr}
-                className="w-full px-4 py-20 border border-gray-300 rounded-md"
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-56 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
                 required
-              ></input>
+              />
             </div>
             <button
               type="submit"
-              className="mt-4 ml-11 w-60 bg-red-400 text-white font-bold text-lg py-2 rounded"
+              className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
             >
               Submit
             </button>

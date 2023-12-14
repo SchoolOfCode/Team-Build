@@ -89,10 +89,13 @@ export default function PitchForm() {
       return;
     }
   };
-
   return (
-    <div className="min-h-screen flex pt-8 justify-left pl-5 border border-black rounded-2xl p-2 m-2 bg-amber-50">
+    <div className="text-left mx-3 lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <div className="">
+        <h1 className="text-4xl font-bold mt-3 leading-relaxed">
+          Submit New {""}
+          <span className="bg-emerald-400 py-1 px-2 rounded-md">Pitch</span>
+        </h1>
         {regSuccess ? (
           <div>
             {regSuccessMessage}
@@ -100,71 +103,65 @@ export default function PitchForm() {
           </div>
         ) : (
           <form
-            className=""
+            className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:grid lg:grid-cols-2 lg:gap-10 gap-5"
             method="POST"
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
           >
             <div className="">
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Project Title:
-              </label>
               <input
                 type="text"
                 name="Project_Title"
                 onChange={handleInput}
                 value={registration.Project_Title}
-                className="w-80 px-4 py-2 border border-gray-300 rounded"
+                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                placeholder="Project Title:"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Brief Summary:
-              </label>
               <input
                 type="text"
                 name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
-                required
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold mb-1 text-black">
-                Detailed Description:
-              </label>
-              <input
-                type="VARCHAR"
-                name="Long_Descr"
-                onChange={handleInput}
-                value={registration.Long_Descr}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                placeholder="Brief Summary:"
                 required
               />
             </div>
 
             <div>
               <div>
-                <label className="block text-sm font-semibold mb-1 text-black">
-                  YouTube Video Link:
-                </label>
                 <input
                   name="Video_Link"
                   onChange={handleInput}
                   value={registration.Video_Link}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md"
+                  className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  placeholder="YouTube Video Link:"
                   required
                 />
               </div>
             </div>
 
-            <div className="flex flex-row justify-between py-2 mr-1">
-              <label className="flex justify-start text-sm font-semibold mb-1 text-black">
-                <Link href="/termsandconditions">
-                  <u>Terms & Conditions:</u>
-                </Link>
+            <div>
+              <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+                Detailed Description:
+              </label>
+
+              <input
+                type="VARCHAR"
+                name="Long_Descr"
+                onChange={handleInput}
+                value={registration.Long_Descr}
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-56 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                required
+              />
+            </div>
+
+            <div className=" py-2 mr-1">
+              <label className="appearance-none bg-transparent border-b font-bold pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+                <Link href="/termsandconditions">Terms & Conditions:</Link>
               </label>
               <input
                 type="checkbox"

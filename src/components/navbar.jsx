@@ -38,11 +38,11 @@ export default function NavbarComponent() {
             {/* LOGO */}
             <span className="md:hidden">
               <Link href={"/"}>
-                <div class="flex justify-center items-center">
-                  <div class="inset-0 flex justify-center items-center relative">
-                    <h1 class="text-5xl text-black pt-1 pl-1">B</h1>
-                    <div class="absolute inset-0 flex justify-center items-center">
-                      <h1 class="text-5xl text-emerald-500 shadow-black">B</h1>
+                <div className="flex justify-center items-center">
+                  <div className="inset-0 flex justify-center items-center relative">
+                    <h1 className="text-5xl text-black pt-1 pl-1">B</h1>
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <h1 className="text-5xl text-emerald-500 shadow-black">B</h1>
                     </div>
                   </div>
                 </div>
@@ -50,11 +50,11 @@ export default function NavbarComponent() {
             </span>
             <span className="hidden md:block">
               <Link href={"/"}>
-                <div class="flex justify-center items-center">
-                  <div class="inset-0 flex justify-center items-center relative">
-                    <h1 class="text-5xl text-black pt-1 pl-1">Build</h1>
-                    <div class="absolute inset-0 flex justify-center items-center">
-                      <h1 class="text-5xl text-emerald-500 shadow-black">
+                <div className="flex justify-center items-center">
+                  <div className="inset-0 flex justify-center items-center relative">
+                    <h1 className="text-5xl text-black pt-1 pl-1">Build</h1>
+                    <div className="absolute inset-0 flex justify-center items-center">
+                      <h1 className="text-5xl text-emerald-500 shadow-black">
                         Build
                       </h1>
                     </div>

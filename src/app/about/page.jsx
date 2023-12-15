@@ -12,12 +12,17 @@ export default function About() {
 
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-10 lg:align-bottom lg:w-4/5">
             <p className="text-md lg:text-lg font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-              Build is on a mission to empower charities, revolutionising how they harness technology. We're a platform that connects charities with skilled developers. Our focus is on fostering an inclusive tech community and leveraging technology for charitable causes.
+              Build is on a mission to empower charities, revolutionising how they harness technology. We're a platform that connects charities with a community of skilled developers.   
+              
+              
+              ho want to use their skills to make the world a better place. 
+              
+              . We have a community of developers who want to use their skills to make the world a better place.
             </p>
           </div>
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-10 lg:align-bottom lg:w-4/5">
             <p className="text-md lg:text-lg font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-            Our vision is simple yet powerful — technology should bring people together for a better tomorrow. Build is committed to making tech accessible to all. We have a pool of talented developers from different backgrounds who are looking to help charities. Picture a future where technology reflects the stories of all of us.
+            Our vision is simple yet powerful — we want to harness the power of technology to help charities. Build is committed to making tech accessible to all. Our focus is on fostering an inclusive tech community and leveraging technology for charitable causes. Picture a future where technology reflects the stories of all of us. Build is here to make that happen.
             
               
             </p>

@@ -65,7 +65,7 @@ export default function DisplayDevelopersDashboard2() {
 
   return (
     <>
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-80 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">
         <h1 className="subTitle text-xl font-bold">Your Current Projects</h1>
         <ol>
           {activeProjects.map((activeProject) => {
@@ -78,36 +78,35 @@ export default function DisplayDevelopersDashboard2() {
           })}
         </ol>
       </div>
-      <div className="lg:grid lg:grid-cols-2">
-        <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
-          <h1 className="subTitle text-xl font-bold">
-            Projects you are interested In
-          </h1>
-          <ol>
-            {interestedProjects.map((interestedProject) => {
-              return (
-                <DevelopersInterestedProject
-                  key={interestedProject.id}
-                  project={interestedProject.projects}
-                />
-              );
-            })}
-          </ol>
-        </div>
-        <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
-          <h1 className="subTitle text-xl font-bold">Available Projects</h1>
-          <ol>
-            {availableProjects.map((availableProject) => {
-              return (
-                <DevelopersAvailableProject
-                  key={availableProject.project_id}
-                  project={availableProject}
-                  regInterestInProjectFunc={regInterestInProject}
-                />
-              );
-            })}
-          </ol>
-        </div>
+
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+        <h1 className="subTitle text-xl font-bold">
+          Projects you are interested In
+        </h1>
+        <ol>
+          {interestedProjects.map((interestedProject) => {
+            return (
+              <DevelopersInterestedProject
+                key={interestedProject.id}
+                project={interestedProject.projects}
+              />
+            );
+          })}
+        </ol>
+      </div>
+      <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+        <h1 className="subTitle text-xl font-bold">Available Projects</h1>
+        <ol>
+          {availableProjects.map((availableProject) => {
+            return (
+              <DevelopersAvailableProject
+                key={availableProject.project_id}
+                project={availableProject}
+                regInterestInProjectFunc={regInterestInProject}
+              />
+            );
+          })}
+        </ol>
       </div>
     </>
   );

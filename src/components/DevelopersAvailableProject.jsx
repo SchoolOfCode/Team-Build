@@ -8,6 +8,7 @@ export default function  DevelopersAvailableProject({project, regInterestInProje
        return (
          <li>
           <p>{project.title}</p>
+          <p>{project.short_desc}</p>
           <button onClick={handleClick}>I am interested</button> 
           </li>
        );

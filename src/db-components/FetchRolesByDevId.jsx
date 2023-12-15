@@ -11,6 +11,7 @@ export default async function FetchRolesByDevId(id) {
       console.log("error", error);
       return null;
     } else {
+      console.log(data, "Here it is")
       return data;
     }
   } catch (error) {

@@ -3,28 +3,45 @@ import React, { useState, useEffect } from "react";
 import FetchRolesByDevId from "@/db-components/FetchRolesByDevId";
 import CharitiesActiveProject from "./CharitiesActiveProject";
 import CharitiesPitch from "./CharitiesPitch";
-import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
 
 
 
 export default function DisplayCharitiesDashboard() {
-   // const [allProjects, setAllProjects] = useState([]);
+
+  // set State on the activeProjects array and the pitchedProjects array for this charity
+     const [activeProjects, setActiveProjects] = useState([]);
     const [pitchedProjects, setPitchedProjects] = useState([]);
-    const [activeProjects, setActiveProjects] = useState([]);
+
+  // Define constants for active values and pitched values of project_status
+  
+  const isActiveValue = [7, 8, 9];
+  const isPitchedValue = [1, 2, 3, 5, 6];
 
 
+  // Display the initial list of active and pitched projects that this charity is associated with.
+  // These are projects that have a roles_of_users instance for this charity and the associated project has a status of:
+  //  - 1,2,3,5 or 6 for pitched projects
+  //  - 7,8 or 9 for active projects
 
-    // useEffect(() => {   
-    //     const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
-    //     FetchRolesByDevId(ctyId).then((activeProjects) => setActiveProjects(activeProjects.filter((project) => project.projects.status == 7)));
-    //     console.log(activeProjects)
-    // }, []);
+    useEffect(() => {
+      const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
+      FetchRolesByDevId(ctyId).then((data) => {
+        const filteredProjects = data.filter((project) =>
+          isActiveValue.includes(project.projects.status)
+        );
+        setActiveProjects(filteredProjects);
+        });
+    }, []);
 
     useEffect(() => {   
         const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
-        FetchRolesByDevId(ctyId).then((data) => setPitchedProjects(data.filter((project) => project.projects.status == 3)));
-        console.log(pitchedProjects)
-    }, []);
+        FetchRolesByDevId(ctyId).then((data) => {
+            const filteredProjects = data.filter((project) =>
+              isPitchedValue.includes(project.projects.status)
+            );
+            setPitchedProjects(filteredProjects);
+            });
+        }, []);
 
     
 
@@ -59,6 +76,6 @@ export default function DisplayCharitiesDashboard() {
               })}
             </ol>
           </div>
-        </>
+         </>
       );
     }

@@ -18,7 +18,7 @@ export default function Charity() {
           </p> 
           <div>
           <Image
-      src="//how-it-works-desktop.svg"
+      src="/how-it-works-desktop.svg"
       width={556}
       height={655}
       alt="How it works diagram"

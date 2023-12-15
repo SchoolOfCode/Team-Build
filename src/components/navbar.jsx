@@ -106,8 +106,8 @@ export default function NavbarComponent() {
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
-                <Link href="/testimonials" onClick={() => setNavbar(!navbar)}>
-                  TESTIMONIALS
+                <Link href="/login" onClick={() => setNavbar(!navbar)}>
+                 LOG IN
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
@@ -279,8 +279,8 @@ export default function NavbarComponent() {
                 </Link>
               </li>
               <li className="">
-                <Link href="/testimonials" onClick={() => setNavbar(!navbar)}>
-                  TESTIMONIALS
+                <Link href="/login" onClick={() => setNavbar(!navbar)}>
+                  LOG IN
                 </Link>
               </li>
               <li className="">

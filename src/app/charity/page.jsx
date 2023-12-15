@@ -13,9 +13,10 @@ export default function Charity() {
         <div className="mt-10 flex flex-col justify-between lg:flex lg:flex-row-reverse lg:align-bottom lg:w-4/5">
           <p className="text-4xl font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
             Building Websites, Transforming Lives with Every Line of Code
-          </p>
+          </p> 
+          <image src="/how-it-works-desktop.svg"></image>
           <button className="button mr-20 bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-            <Link href={"../developers"}>Join us</Link>{" "}
+            <Link href={"/charity/register"}>Join us</Link>{" "}
           </button>
         </div>
       </div>

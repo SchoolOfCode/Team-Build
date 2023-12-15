@@ -1,34 +1,81 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import FetchRolesByDevId from "@/db-components/FetchRolesByDevId";
-import DevelopersActiveProject from "./DevelopersActiveProject";
-import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
+import CharitiesActiveProject from "./CharitiesActiveProject";
+import CharitiesPitch from "./CharitiesPitch";
 
 
 
 export default function DisplayCharitiesDashboard() {
-    const [PitchedProjects, setPitchedProjects] = useState([]);
-    const [availableProjects, setAvailableProjects] = useState([]);
+
+  // set State on the activeProjects array and the pitchedProjects array for this charity
+     const [activeProjects, setActiveProjects] = useState([]);
+    const [pitchedProjects, setPitchedProjects] = useState([]);
+
+  // Define constants for active values and pitched values of project_status
+  
+  const isActiveValue = [7, 8, 9];
+  const isPitchedValue = [1, 2, 3, 5, 6];
+
+
+  // Display the initial list of active and pitched projects that this charity is associated with.
+  // These are projects that have a roles_of_users instance for this charity and the associated project has a status of:
+  //  - 1,2,3,5 or 6 for pitched projects
+  //  - 7,8 or 9 for active projects
+
+    useEffect(() => {
+      const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
+      FetchRolesByDevId(ctyId).then((data) => {
+        const filteredProjects = data.filter((project) =>
+          isActiveValue.includes(project.projects.status)
+        );
+        setActiveProjects(filteredProjects);
+        });
+    }, []);
 
     useEffect(() => {   
         const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
-        FetchRolesByDevId(ctyId)
-        .then((data) => setPitchedProjects(data.filter((project) => project.role === 1)));
-    }, []);
-
+        FetchRolesByDevId(ctyId).then((data) => {
+            const filteredProjects = data.filter((project) =>
+              isPitchedValue.includes(project.projects.status)
+            );
+            setPitchedProjects(filteredProjects);
+            });
+        }, []);
 
     
 
     return (
-        <div className="section flex flex-col justify-top items-center border border-black rounded-lg p-2 m-2 bg-yellow-100 h-40 mt-7">
-            <h2 className="subTitle text-2xl font-bold p-2">
-              Your Current Projects
-            </h2>
+        <>
+          <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">
+            <h1 className="subTitle text-xl font-bold">Your Projects</h1>
             <ol>
-                {PitchedProjects.map((activeProject) => (
-                    <DevelopersActiveProject key={activeProject.id} project={activeProject.projects} />
-                ))}
+              {activeProjects.map((activeProject) => {
+                return (
+                  <CharitiesActiveProject
+                    key={activeProject.id}
+                    project={activeProject.projects}
+                  />
+                );
+              })}
             </ol>
-        </div>
-    );
-}
+          </div>
+    
+          <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+            <h1 className="subTitle text-xl font-bold">
+              Your Pitches for a new Project
+            </h1>
+            <ol>
+              {pitchedProjects.map((pitchedProjects) => {
+                return (
+                  <CharitiesPitch
+                    key={pitchedProjects.id}
+                    project={pitchedProjects.projects}
+                  />
+                );
+              })}
+            </ol>
+          </div>
+         </>
+      );
+    }

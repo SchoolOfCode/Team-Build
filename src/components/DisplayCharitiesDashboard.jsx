@@ -8,20 +8,22 @@ import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
 
 
 export default function DisplayCharitiesDashboard() {
-    const [allProjects, setAllProjects] = useState([]);
+   // const [allProjects, setAllProjects] = useState([]);
     const [pitchedProjects, setPitchedProjects] = useState([]);
     const [activeProjects, setActiveProjects] = useState([]);
 
-    useEffect(() => {   
-        const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
-        FetchRolesByDevId(ctyId).then((data) => setActiveProjects(data.filter((project) => project.projects.status == 7)));
-        console.log(allProjects)
-    }, []);
+
+
+    // useEffect(() => {   
+    //     const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
+    //     FetchRolesByDevId(ctyId).then((activeProjects) => setActiveProjects(activeProjects.filter((project) => project.projects.status == 7)));
+    //     console.log(activeProjects)
+    // }, []);
 
     useEffect(() => {   
         const ctyId = "7ad1e3cc-fbd5-4c30-9afb-cbad1de655b6";
         FetchRolesByDevId(ctyId).then((data) => setPitchedProjects(data.filter((project) => project.projects.status == 3)));
-        console.log(allProjects)
+        console.log(pitchedProjects)
     }, []);
 
     
@@ -47,11 +49,11 @@ export default function DisplayCharitiesDashboard() {
               Your Pitches for a new Project
             </h1>
             <ol>
-              {allProjects.map((allProject) => {
+              {pitchedProjects.map((pitchedProjects) => {
                 return (
                   <CharitiesPitch
-                    key={allProject.id}
-                    project={allProject.projects}
+                    key={pitchedProjects.id}
+                    project={pitchedProjects.projects}
                   />
                 );
               })}

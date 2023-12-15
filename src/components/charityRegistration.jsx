@@ -109,11 +109,11 @@ export default function CharityRegistration() {
       } else {
         // Now Insert the new users preferences into the charity_user_pref table
         try {
+          console.log(registration);
           const { error2 } = await supabase.from("charity_user_pref").insert({
             id: usersId,
             first_name: registration.first_name,
             surname: registration.surname,
-            email: registration.email,
             contact_number: registration.contact_number,
             org_name: registration.org_name,
             charity_reg_no: registration.charity_reg_no,
@@ -282,7 +282,7 @@ export default function CharityRegistration() {
                     type="checkbox"
                     id="terms&conditions"
                     name="t_and_c"
-                    onChange={handleInput}
+                    onChange={handleChkBoxInput}
                     value={registration.t_and_c}
                     className="mr-2 mt-1 "
                     required

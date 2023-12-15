@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { supabase } from "../../supabase.js";
+import { useRouter } from "next/navigation";
+
 //Client component needs hydrating in the browser, "use client" allows this to happen
 // React import for UseState hook, manage component's local state
 
@@ -8,18 +12,18 @@ import React, { useState } from "react";
 //State variable "Registration" and function "setRegistration" to update state
 //"Registration" state is an object that holds the form fields and its initial values
 // Each field is initially set to an empty string, this will update when user interacts with form entering values.
-//
 
 export default function CharityRegistration() {
   const [registration, setRegistration] = useState({
     first_name: "",
     surname: "",
+    email: "",
     contact_number: "",
     org_name: "",
     charity_reg_no: "",
     password: "",
-    confirmpassword: "",
-    t_and_c: "",
+    confirm_password: "",
+    t_and_c: false,
   });
 
   // "regSuccess" and "setRegSuccess" is a use state variable to track whether registation was successful
@@ -28,12 +32,22 @@ export default function CharityRegistration() {
   // "isValid" and "setIsValid" is a use state variable to track the validity of the form
   // "submissionMessage" and "setSubmissionMessage" is a use state variable to store a message on submission whether it was a success or failure.
 
+  const router = useRouter();
+
   const [regSuccess, setRegSuccess] = useState(false);
   const [regSuccessMessage, setRegSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [submissionMessage, setSubmissionMessage] = useState("");
 
+  const handleChkBoxInput = (e) => {
+    const { name, type, checked, value } = e.target;
+    setRegistration((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+  // hi
   // This function is a replication of the user using the functionality of the platform, it handles the input changes in the form fields.
   const handleInput = (e) => {
     // This extravts the field name and field value from the event object (Key value pair)
@@ -51,11 +65,12 @@ export default function CharityRegistration() {
     const isValidForm =
       registration.first_name &&
       registration.surname &&
+      registration.email &&
       registration.contact_number &&
       registration.org_name &&
       registration.charity_reg_no &&
       registration.password &&
-      registration.password === registration.confirmpassword;
+      registration.password === registration.confirm_password;
     registration.t_and_c && setIsValid(isValidForm);
 
     // This will return and update the "isValid" state based on the forms overall validity
@@ -64,7 +79,7 @@ export default function CharityRegistration() {
 
   // This function is in play when the registration form is submitted
   // the e.preventDefault stops an empty/default form being submitted
-  const submitReg = (e) => {
+  const submitReg = async (e) => {
     e.preventDefault();
 
     // Uses previous function above and shows an alert if the form isn't valid and exits with the return.
@@ -74,64 +89,73 @@ export default function CharityRegistration() {
       );
       return;
     }
+    // -------------------------------------------
+    // Pass the registration form data to the database to complete the registration.
+    // This is achieved by inserting a main_users row for the new user and then attaching a dev_user_pref table row to that new user
 
-    // A varaible that gets the URL to which the form should be submitted from the forms "action", this is the form being submitted and sent.
-    const regUrl = e.target.action;
-
-    // Using the fetch API to send a POST request to the registration URL.
-    // Converts the registration data to JSON format to be read.
-    fetch(regUrl, {
-      method: "POST",
-      body: JSON.stringify(registration),
-      headers: {
-        "Content-Type": "application/json",
-        accept: "application/json",
-      },
-    })
-      // Checks if the HTTP response status is "OK"
-      // If not, throw error with HTTP status.
-      // If the response is "OK" parse it was JSON and return result.
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRegSuccess(true);
-        setRegSuccessMessage(data.submission_text);
-        setRegistration({
-          first_name: "",
-          surname: "",
-          contact_number: "",
-          org_name: "",
-          charity_reg_no: "",
-          password: "",
-          confirm_password: "",
-          t_and_c: "",
-        });
-        setSubmissionMessage("Thank you for your submission!");
-
-        alert("Thank you for your submission!");
-
-        window.history.back();
-      })
-      .catch((error) => {
-        console.error("Error during fetch:", error);
-
-        let errorMessage = "An error occurred. Please try again later.";
-
-        if (error.message.includes("NetworkError")) {
-          errorMessage =
-            "Network error. Please check your internet connection.";
-        } else if (error.message.includes("HTTP error! Status:")) {
-          errorMessage = "Server error. Please try again later.";
-        }
-
-        alert(errorMessage);
-
-        setError(errorMessage);
+    // Insert the new user into the main_users table
+    const usersId = uuidv4();
+    try {
+      const { error } = await supabase.from("main_users").insert({
+        id: usersId,
+        email: registration.email,
+        type: "CTY",
+        password: registration.password,
       });
+
+      if (error) {
+        console.log(error);
+        return;
+      } else {
+        // Now Insert the new users preferences into the charity_user_pref table
+        try {
+          const { error2 } = await supabase.from("charity_user_pref").insert({
+            id: usersId,
+            first_name: registration.first_name,
+            surname: registration.surname,
+            email: registration.email,
+            contact_number: registration.contact_number,
+            org_name: registration.org_name,
+            charity_reg_no: registration.charity_reg_no,
+            t_and_c: registration.t_and_c,
+          });
+          if (error2) {
+            console.log(error2);
+            return;
+
+            // Both database inserts are successful so refresh the pae.
+          } else {
+            setRegSuccess(true);
+            // setRegSuccessMessage(data.submission_text);
+            setRegistration({
+              first_name: "",
+              surname: "",
+              email: "",
+              contact_number: "",
+              org_name: "",
+              charity_reg_no: "",
+              password: "",
+              confirm_password: "",
+              t_and_c: "",
+            });
+            setSubmissionMessage("Thank you for your submission!");
+
+            alert("Thank you for your submission!");
+
+            router.push("/charity/dashboard");
+
+            // window.history.back();
+            return;
+          }
+        } catch (error) {
+          console.log("Failed to add to charity_user_pref");
+          return;
+        }
+      }
+    } catch (error) {
+      console.log("Failed to add to main_users");
+      return;
+    }
   };
 
   return (
@@ -189,7 +213,7 @@ export default function CharityRegistration() {
             </div>
             <div>
               <input
-                type={showPassword ? "text" : "password"}
+                type="text"
                 name="email"
                 onChange={handleInput}
                 value={registration.email}

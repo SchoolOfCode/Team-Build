@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { v4 as uuidv4 } from "uuid";
-import { supabase } from "../../supabase.js"
+import { supabase } from "../../supabase.js";
 import { useRouter } from "next/navigation";
 
 export default function DeveloperRegistration() {
@@ -15,7 +15,7 @@ export default function DeveloperRegistration() {
     email: "",
     possible_mentor: false,
     password: "",
-    confirmpassword: "",
+    confirm_password: "",
     t_and_c: false,
   });
 
@@ -31,7 +31,6 @@ export default function DeveloperRegistration() {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
-    console.log(fieldName, fieldValue);
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,
@@ -56,7 +55,7 @@ export default function DeveloperRegistration() {
       registration.hours_range &&
       registration.email &&
       registration.password &&
-      registration.password === registration.confirmpassword;
+      registration.password === registration.confirm_password;
     registration.t_and_c && setIsValid(isValidForm);
     return isValidForm;
   };
@@ -116,7 +115,7 @@ export default function DeveloperRegistration() {
               email: "",
               possible_mentor: "",
               password: "",
-              confirmpassword: "",
+              confirm_password: "",
               t_and_c: "",
             });
             setSubmissionMessage("Thank you for your submission!");
@@ -207,7 +206,7 @@ export default function DeveloperRegistration() {
 
               <div>
                 <input
-                  type={showPassword ? "text" : "password"}
+                  type="text"
                   name="email"
                   onChange={handleInput}
                   value={registration.email}

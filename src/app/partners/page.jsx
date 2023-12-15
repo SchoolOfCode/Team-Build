@@ -22,7 +22,7 @@ export default function Partners() {
               the possibilities of collaboration for a brighter future.
             </p>
             <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-              <Link href={"../developers"}>Work with us</Link>{" "}
+              <Link href="/contact-us">Work with us</Link>{" "}
             </button>
           </div>
         </div>

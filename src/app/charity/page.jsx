@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import Image from 'next/image';
+
 export default function Charity() {
   return (
     <div className="flex flex-col justify-between">
@@ -14,7 +16,13 @@ export default function Charity() {
           <p className="text-4xl font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
             Building Websites, Transforming Lives with Every Line of Code
           </p> 
-          <image src="/how-it-works-desktop.svg"></image>
+          <div>
+          <Image
+      src="//how-it-works-desktop.svg"
+      width={556}
+      height={655}
+      alt="How it works diagram"
+    /></div>
           <button className="button mr-20 bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
             <Link href={"/charity/register"}>Join us</Link>{" "}
           </button>

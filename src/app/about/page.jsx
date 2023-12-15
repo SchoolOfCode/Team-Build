@@ -12,22 +12,14 @@ export default function About() {
 
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-10 lg:align-bottom lg:w-4/5">
             <p className="text-md lg:text-lg font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-              Empowering People, Changing Tech, Doing Good Tech for Good is on a
-              mission to empower those entering the tech world, make tech a more
-              inclusive place, and do good things for charities. We want to show
-              that tech is open to everyone. Our mission is to change how people
-              see tech jobs, make learning tech enjoyable, and contribute to
-              positive changes that make the world a bit better.
+              Build is on a mission to empower charities, revolutionising how they harness technology. We're a platform that connects charities with skilled developers. Our focus is on fostering an inclusive tech community and leveraging technology for charitable causes.
             </p>
           </div>
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-10 lg:align-bottom lg:w-4/5">
             <p className="text-md lg:text-lg font-bold mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-              Our Vision Tech that Brings Us Together, for a Better Tomorrow
-              Tech for Good dreams of a world where technology is for everyone,
-              bringing us closer together. We aim to break down barriers, not
-              just in jobs but in how everyone can be a part of the tech world.
-              Picture a future where technology reflects the stories of all of
-              us.
+            Our vision is simple yet powerful — technology should bring people together for a better tomorrow. Build is committed to making tech accessible to all. We have a pool of talented developers from different backgrounds who are looking to help charities. Picture a future where technology reflects the stories of all of us.
+            
+              
             </p>
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function Developers() {
 
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-20 lg:align-bottom lg:w-4/5">
             <p className="text-lg lg:text-2xl font-bold lg:mb-36 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-              Calling all aspiring developers! Join our Tech for Good community
+              Calling all aspiring developers! Join the Build community
               and be part of projects that matter. As a junior developer, this
               is your chance to: Dive into real-world, commercial projects while
               making a positive impact. Collaborate with seasoned developers.

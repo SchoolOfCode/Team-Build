@@ -7,9 +7,9 @@ export default function Charity() {
     <div className="flex flex-col justify-between">
       <div className="lg:mx-40 ml-6">
         <h1 className="mt-10 leading-snug text-6xl font-bold lg:text-8xl lg:max-w-3xl lg:leading-snug lg:w-1/2">
-          Tech Talent, Charitable{" "}
+          How it {" "}
           <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
-            Hearts
+            works
           </span>
         </h1>
         <div className="mt-10 flex flex-col justify-between lg:flex lg:flex-row-reverse lg:align-bottom lg:w-4/5">

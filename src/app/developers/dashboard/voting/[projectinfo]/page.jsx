@@ -1,9 +1,8 @@
 import Navbar from "@/components/navbar";
 import FetchProjectById from "@/db-components/FetchProjectById";
 
-
-
-export default async function ProjectInfo({ params }) {
+export default async function ProjectInfofromDash ({ params }) {
+  console.log("voting params", params)
   const currProjectArrray = await FetchProjectById(params.projectinfo);
   const currProject = currProjectArrray[0];
 

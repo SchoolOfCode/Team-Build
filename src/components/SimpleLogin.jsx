@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Link from "next/link";
 import FetchUserByEmail from "@/db-components/FetchUserByEmail";
 import { useRouter } from "next/navigation";
 

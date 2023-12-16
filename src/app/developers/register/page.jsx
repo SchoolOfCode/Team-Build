@@ -1,6 +1,6 @@
 
 import "../../../../globals.css"
-import Link from "next/link";
+
 import DeveloperRegistration from "@/components/developerRegistration";
 
 export default function DeveloperRegister() {

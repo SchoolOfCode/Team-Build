@@ -22,7 +22,7 @@ export default function DisplayCharitiesDashboard() {
 
   useEffect(() => {
     const ctyId = localStorage.getItem("userId");
-    console.log("charityId", ctyId);
+   
     FetchRolesByDevId(ctyId).then((data) => {
       const filteredProjects = data.filter((project) =>
         isActiveValue.includes(project.projects.status)

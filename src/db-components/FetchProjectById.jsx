@@ -1,7 +1,10 @@
 import { supabase } from "../../supabase.js";
 
+
+
 //Fetch all projects with the status code passed in as a parameter
-export default async function FetchProjectById(project_id) {
+export default async function FetchProjectById({project_id}) {
+  
   try {
     const { data, error } = await supabase
       .from("projects")
@@ -12,6 +15,7 @@ export default async function FetchProjectById(project_id) {
       console.log("error", error);
       return null;
     } else {
+      console.log("data", data)
       return data;
     }
   } catch (error) {

@@ -1,18 +1,14 @@
 "use client";
-import Link from "next/link";
-import CharityRegistration from "@/components/charityRegistration";
+
+import SimpleLogin from "@/components/SimpleLogin";
+
 
 export default function Login() {
   return (
-    <div className="flex flex-col">
-      <div className="lg:flex lg:flex-col lg:items-center lg:justify-center lg:flex-grow">
-        <button className="button bg-red-400 font-bold rounded w-48 h-16 text-md lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-          <Link href="/developers/dashboard">Developers Dashboard</Link>
-        </button>
-        <button className="button bg-red-400 font-bold rounded w-48 h-16 text-md lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-          <Link href="/charity/dashboard">Charity Dashboard</Link>
-        </button>
-      </div>
+    <div className="text-left mx-3  lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+      <div className="">
+      <SimpleLogin />
+    </div>
     </div>
   );
 }

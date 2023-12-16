@@ -16,9 +16,8 @@ export default function DisplayDevelopersDashboard2() {
 
   // Display the initial list of projects that this developer is already active in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 4)
-
   useEffect(() => {
-    const DevsId = "bd688fda-9486-4c46-9651-89afb301fe91";
+    const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) =>
       setActiveProjects(data.filter((activeProject) => activeProject.role == 4))
     );
@@ -27,7 +26,7 @@ export default function DisplayDevelopersDashboard2() {
   // Display the initial list of projects that this developer has already registered interest in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 2)
   useEffect(() => {
-    const DevsId = "bd688fda-9486-4c46-9651-89afb301fe91";
+    const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) =>
       setInterestedProjects(
         data.filter((interestedProject) => interestedProject.role == 2)
@@ -43,10 +42,9 @@ export default function DisplayDevelopersDashboard2() {
 
   // This function is used to register a developers interest in an available project by:
   // - inserting a users_of_roles table instance to link the developer to the project
-  // - calling setAvailableProjects to update State
-
+  // - calling setAvailableProjects to update State by removing the project added from the list
   function regInterestInProject(project_id) {
-    const DevsId = "bd688fda-9486-4c46-9651-89afb301fe91";
+    const DevsId = localStorage.getItem("userId");
 
     InsertRolesOfUsers(DevsId, project_id, 2);
 
@@ -54,7 +52,6 @@ export default function DisplayDevelopersDashboard2() {
       prevArray.filter((obj) => obj.project_id !== project_id)
     );
 
-    console.log("here");
     FetchRolesByDevId(DevsId).then((data) =>
       setInterestedProjects(
         data.filter((interestedProject) => interestedProject.role == 2)

@@ -31,6 +31,8 @@ export default function DeveloperRegistration() {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
+    console.log(fieldName, fieldValue);
+    
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,

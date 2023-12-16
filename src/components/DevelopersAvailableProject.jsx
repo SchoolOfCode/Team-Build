@@ -1,8 +1,10 @@
-// Return the line item for the developers active project
+// Return the line item for the developers active project.
 export default function DevelopersAvailableProject({
   project,
   regInterestInProjectFunc,
-}) {
+}) 
+{
+  //This function fires off the code for the developer to register their interest in an available project.
   function handleClick() {
     return regInterestInProjectFunc(project.project_id);
   }
@@ -19,7 +21,7 @@ export default function DevelopersAvailableProject({
           className="border-4 border-emerald-500 w-20 lg:w-52 text-center text-emerald-500 font-bold justify-self-end"
           onClick={handleClick}
         >
-          I am interested
+          Register my interest
         </button>
       </span>
     </li>

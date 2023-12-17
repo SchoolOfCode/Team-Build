@@ -17,7 +17,7 @@ export default function Developers() {
               Calling all aspiring developers! Join the Build community
               and be part of projects that matter. As a junior developer, this
               is your chance to: dive into real-world, commercial projects while
-              making a positive impact. Collaborate with seasoned developers and receive mentorship to accelerate your learning. Build a portfolio
+              making a positive impact. Receive mentorship and collaborate with seasoned developers to accelerate your learning. Build a portfolio
               showcasing both your coding skills and commitment to social good.
               Your journey towards meaningful experience starts here — where
               coding meets purpose.

@@ -16,9 +16,8 @@ export default function Developers() {
             <p className="text-lg lg:text-2xl font-bold lg:mb-36 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
               Calling all aspiring developers! Join the Build community
               and be part of projects that matter. As a junior developer, this
-              is your chance to: Dive into real-world, commercial projects while
-              making a positive impact. Collaborate with seasoned developers.
-              Receive mentorship to accelerate your learning. Build a portfolio
+              is your chance to: dive into real-world, commercial projects while
+              making a positive impact. Receive mentorship and collaborate with seasoned developers to accelerate your learning. Build a portfolio
               showcasing both your coding skills and commitment to social good.
               Your journey towards meaningful experience starts here — where
               coding meets purpose.

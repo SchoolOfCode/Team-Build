@@ -19,7 +19,7 @@ export default function Testimonials() {
               No catch. <br /> We only work with charities.
             </p>
             <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-              <Link href={"../developers"}>Work with us</Link>{" "}
+              <Link href={"../charity"}>Find out more</Link>{" "}
             </button>
           </div>
         </div>

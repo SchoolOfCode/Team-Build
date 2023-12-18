@@ -42,7 +42,9 @@ export default function NavbarComponent() {
                   <div className="inset-0 flex justify-center items-center relative">
                     <h1 className="text-5xl text-black pt-1 pl-1">B</h1>
                     <div className="absolute inset-0 flex justify-center items-center">
-                      <h1 className="text-5xl text-emerald-500 shadow-black">B</h1>
+                      <h1 className="text-5xl text-emerald-500 shadow-black">
+                        B
+                      </h1>
                     </div>
                   </div>
                 </div>
@@ -106,12 +108,6 @@ export default function NavbarComponent() {
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
               <li className="">
-                <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                 LOG IN
-                </Link>
-                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
-              </li>
-              <li className="">
                 <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
                   CONTACT US
                 </Link>
@@ -121,6 +117,20 @@ export default function NavbarComponent() {
                 <Link href="/about" onClick={() => setNavbar(!navbar)}>
                   ABOUT US
                 </Link>
+              </li>
+
+              <li className="">
+                <Link href="/login" onClick={() => setNavbar(!navbar)}>
+                  LOG IN
+                </Link>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+              </li>
+
+              <li className="ml-auto">
+                <Link href="/signup" onClick={() => setNavbar(!navbar)}>
+                  SIGN UP
+                </Link>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
 
               {/* HR lines and social links in mobile mode only */}
@@ -278,11 +288,7 @@ export default function NavbarComponent() {
                   OUR PARTNERS
                 </Link>
               </li>
-              <li className="">
-                <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                  LOG IN
-                </Link>
-              </li>
+
               <li className="">
                 <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
                   CONTACT US
@@ -293,6 +299,20 @@ export default function NavbarComponent() {
                   ABOUT US
                 </Link>
               </li>
+              <div>
+                <li className="ml-auto">
+                  <Link href="/login" onClick={() => setNavbar(!navbar)}>
+                    LOG IN
+                  </Link>
+                </li>
+              </div>
+              <div>
+                <li className="ml-auto">
+                  <Link href="/signup" onClick={() => setNavbar(!navbar)}>
+                    SIGN UP
+                  </Link>
+                </li>
+              </div>
             </ul>
           </div>
         </div>

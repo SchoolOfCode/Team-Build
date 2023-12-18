@@ -1,4 +1,6 @@
 "use client";
+import Image from "next/image";
+import yellowlike from "../../public/yellow-like.png";
 //import React, { useState } from "react";
 //import DeveloperDashboard from '../developers/dashboard/page';
 //import Developers from '../developers/page';
@@ -38,9 +40,29 @@ export default function ProjectVotingCard(params) {
         <p className="col-span-2">{project.short_desc}</p>
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button onClick={handleClickOne} className="">
+            <Image
+              src={yellowlike}
+              width={48}
+              height={48}
+              alt="Picture of the author"
+            />
             Vote Up
           </button>
-          <button onClick={handleClickTwo} className="">
+          <button onClick={handleClickTwo} className="flex flex-col">
+            <span className="flex flex-row">
+              <Image
+                src={yellowlike}
+                width={48}
+                height={48}
+                alt="Picture of the author"
+              />
+              <Image
+                src={yellowlike}
+                width={48}
+                height={48}
+                alt="Picture of the author"
+              />
+            </span>
             Vote Up More
           </button>
         </span>
@@ -48,6 +70,10 @@ export default function ProjectVotingCard(params) {
     </div>
   );
 }
+
+/*
+
+*/
 
 /*
 <li className="lg:grid lg:grid-cols-6 lg:border-b lg:border-slate-400 lg:mr-20 border-b border-slate-700 pb-4">

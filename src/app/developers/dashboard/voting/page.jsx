@@ -1,11 +1,12 @@
 import DisplayProjectsForVoting from "@/components/DisplayProjectsForVoting";
+import Image from "next/image";
 
 //clear the cache of projects fetched every 5 seconds?
 //export const revalidate = 5;
 
 export default function VotingPage() {
   return (
-    <div className="lg:mt-[10px] text-left lg:m-auto lg:h-screen lg:bg-slate-50 lg:flex lg:flex-col lg:text-xl lg:w-10/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+    <div className="lg:overflow-auto lg:mt-[10px] text-left lg:m-auto lg:h-screen lg:bg-slate-50 lg:flex lg:flex-col lg:text-xl lg:w-10/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <div className="flex flex-col justify-center">
         <h1 className="m-4 leading-snug text-3xl font-bold lg:text-5xl lg:leading-snug">
           Cast your{" "}
@@ -15,7 +16,7 @@ export default function VotingPage() {
         </h1>
         <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
       </div>
-      <DisplayProjectsForVoting />;
+      <DisplayProjectsForVoting />
     </div>
   );
 }

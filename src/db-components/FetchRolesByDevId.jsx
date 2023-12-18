@@ -2,17 +2,14 @@ import { supabase } from "../../supabase.js";
 
 //Fetch all projects with the status code  & Developers Id passed in as a parameter
 export default async function FetchRolesByDevId(id) {
-  console.log(id);
-  try {
+   try {
       const { data, error } = await supabase.from('roles_of_users').select('id, role, projects ( project_id, title, short_desc, status )').eq("id", id);
-     console.log(data);
-     console.log(error);
+     
       if (error) {
       console.log("error", error);
       return null;
     } else {
-      console.log(data, "Here it is")
-      return data;
+            return data;
     }
   } catch (error) {
     console.log("Failed to fetch developers user roles");

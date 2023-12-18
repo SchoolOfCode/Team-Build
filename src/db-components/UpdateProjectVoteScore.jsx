@@ -5,10 +5,10 @@ import { supabase } from "../../supabase.js";
 
 export default async function UpdateProjectVoteScore({project_id, total_score, score}) {
 
-  console.log(project_id, total_score, score);
+  
   // Update the total_score
 total_score = total_score + score;
-console.log(total_score);
+
 
   // Update the instance of the projects table on the database
   try {

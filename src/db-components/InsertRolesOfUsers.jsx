@@ -4,7 +4,7 @@ import { supabase } from "../../supabase.js";
 //  It inserts a new instance of users_of_roles
 
 export default async function InsertUsersOfRoles( devsId, project_id, role ) {
-  console.log(devsId, project_id, role);
+  
   try {
     const { error } = await supabase.from("roles_of_users").insert({
       id: devsId,

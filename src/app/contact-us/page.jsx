@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+
 import ContactForm from "@/components/ContactForm";
 
 export default function ContactUs() {

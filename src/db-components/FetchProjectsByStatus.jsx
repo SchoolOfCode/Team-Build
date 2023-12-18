@@ -7,9 +7,7 @@ export default async function FetchProjectsByStatus(status) {
       .from("projects")
       .select()
       .eq("status", status);
-
-      console.log(data);
-      
+          
     if (error) {
       console.log("error", error);
       return null;

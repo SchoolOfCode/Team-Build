@@ -140,7 +140,7 @@ export default function CharityRegistration() {
             });
             setSubmissionMessage("Thank you for your submission!");
 
-            alert("Thank you for your submission!");
+            //alert("Thank you for your submission!");
 
             router.push("/charity/dashboard");
 
@@ -288,7 +288,7 @@ export default function CharityRegistration() {
                     required
                   />
                   Click here to agree to the
-                  <Link href="../termsandconditions">
+                  <Link href="../termsandconditions" target="_blank">
                     <u>
                       <b className="ml">Terms and Conditions</b>
                     </u>

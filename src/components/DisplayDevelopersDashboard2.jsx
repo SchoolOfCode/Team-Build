@@ -44,6 +44,7 @@ export default function DisplayDevelopersDashboard2() {
     const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) => {
     const filteredArray = data.filter((entry) => entry.role === 2);
+   
     
     //Now build a simple array of project id's to exclude
     const projectIdArray = filteredArray.map((entry) => entry.projects.project_id);
@@ -65,11 +66,11 @@ export default function DisplayDevelopersDashboard2() {
   function regInterestInProject(project_id) {
     const DevsId = localStorage.getItem("userId");
 
-    InsertRolesOfUsers(DevsId, project_id, 2);
+    InsertRolesOfUsers(DevsId, project_id, 2). then (() => 
 
     setAvailableProjects((prevArray) =>
       prevArray.filter((obj) => obj.project_id !== project_id)
-    );
+    ));
 
     FetchRolesByDevId(DevsId).then((data) =>
       setInterestedProjects(

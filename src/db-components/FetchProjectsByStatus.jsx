@@ -6,12 +6,14 @@ export default async function FetchProjectsByStatus(status) {
     const { data, error } = await supabase
       .from("projects")
       .select()
-      .eq("status", status);
-          
+      .eq("status", status)
+      .order("total_score", { ascending: false });
+
     if (error) {
       console.log("error", error);
       return null;
     } else {
+      console.log("inside fetch", data);
       return data;
     }
   } catch (error) {

@@ -3,9 +3,10 @@ import { supabase } from "../../supabase.js";
 // This function takes in deveopers id, project id and score as parameters
 //  It inserts a new instance of vote.
 
-export default async function InsertVote({ devsId, project_id, score }) {
+export default async function InsertVote( devsId, project_id, score ) {
   
    try {
+    console.log(devsId, project_id, score)
     const { error } = await supabase.from("votes").insert({
       id: devsId,
       project_id: project_id,

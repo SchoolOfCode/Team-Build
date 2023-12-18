@@ -23,10 +23,12 @@ export default function DisplayProjectsForVoting() {
     console.log(project_id)
     const devId = localStorage.getItem("userId");
     InsertVote(devId, project_id, 1).then(() =>
-      setIsVotedFor(!isVotedFor)
+      setIsVotedFor(isVotedFor),
+      console.log(isVotedFor)
     );
      }
 
+   
   //Function that is invoked when the upvote 2 button is clicked. This inserts a votes intersection table,
   //and adds two to the total_score for the project using a database trigger function.
   function functionToVoteTwo(project_id) {
@@ -43,10 +45,8 @@ export default function DisplayProjectsForVoting() {
           Vote for your favourite projects
         </h1>
         <ol>
-          {console.log("here", projectsForVoting)}
-            {projectsForVoting.map((projectForVoting) => {
-            console.log(projectForVoting);
-            return (
+                      {projectsForVoting.map((projectForVoting) => {
+                       return (
               <ProjectVotingCard
                 key={projectForVoting.project_id}
                 project={projectForVoting}

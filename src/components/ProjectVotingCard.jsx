@@ -21,14 +21,15 @@ export default function ProjectVotingCard(params) {
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.
-  function handleClickOne() {
-    () => setSubmitted(!submitted);
+    function handleClickOne() {
+    setSubmitted(!submitted); 
     return functionToVoteOne(project.project_id);
   }
 
   //Function that is invoked when the upvote 2 button is clicked. This inserts a votes intersection table,
   //and adds two to the total_score for the project using a database trigger function.
   function handleClickTwo() {
+    setSubmitted(!submitted); 
     return functionToVoteTwo(project.project_id);
   }
 

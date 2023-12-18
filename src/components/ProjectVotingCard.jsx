@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import yellowlike from "../../public/yellow-like.png";
-//import React, { useState } from "react";
+import React, { useState } from "react";
 //import DeveloperDashboard from '../developers/dashboard/page';
 //import Developers from '../developers/page';
 
@@ -10,6 +10,8 @@ import Link from "next/link";
 // Return the project voting card
 export default function ProjectVotingCard(params) {
   // const [isVotedFor, setIsVotedFor] = useState(false);
+
+  const [submitted, setSubmitted] = useState(false);
 
   console.log(params);
 
@@ -20,6 +22,7 @@ export default function ProjectVotingCard(params) {
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.
   function handleClickOne() {
+    () => setSubmitted(!submitted);
     return functionToVoteOne(project.project_id);
   }
 
@@ -39,7 +42,10 @@ export default function ProjectVotingCard(params) {
         <h1 className="col-span-1">{project.title}</h1>
         <p className="col-span-2">{project.short_desc}</p>
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
-          <button onClick={handleClickOne} className="">
+          <button
+            onClick={handleClickOne}
+            className={submitted === false ? "bg-red-900" : "bg-green-900"}
+          >
             <Image
               src={yellowlike}
               width={48}

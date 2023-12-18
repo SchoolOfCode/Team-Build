@@ -20,9 +20,8 @@ export default function DisplayCharitiesDashboard() {
   //  - 1,2,3,5 or 6 for pitched projects
   //  - 7,8 or 9 for active projects
 
-  useEffect(() => {
-    const ctyId = localStorage.getItem("userId");
-   
+useEffect(() => {
+    const ctyId = localStorage.getItem("userId"); 
     FetchRolesByDevId(ctyId).then((data) => {
       const filteredProjects = data.filter((project) =>
         isActiveValue.includes(project.projects.status)

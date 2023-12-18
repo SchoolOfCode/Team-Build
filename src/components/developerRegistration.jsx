@@ -22,17 +22,19 @@ export default function DeveloperRegistration() {
   const router = useRouter();
 
   const [regSuccess, setRegSuccess] = useState(false);
-  const [regSuccessMessage, setRegSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   const handleInput = (e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
-    console.log(fieldName, fieldValue);
-    
+    if (fieldName === "password") {
+      validatePassword(fieldValue);
+    }
+
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,
@@ -48,7 +50,13 @@ export default function DeveloperRegistration() {
     }));
   };
 
+  // ...
+
   const validateForm = () => {
+    const isValidEmailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      registration.email
+    );
+
     const isValidForm =
       registration.first_name &&
       registration.surname &&
@@ -56,10 +64,32 @@ export default function DeveloperRegistration() {
       registration.tech_background &&
       registration.hours_range &&
       registration.email &&
+      isValidEmailFormat &&
       registration.password &&
       registration.password === registration.confirm_password;
+
+    if (!isValidEmailFormat) {
+      alert("Please enter a valid email address.");
+    }
+
     registration.t_and_c && setIsValid(isValidForm);
+
     return isValidForm;
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "Password must be at least 6 characters and include a number, a capital letter, and a special character."
+      );
+      return false;
+    } else {
+      setPasswordError("");
+      return true;
+    }
   };
 
   const submitReg = async (e) => {
@@ -123,9 +153,9 @@ export default function DeveloperRegistration() {
             localStorage.setItem("userId", usersId);
             setSubmissionMessage("Thank you for your submission!");
 
-            alert("Thank you for your submission!");
-
-            router.push("/developers/dashboard");
+            setTimeout(() => {
+              router.push("/developers/dashboard");
+            }, 3000);
 
             return;
           }
@@ -149,7 +179,6 @@ export default function DeveloperRegistration() {
         </h1>
         {regSuccess ? (
           <div>
-            {regSuccessMessage}
             <div className="text-green-500">{submissionMessage}</div>
           </div>
         ) : (
@@ -236,7 +265,11 @@ export default function DeveloperRegistration() {
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
+              {passwordError && (
+                <div className="text-red-500">{passwordError}</div>
+              )}
             </div>
+
             <div>
               <input
                 type={showPassword ? "text" : "password"}
@@ -258,18 +291,22 @@ export default function DeveloperRegistration() {
                 required
               >
                 <option value="" disabled>
-                  Select your hour range
+                  How many hours can you commit a week?
                 </option>
-                <option value="1">0 - 2</option>
-                <option value="2">2 - 5</option>
-                <option value="3">5 - 10</option>
-                <option value="4">10 - 20</option>
-                <option value="5">20+</option>
+                <option value="1">1 - 2 hours per week</option>
+                <option value="2">2 - 5 hours per week</option>
+                <option value="3">5 - 10 hours per week</option>
+                <option value="4">10 - 20 hours per week</option>
+                <option value="5">More than 20+ hours per week</option>
               </select>
             </div>
-            <div>
-              <label className="border-b pb-2 border-gray-600 text-xl text-gray-600 placeholder:text-xl w-full">
-                Willing to mentor a junior dev?
+            <div className="flex items-center">
+              <label className="text-xl text-gray-600 mr-2">
+                Are you willing to commit to our mentorship programme?
+                <span className="text-sm text-gray-400 ml-1">
+                  (This will involve guiding and assisting a junior developer
+                  for at least 30 minutes a week)
+                </span>
               </label>
               <input
                 type="checkbox"
@@ -277,9 +314,9 @@ export default function DeveloperRegistration() {
                 onChange={handleChkBoxInput}
                 value={registration.possible_mentor}
                 className="ml-2"
-                // className="w-full px-4 py-2 border border-gray-300 rounded-md"
-              />{" "}
+              />
             </div>
+
             <div>
               <div className="border-b pb-2 border-gray-600 text-md text-gray-600 placeholder:text-xl w-full">
                 I agree to the{" "}

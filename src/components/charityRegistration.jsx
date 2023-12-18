@@ -35,24 +35,20 @@ export default function CharityRegistration() {
   const router = useRouter();
 
   const [regSuccess, setRegSuccess] = useState(false);
-  const [regSuccessMessage, setRegSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [submissionMessage, setSubmissionMessage] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  const handleChkBoxInput = (e) => {
-    const { name, type, checked, value } = e.target;
-    setRegistration((prevState) => ({
-      ...prevState,
-      [name]: type === "checkbox" ? checked : value,
-    }));
-  };
-  // hi
   // This function is a replication of the user using the functionality of the platform, it handles the input changes in the form fields.
   const handleInput = (e) => {
     // This extravts the field name and field value from the event object (Key value pair)
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
+
+    if (fieldName === "password") {
+      validatePassword(fieldValue);
+    }
 
     // The 2nd half of the useState hook, it updates the "Registration" state using it's previous state and the new value.
     setRegistration((prevState) => ({
@@ -60,8 +56,22 @@ export default function CharityRegistration() {
       [fieldName]: fieldValue,
     }));
   };
+
+  const handleChkBoxInput = (e) => {
+    const { name, type, checked, value } = e.target;
+
+    setRegistration((prevState) => ({
+      ...prevState,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
   // This function validates the registration form, checking if all required fields are filled and the passwords match.
   const validateForm = () => {
+    const isValidEmailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      registration.email
+    );
+
     const isValidForm =
       registration.first_name &&
       registration.surname &&
@@ -71,10 +81,29 @@ export default function CharityRegistration() {
       registration.charity_reg_no &&
       registration.password &&
       registration.password === registration.confirm_password;
+
+    if (!isValidEmailFormat) {
+      alert("Please enter a valid email address.");
+    }
     registration.t_and_c && setIsValid(isValidForm);
 
     // This will return and update the "isValid" state based on the forms overall validity
     return isValidForm;
+  };
+
+  const validatePassword = (password) => {
+    const passwordRegex =
+      /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      setPasswordError(
+        "Password must be at least 6 characters and include a number, a capital letter, and a special character."
+      );
+      return false;
+    } else {
+      setPasswordError("");
+      return true;
+    }
   };
 
   // This function is in play when the registration form is submitted
@@ -126,7 +155,6 @@ export default function CharityRegistration() {
             // Both database inserts are successful so refresh the pae.
           } else {
             setRegSuccess(true);
-            // setRegSuccessMessage(data.submission_text);
             setRegistration({
               first_name: "",
               surname: "",
@@ -140,9 +168,9 @@ export default function CharityRegistration() {
             });
             setSubmissionMessage("Thank you for your submission!");
 
-            //alert("Thank you for your submission!");
-
-            // router.push("/charity/dashboard");
+            setTimeout(() => {
+              router.push("/charity/dashboard");
+            }, 3000);
 
             return;
           }
@@ -166,7 +194,6 @@ export default function CharityRegistration() {
         </h1>
         {regSuccess ? (
           <div>
-            {regSuccessMessage}
             <div className="">{submissionMessage}</div>
           </div>
         ) : (
@@ -240,7 +267,7 @@ export default function CharityRegistration() {
                 value={registration.charity_reg_no}
                 pattern="[0-9]*"
                 className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Charity Registration Number:"
+                placeholder="Charity Registration Number: (6-Digits)"
                 required
               />
             </div>
@@ -262,7 +289,11 @@ export default function CharityRegistration() {
               >
                 {showPassword ? "Hide" : "Show"} Password
               </button>
+              {passwordError && (
+                <div className="text-red-500">{passwordError}</div>
+              )}
             </div>
+
             <div>
               <input
                 type={showPassword ? "text" : "password"}

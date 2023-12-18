@@ -21,7 +21,6 @@ export default function SimpleLogin() {
     // reset the userId in local storage
     localStorage.setItem("userId", "");
 
-    
     FetchUserByEmail(email).then((data) => validateUser(data));
 
     // Validate that this user exists and if not send an alert.
@@ -31,7 +30,6 @@ export default function SimpleLogin() {
       if (data.length == 0) {
         alert("please enter a valid email");
       } else {
-       
         localStorage.setItem("userId", data[0].id);
 
         if (data[0].type === "DEV") {
@@ -44,33 +42,35 @@ export default function SimpleLogin() {
   };
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mt-3 leading-relaxed">Simple Login</h1>
-      <form
-        className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:grid lg:grid-cols-2 lg:gap-10 gap-5"
-        method="POST"
-        action="https://team-5-final-project-pi.vercel.app/developer/register"
-        onSubmit={simpleLogin}
-      >
-        <div>
-          <input
-            type="text"
-            name="email"
-            onChange={handleInput}
-            value={email}
-            className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-            placeholder="Email:"
-            required
-          />
-        </div>
-        <button
-          type="submit"
-          className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-md p-4">
+        <h1 className="text-4xl font-bold mt-3 mb-5 leading-relaxed text-center">
+          Login here
+        </h1>
+        <form
+          className="flex flex-col gap-5"
+          action="https://team-5-final-project-pi.vercel.app/developer/register"
+          method="POST"
         >
-          Enter Email
-        </button>
-        <div className="flex flex-col"></div>
-      </form>
+          <div>
+            <input
+              type="text"
+              name="email"
+              onChange={handleInput}
+              value={email}
+              className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black py-1 px-2 leading-tight focus:outline-none"
+              placeholder="Email:"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="button bg-red-400 font-bold rounded h-12 text-xl"
+          >
+            Enter Email
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

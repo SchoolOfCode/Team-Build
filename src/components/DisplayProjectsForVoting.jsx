@@ -20,6 +20,7 @@ export default function DisplayProjectsForVoting() {
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.
   function functionToVoteOne(project_id) {
+    console.log(project_id)
     const devId = localStorage.getItem("userId");
     InsertVote(devId, project_id, 1).then(() =>
       setIsVotedFor(!isVotedFor)

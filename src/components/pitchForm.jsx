@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { supabase } from "../../supabase.js";
 import Link from "next/link.js";
 import { useRouter } from "next/navigation";
-
+import { useEffect } from "react";
 export default function PitchForm() {
   const [registration, setRegistration] = useState({
     Project_Title: "",
@@ -57,14 +57,17 @@ export default function PitchForm() {
         long_desc: registration.Long_Descr,
         link_to_video: registration.Video_Link,
       });
+     
 
       if (error) {
         console.error(error);
+      
         return;
       } else {
         try {
+          const ctyId = localStorage.getItem("userId");
           const { error2 } = await supabase.from("roles_of_users").insert({
-            id: "169adbae-cb11-4c74-aa55-99c6c8c559df",
+            id: ctyId,
             project_id: projectId,
             role: 1,
           });

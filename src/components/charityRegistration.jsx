@@ -287,8 +287,7 @@ export default function CharityRegistration() {
                     className="mr-2 mt-1 "
                     required
                   />
-                  Click here to agree to the
-                  <Link href="../termsandconditions" target="_blank">
+                  Click here to agree to the <Link href="../termsandconditions" target="_blank">
                     <u>
                       <b className="ml">Terms and Conditions</b>
                     </u>

@@ -32,7 +32,7 @@ export default function DeveloperRegistration() {
     const fieldValue = e.target.value;
 
     console.log(fieldName, fieldValue);
-    
+
     setRegistration((prevState) => ({
       ...prevState,
       [fieldName]: fieldValue,
@@ -122,9 +122,13 @@ export default function DeveloperRegistration() {
             });
             setSubmissionMessage("Thank you for your submission!");
 
-            alert("Thank you for your submission!");
+            // setTimeout(() => {
+            //   setSubmissionMessage("");
+            // }, 30000);
 
-            router.push("/developers/dashboard");
+            // alert("Thank you for your submission!");
+
+            // router.push("/developers/dashboard");
 
             return;
           }

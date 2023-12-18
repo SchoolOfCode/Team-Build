@@ -142,9 +142,8 @@ export default function CharityRegistration() {
 
             //alert("Thank you for your submission!");
 
-            router.push("/charity/dashboard");
+            // router.push("/charity/dashboard");
 
-            // window.history.back();
             return;
           }
         } catch (error) {

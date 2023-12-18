@@ -21,15 +21,15 @@ export default function ProjectVotingCard(params) {
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.
-    function handleClickOne() {
-    setSubmitted(!submitted); 
+  function handleClickOne() {
+    setSubmitted(!submitted);
     return functionToVoteOne(project.project_id);
   }
 
   //Function that is invoked when the upvote 2 button is clicked. This inserts a votes intersection table,
   //and adds two to the total_score for the project using a database trigger function.
   function handleClickTwo() {
-    setSubmitted(!submitted); 
+    setSubmitted(!submitted);
     return functionToVoteTwo(project.project_id);
   }
 
@@ -45,7 +45,7 @@ export default function ProjectVotingCard(params) {
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button
             onClick={handleClickOne}
-            className={submitted === false ? "bg-red-900" : "bg-green-900"}
+            className={submitted === false ? "" : "hidden"}
           >
             <Image
               src={yellowlike}
@@ -55,7 +55,10 @@ export default function ProjectVotingCard(params) {
             />
             Vote Up
           </button>
-          <button onClick={handleClickTwo} className="flex flex-col">
+          <button
+            onClick={handleClickTwo}
+            className={submitted === false ? "" : "hidden"}
+          >
             <span className="flex flex-row">
               <Image
                 src={yellowlike}

@@ -10,9 +10,9 @@ export default function DisplayProjectsForVoting() {
   // Display the initial list of projects that are available to be voted on.
   // These are projects with a status of 3
   useEffect(() => {
-    FetchProjectsByStatus(3).then((data) => {
-      setProjectsForVoting(projectsForVoting);
-    });
+    FetchProjectsByStatus(3).then((data) => 
+      setProjectsForVoting(data.map((projectsForVoting) => projectsForVoting.status == 3))
+    );
   }, []);
 
   return (
@@ -22,12 +22,13 @@ export default function DisplayProjectsForVoting() {
           Vote for your favourite projects
         </h1>
         <ol>
-          {projectsForVoting.map((projectForVoting) => {
+          {console.log("here", projectsForVoting)}
+            {projectsForVoting.map((projectForVoting) => {
             console.log(projectForVoting);
             return (
               <ProjectVotingCard
                 key={projectForVoting.project_id}
-                project={projectForVoting}
+                project={projectsForVoting}
               />
             );
           })}

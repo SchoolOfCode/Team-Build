@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from "react";
 //import DeveloperDashboard from '../developers/dashboard/page';
 //import Developers from '../developers/page';
@@ -10,9 +9,9 @@ import Link from "next/link";
 export default function ProjectVotingCard({ params }) {
   const [isVotedFor, setIsVotedFor] = useState(false);
 
-  console.log(params);
+  console.log({params});
 
-  // const project = params.project;
+  const project = params.project;
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.

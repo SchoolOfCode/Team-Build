@@ -120,6 +120,7 @@ export default function DeveloperRegistration() {
               confirm_password: "",
               t_and_c: "",
             });
+            localStorage.setItem("userId", usersId);
             setSubmissionMessage("Thank you for your submission!");
 
             alert("Thank you for your submission!");

@@ -22,7 +22,7 @@ export default function DisplayDevelopersDashboard2() {
     FetchRolesByDevId(DevsId).then((data) =>
       setActiveProjects(data.filter((activeProject) => activeProject.role == 4))
     );
-  }, []);
+  }, [activeProjects]);
 
   // Display the initial list of projects that this developer has already registered interest in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 2)
@@ -33,7 +33,7 @@ export default function DisplayDevelopersDashboard2() {
         data.filter((interestedProject) => interestedProject.role == 2)
       ),
           );
-  }, []);
+  }, [interestedProjects]);
 
   // Display the initial list of projects that are "available" for the developer to register interest in
   // These projects that have a status of "Accepted in Principle" to become projects (status of 6), and 

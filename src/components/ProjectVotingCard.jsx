@@ -8,21 +8,29 @@ import Link from 'next/link';
 
 
 // Return the project voting card
-export default async function  ProjectVotingCard({project}) {
-
+export default function  ProjectVotingCard({params}) {
+  
+  const [isVotedFor, setIsVotedFor] = useState(false);
+  
+  const project = params.project
+   
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table, 
   //and adds one to the total_score for the project using a database trigger function.
-async function handleClickOne() {
+function handleClickOne() {
   const devId = localStorage.getItem("userId");
-  await InsertVote({ devsId: devId, project_id: project.project_id, score: 1 })
+  InsertVote(devId, project.project_id, 1 ).then(()=> 
+  setIsVotedFor(isVotedFor = true))
+  return (console.log("click One",isVotedFor));
 };
 
  //Function that is invoked when the upvote 2 button is clicked. This inserts a votes intersection table, 
   //and adds two to the total_score for the project using a database trigger function.
-async function handleClickTwo() {
-  const devId = localStorage.getItem("userId");
-  await InsertVote({ devsId: devId, project_id: project.project_id, score: 2 })
-   };
+  function handleClickTwo() {
+    const devId = localStorage.getItem("userId");
+    InsertVote(devId, project.project_id, 2 ).then(()=> 
+    setIsVotedFor(isVotedFor = true))
+    return (console.log("click Two",isVotedFor));
+  };
 
    return (
     

@@ -34,8 +34,8 @@ export default function PitchForm() {
     const isValidForm =
       registration.Project_Title &&
       registration.Short_Descr &&
-      registration.Long_Descr &&
-      registration.Video_Link;
+      registration.Long_Descr;
+    //    registration.Video_Link;
     return isValidForm;
   };
 
@@ -57,13 +57,13 @@ export default function PitchForm() {
         long_desc: registration.Long_Descr,
         link_to_video: registration.Video_Link,
       });
-     
 
       if (error) {
         console.error(error);
-      
+
         return;
       } else {
+        // if there's no error, carry on trying the next block of code
         try {
           const ctyId = localStorage.getItem("userId");
           const { error2 } = await supabase.from("roles_of_users").insert({
@@ -111,27 +111,39 @@ export default function PitchForm() {
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
           >
+
+<div>   
+            <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+            Title: </label>
+            </div>
             <div className="">
-              <input
+              <textarea
                 type="text"
                 name="Project_Title"
                 onChange={handleInput}
                 value={registration.Project_Title}
                 className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Project Title:"
+                // placeholder="Project Title:"
                 required
               />
             </div>
+
+            
+            <div>   
+            <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+              Short Description: </label>
             <div>
-              <input
+              <textarea
                 type="text"
                 name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Brief Summary:"
+                // className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-35 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                // placeholder="Brief Summary:"
                 required
               />
+            </div>
             </div>
 
             <div>
@@ -152,14 +164,14 @@ export default function PitchForm() {
                 Detailed Description:
               </label>
 
-              <input
+              <textarea
                 type="VARCHAR"
                 name="Long_Descr"
                 onChange={handleInput}
                 value={registration.Long_Descr}
                 className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-56 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                required
-              />
+                required></textarea>
+            
             </div>
 
             <div className=" py-2 mr-1">

@@ -14,6 +14,9 @@ export default function ProjectVotingCard(params) {
   const [voteSubmittedMessage, setVoteSubmittedMessage] = useState("");
 
     const project = params.project;
+
+    console.log("her I am", project);
+
  
     const functionToVoteOne = params.functionToVoteOne;
   const functionToVoteTwo = params.functionToVoteTwo;

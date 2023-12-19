@@ -114,7 +114,7 @@ export default function PitchForm() {
 
 <div>   
             <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-              Project Title: </label>
+            Title: </label>
             </div>
             <div className="">
               <textarea
@@ -131,7 +131,7 @@ export default function PitchForm() {
             
             <div>   
             <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-              Brief Summary: </label>
+              Short Description: </label>
             <div>
               <textarea
                 type="text"

@@ -1,15 +1,16 @@
 "use client";
 import FetchProjectById from "@/db-components/FetchProjectById";
 import { useState, useEffect } from "react";
-import Link from "next/link"
+import Link from "next/link";
 
 export default function DisplayProjectInfo(project_id) {
   const [project, setProject] = useState([]);
-
+  console.log(project_id, "Line8 test");
   useEffect(() => {
     FetchProjectById(project_id).then((data) => setProject(data[0]));
   }, []);
 
+  console.log(project_id);
   return (
     <>
       <div className="flex flex-col mr-5">
@@ -27,9 +28,10 @@ export default function DisplayProjectInfo(project_id) {
               <p className="text-md lg:text-lg mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed font-style: italic ml-3">
                 {project.short_desc}
               </p>
-              
-              <p className="font-bold ml-6"><a href={project.link_to_video}>Click here for pitch video!</a></p>
-              
+
+              <p className="font-bold ml-6">
+                <a href={project.link_to_video}>Click here for pitch video!</a>
+              </p>
             </div>
 
             {/* long description */}
@@ -39,8 +41,8 @@ export default function DisplayProjectInfo(project_id) {
               </p>
             </div>
             <button className="button border-4 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
-          <Link href="/dashboard">Back to Dashboard</Link>
-        </button>
+              <Link href="/dashboard">Back to Dashboard</Link>
+            </button>
           </div>
         </section>
       </div>

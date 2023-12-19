@@ -84,14 +84,12 @@ export default function NavbarComponent() {
           >
             <ul className="flex flex-col text-md text-right p-4 ml-32 mr-6 gap-3 bg-zinc-100 w-60 font-bold text-xl mt-7 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] rounded-md">
               <li className="">
-                <Link
-                  href="/developers/dashboard"
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  DEVELOPERS
+                <Link href="/howitworks" onClick={() => setNavbar(!navbar)}>
+                  HOW IT WORKS
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
+
               <li className="">
                 <Link
                   href="/charity/dashboard"
@@ -101,34 +99,41 @@ export default function NavbarComponent() {
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
+
+              <li className="">
+                <Link
+                  href="/developers/dashboard"
+                  onClick={() => setNavbar(!navbar)}
+                >
+                  DEVELOPERS
+                </Link>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+              </li>
+
+              <li className="">
+                <Link href="/about" onClick={() => setNavbar(!navbar)}>
+                  ABOUT US
+                </Link>
+                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
+              </li>
+
               <li className="">
                 <Link href="/partners" onClick={() => setNavbar(!navbar)}>
                   OUR PARTNERS
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
-              <li className="">
-                <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
-                  CONTACT US
-                </Link>
-                <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
-              </li>
-              <li className="">
-                <Link href="/about" onClick={() => setNavbar(!navbar)}>
-                  ABOUT US
-                </Link>
-              </li>
 
               <li className="">
                 <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                  LOG IN
+                  LOG IN / SIGN UP
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
 
-              <li className="ml-auto">
-                <Link href="/signup" onClick={() => setNavbar(!navbar)}>
-                  SIGN UP
+              <li className="">
+                <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
+                  CONTACT US
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
@@ -274,42 +279,39 @@ export default function NavbarComponent() {
           <div className="hidden md:flex-1 justify-between pb-3 mt-8 md:block md:pb-0 md:mt-0">
             <ul className="flex whitespace-nowrap p-4 ml-32 mr-6 gap-4 bg-zinc-100 w-60">
               <li className="">
-                <Link href="/developers" onClick={() => setNavbar(!navbar)}>
-                  DEVELOPERS
+                <Link href="/howitworks" onClick={() => setNavbar(!navbar)}>
+                  HOW IT WORKS
                 </Link>
               </li>
+
               <li className="">
                 <Link href="/charity" onClick={() => setNavbar(!navbar)}>
                   CHARITIES
                 </Link>
               </li>
+
+              <li className="">
+                <Link href="/developers" onClick={() => setNavbar(!navbar)}>
+                  DEVELOPERS
+                </Link>
+              </li>
+
+              <li className="">
+                <Link href="/about" onClick={() => setNavbar(!navbar)}>
+                  ABOUT US
+                </Link>
+              </li>
+
               <li className="">
                 <Link href="/partners" onClick={() => setNavbar(!navbar)}>
                   OUR PARTNERS
                 </Link>
               </li>
 
-              <li className="">
-                <Link href="/contact-us" onClick={() => setNavbar(!navbar)}>
-                  CONTACT US
-                </Link>
-              </li>
-              <li className="">
-                <Link href="/about" onClick={() => setNavbar(!navbar)}>
-                  ABOUT US
-                </Link>
-              </li>
               <div>
                 <li className="ml-auto">
                   <Link href="/login" onClick={() => setNavbar(!navbar)}>
-                    LOG IN
-                  </Link>
-                </li>
-              </div>
-              <div>
-                <li className="ml-auto">
-                  <Link href="/signup" onClick={() => setNavbar(!navbar)}>
-                    SIGN UP
+                    LOG IN / SIGN UP
                   </Link>
                 </li>
               </div>

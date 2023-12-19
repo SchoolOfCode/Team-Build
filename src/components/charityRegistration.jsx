@@ -68,7 +68,7 @@ export default function CharityRegistration() {
 
   // This function validates the registration form, checking if all required fields are filled and the passwords match.
   const validateForm = () => {
-    const isValidEmailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+    const isValidEmailFormat = /@/.test(
       registration.email
     );
 

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Charity() {
   return (
@@ -21,8 +21,8 @@ export default function Charity() {
           </p> 
                     <button className="button mr-20 bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
             <Link href={"/charity/register"}>Join us</Link>{" "}
+
           </button>
-          
         </div>
         </div>
         <div className="grid col-span-1 mt-10">

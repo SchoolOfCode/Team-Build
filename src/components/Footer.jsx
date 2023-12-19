@@ -17,7 +17,7 @@ export default function Footer() {
       <div className="hidden md:inline-block">
         <Link href="/charity">
           <p className="text-zinc-500 underline underline-offset-4 hover:text-grey-900 text-xl">
-            Charities, Click here!
+            Charities, click here!
           </p>
         </Link>
       </div>

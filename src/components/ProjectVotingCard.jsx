@@ -12,6 +12,7 @@ export default function ProjectVotingCard(params) {
   // const [isVotedFor, setIsVotedFor] = useState(false);
 
   const [submitted, setSubmitted] = useState(false);
+  const [voteSubmittedMessage, setVoteSubmittedMessage] = useState("");
 
   console.log(params);
 
@@ -23,6 +24,7 @@ export default function ProjectVotingCard(params) {
   //and adds one to the total_score for the project using a database trigger function.
   function handleClickOne() {
     setSubmitted(!submitted);
+    setVoteSubmittedMessage("Vote Submitted!");
     return functionToVoteOne(project.project_id);
   }
 
@@ -30,6 +32,7 @@ export default function ProjectVotingCard(params) {
   //and adds two to the total_score for the project using a database trigger function.
   function handleClickTwo() {
     setSubmitted(!submitted);
+    setVoteSubmittedMessage("Vote Submitted!");
     return functionToVoteTwo(project.project_id);
   }
 
@@ -45,56 +48,34 @@ export default function ProjectVotingCard(params) {
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button
             onClick={handleClickOne}
-            className={submitted === false ? "" : "hidden"}
+            className={submitted ? "hidden" : ""}
           >
-            <Image
-              src={yellowlike}
-              width={48}
-              height={48}
-              alt="Picture of the author"
-            />
+            <Image src={yellowlike} width={48} height={48} alt="Vote Up" />
             Vote Up
           </button>
           <button
             onClick={handleClickTwo}
-            className={submitted === false ? "" : "hidden"}
+            className={submitted ? "hidden" : ""}
           >
             <span className="flex flex-row">
               <Image
                 src={yellowlike}
                 width={48}
                 height={48}
-                alt="Picture of the author"
+                alt="Vote Up More"
               />
               <Image
                 src={yellowlike}
                 width={48}
                 height={48}
-                alt="Picture of the author"
+                alt="Vote Up More"
               />
             </span>
             Vote Up More
           </button>
+          {submitted && <p className="">{voteSubmittedMessage}</p>}
         </span>
       </li>
     </div>
   );
 }
-
-/*
-
-*/
-
-/*
-<li className="lg:grid lg:grid-cols-6 lg:border-b lg:border-slate-400 lg:mr-20 border-b border-slate-700 pb-4">
-       <Link
-        key={project.project_id}
-        href={`../dashboard/voting/${project.project_id}`}
-      >
-        <h1 className="col-span-2">{project.title}</h1>
-        <p className="col-span-3 flex flex-wrap">{project.short_desc}</p>
-        </Link>
-        <button onClick={handleClickOne} className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10>Vote Up</button>
-        <button onClick={handleClickTwo} className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10>Vote Up More</button>
-        </li>
-*/

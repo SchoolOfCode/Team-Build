@@ -111,27 +111,39 @@ export default function PitchForm() {
             action="https://team-5-final-project-pi.vercel.app/developer/register"
             onSubmit={submitReg}
           >
+
+<div>   
+            <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+              Project Title: </label>
+            </div>
             <div className="">
-              <input
+              <textarea
                 type="text"
                 name="Project_Title"
                 onChange={handleInput}
                 value={registration.Project_Title}
                 className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Project Title:"
+                // placeholder="Project Title:"
                 required
               />
             </div>
+
+            
+            <div>   
+            <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+              Brief Summary: </label>
             <div>
-              <input
+              <textarea
                 type="text"
                 name="Short_Descr"
                 onChange={handleInput}
                 value={registration.Short_Descr}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Brief Summary:"
+                // className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-35 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                // placeholder="Brief Summary:"
                 required
               />
+            </div>
             </div>
 
             <div>

@@ -9,15 +9,13 @@ import Link from "next/link";
 
 // Return the project voting card
 export default function ProjectVotingCard(params) {
-  // const [isVotedFor, setIsVotedFor] = useState(false);
-
+ 
   const [submitted, setSubmitted] = useState(false);
   const [voteSubmittedMessage, setVoteSubmittedMessage] = useState("");
 
-  console.log(params);
-
-  const project = params.project;
-  const functionToVoteOne = params.functionToVoteOne;
+    const project = params.project;
+ 
+    const functionToVoteOne = params.functionToVoteOne;
   const functionToVoteTwo = params.functionToVoteTwo;
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
@@ -35,11 +33,11 @@ export default function ProjectVotingCard(params) {
     setVoteSubmittedMessage("Thank you for your vote!");
     return functionToVoteTwo(project.project_id);
   }
-  console.log(project.project_id);
+  
   return (
     <div>
       <li className="lg:grid lg:grid-cols-4 lg:border-b lg:border-slate-400 lg:w-full border-b lg:mt-2 border-slate-700 pb-2">
-        <Link key={{project.project_id}} href={`voting/${project.project_id}`}>
+        <Link key={project.project_id} href={`voting/${project.project_id}`}>
           <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
         </Link>
         <p className="col-span-2">{project.short_desc}</p>

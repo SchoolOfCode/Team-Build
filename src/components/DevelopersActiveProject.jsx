@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function DevelopersActiveProject({ project }) {
   // Return the line item for the developers active project
-  console.log(project, "developers active page");
+ 
   return (
     <li className="lg:grid lg:grid-cols-6 lg:border-b lg:border-slate-400 lg:mr-20 border-b border-slate-700 pb-4">
       <Link key={project.project_id} href={`dashboard/${project.project_id}`}>

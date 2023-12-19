@@ -83,8 +83,9 @@ export default function DisplayDevelopersDashboard2() {
 
   return (
     <>
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
         <h1 className="subTitle text-xl font-bold">Your Current Projects</h1>
+        <span className="border-b border-black w-11/12 "></span>
         <ol>
           {activeProjects.map((activeProject) => {
             return (
@@ -96,11 +97,11 @@ export default function DisplayDevelopersDashboard2() {
           })}
         </ol>
       </div>
-
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 mx-2 h-auto mt-4">
         <h1 className="subTitle text-xl font-bold">
           Projects you are interested In
         </h1>
+        <span className="border-b border-black w-11/12"></span>
         <ol>
           {interestedProjects.map((interestedProject) => {
             return (
@@ -112,8 +113,10 @@ export default function DisplayDevelopersDashboard2() {
           })}
         </ol>
       </div>
-      <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+
+      <div className="lg:overflow-auto lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2 lg:h-auto mt-4">
         <h1 className="subTitle text-xl font-bold">Available Projects</h1>
+        <span className="border-b border-black w-11/12 lg:mb-4 "></span>
         <ol>
           {availableProjects.map((availableProject) => {
             return (

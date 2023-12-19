@@ -4,6 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
+    <div className="main-content-container" style={{ marginBottom: "60px" }}>
     <div className="bg-zinc-100 flex flex-col md:flex-row justify-around items-center py-2 lg:py-5 z-50 fixed  inset-x-0  bottom-0">
       <div className="hidden md:inline-block">
         <Link href="/developers">
@@ -16,7 +17,7 @@ export default function Footer() {
       <div className="hidden md:inline-block">
         <Link href="/charity">
           <p className="text-zinc-500 underline underline-offset-4 hover:text-grey-900 text-xl">
-            Charities, Click here!
+            Charities, click here!
           </p>
         </Link>
       </div>
@@ -154,6 +155,7 @@ export default function Footer() {
           </svg>
         </Link>
       </div>
+    </div>
     </div>
   );
 }

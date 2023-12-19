@@ -45,7 +45,7 @@ export default function SimpleLogin() {
   return (
     <div>
       <h1 className="text-4xl font-bold mt-3 leading-relaxed">
-        Log in <span className="bg-emerald-400 py-1 px-2 rounded-md">Here</span>
+        Log<span className="bg-emerald-400 py-1 px-2 rounded-md">in</span>
       </h1>
       <form
         className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:grid lg:grid-cols-2 lg:gap-10 gap-5"

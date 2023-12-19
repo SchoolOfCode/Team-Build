@@ -9,6 +9,7 @@ export default function DisplayProjectsForVoting() {
   // set State on projects that are available for voting
   const [projectsForVoting, setProjectsForVoting] = useState([]);
   const [isVotedFor, setIsVotedFor] = useState(false);
+  const [thankYouMsg, setThankYouMsg] = useState(false);
 
   // // Display the initial list of projects that are available to be voted on.
   // // These are projects with a status of 3, that this developer has not already voted for.
@@ -30,11 +31,21 @@ export default function DisplayProjectsForVoting() {
       // Then fetch all projects with a status of 3 (awaiting voting) and filter out those
       // that this developer has already voted for i.e.already exist in the projectIdArray
       FetchProjectsByStatus(3).then((data) => {
-        const filteredProjects = data.filter(
-          (entry) => !projectIdArray.includes(entry.project_id)
-        );
-        setProjectsForVoting(filteredProjects);
+      //   const filteredProjects = data.filter(
+      //     (entry) => !projectIdArray.includes(entry.project_id)
+      //   );
+      
+
+      const filteredProjects = data.map((entry) => {
+        if (projectIdArray.includes(entry)) {
+          setThankYouMsg(!thankYouMsg);
+          return;
+        }
       });
+      setProjectsForVoting(filteredProjects);
+      console.log(filteredProjects);
+    })
+
     });
   }, []);
 

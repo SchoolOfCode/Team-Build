@@ -13,7 +13,6 @@ export default async function FetchProjectsByStatus(status) {
       console.log("error", error);
       return null;
     } else {
-      console.log("inside fetch", data);
       return data;
     }
   } catch (error) {

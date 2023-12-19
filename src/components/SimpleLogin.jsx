@@ -74,28 +74,12 @@ export default function SimpleLogin() {
           placeholder="Password:"
         />
 
-        <div className="mt-4 text-center">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Select your role:
-          </label>
-          <select
-            name="options"
-            className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-36 text-black py-1 px-2 leading-tight focus:outline-none"
-          >
-            <option value="" disabled selected>
-              Select here
-            </option>
-            <option value="charity">Charity</option>
-            <option value="developer">Developer</option>
-          </select>
-        </div>
-
         <div className="flex justify-center">
           <button
             type="submit"
             className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
           >
-            Enter Email
+            Login
           </button>
         </div>
 

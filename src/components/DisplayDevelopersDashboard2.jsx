@@ -14,7 +14,6 @@ export default function DisplayDevelopersDashboard2() {
   const [interestedProjects, setInterestedProjects] = useState([]);
   const [activeProjects, setActiveProjects] = useState([]);
 
-  
   // Display the initial list of projects that this developer is already active in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 4)
   useEffect(() => {
@@ -22,7 +21,7 @@ export default function DisplayDevelopersDashboard2() {
     FetchRolesByDevId(DevsId).then((data) =>
       setActiveProjects(data.filter((activeProject) => activeProject.role == 4))
     );
-  }, [activeProjects]);
+  }, []);
 
   // Display the initial list of projects that this developer has already registered interest in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 2)
@@ -31,31 +30,33 @@ export default function DisplayDevelopersDashboard2() {
     FetchRolesByDevId(DevsId).then((data) =>
       setInterestedProjects(
         data.filter((interestedProject) => interestedProject.role == 2)
-      ),
-          );
-  }, [interestedProjects]);
+      )
+    );
+  }, []);
 
   // Display the initial list of projects that are "available" for the developer to register interest in
-  // These projects that have a status of "Accepted in Principle" to become projects (status of 6), and 
-  // do not appear already in the list of interested projects. 
+  // These projects that have a status of "Accepted in Principle" to become projects (status of 6), and
+  // do not appear already in the list of interested projects.
   useEffect(() => {
-
     // First create an array of project_id's of projects that this developer is already interesed in
     const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) => {
-    const filteredArray = data.filter((entry) => entry.role === 2);
-   
-    
-    //Now build a simple array of project id's to exclude
-    const projectIdArray = filteredArray.map((entry) => entry.projects.project_id);
-   
-    // Then fetch all projects with a status of 6 (available) and filter out those 
-    // that this developer has already expredded interest in i.e.already exist in the projectIdArray 
-    FetchProjectsByStatus(6).then((data) => {
-      const filteredProjects = data.filter((entry) => !projectIdArray.includes(entry.project_id));
-      setAvailableProjects(filteredProjects);
+      const filteredArray = data.filter((entry) => entry.role === 2);
+
+      //Now build a simple array of project id's to exclude
+      const projectIdArray = filteredArray.map(
+        (entry) => entry.projects.project_id
+      );
+
+      // Then fetch all projects with a status of 6 (available) and filter out those
+      // that this developer has already expredded interest in i.e.already exist in the projectIdArray
+      FetchProjectsByStatus(6).then((data) => {
+        const filteredProjects = data.filter(
+          (entry) => !projectIdArray.includes(entry.project_id)
+        );
+        setAvailableProjects(filteredProjects);
+      });
     });
-    })
   }, []);
 
   //const filteredArray = array1.filter((entry) => !array2.includes(entry));
@@ -66,11 +67,11 @@ export default function DisplayDevelopersDashboard2() {
   function regInterestInProject(project_id) {
     const DevsId = localStorage.getItem("userId");
 
-    InsertRolesOfUsers(DevsId, project_id, 2). then (() => 
-
-    setAvailableProjects((prevArray) =>
-      prevArray.filter((obj) => obj.project_id !== project_id)
-    ));
+    InsertRolesOfUsers(DevsId, project_id, 2).then(() =>
+      setAvailableProjects((prevArray) =>
+        prevArray.filter((obj) => obj.project_id !== project_id)
+      )
+    );
 
     FetchRolesByDevId(DevsId).then((data) =>
       setInterestedProjects(
@@ -82,8 +83,9 @@ export default function DisplayDevelopersDashboard2() {
 
   return (
     <>
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
         <h1 className="subTitle text-xl font-bold">Your Current Projects</h1>
+        <span className="border-b border-black w-11/12 "></span>
         <ol>
           {activeProjects.map((activeProject) => {
             return (
@@ -95,11 +97,11 @@ export default function DisplayDevelopersDashboard2() {
           })}
         </ol>
       </div>
-
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 mx-2 h-auto mt-4">
         <h1 className="subTitle text-xl font-bold">
           Projects you are interested In
         </h1>
+        <span className="border-b border-black w-11/12"></span>
         <ol>
           {interestedProjects.map((interestedProject) => {
             return (
@@ -111,8 +113,10 @@ export default function DisplayDevelopersDashboard2() {
           })}
         </ol>
       </div>
-      <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+
+      <div className="lg:overflow-auto lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2 lg:h-auto mt-4">
         <h1 className="subTitle text-xl font-bold">Available Projects</h1>
+        <span className="border-b border-black w-11/12 lg:mb-4 "></span>
         <ol>
           {availableProjects.map((availableProject) => {
             return (

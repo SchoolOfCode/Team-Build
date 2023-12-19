@@ -42,7 +42,7 @@ export default function ProjectVotingCard(params) {
         key={project.project_id}
         href={`../dashboard/voting/${project.project_id}`}
       ></Link>
-      <li className="lg:grid lg:grid-cols-4 lg:border-b lg:border-slate-400 lg:w-full border-b border-slate-700 pb-4">
+      <li className="lg:grid lg:grid-cols-4 lg:border-b lg:border-slate-400 lg:w-full border-b lg:mt-2 border-slate-700 pb-2">
         <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
         <p className="col-span-2">{project.short_desc}</p>
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">

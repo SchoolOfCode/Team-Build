@@ -35,15 +35,13 @@ export default function ProjectVotingCard(params) {
     setVoteSubmittedMessage("Thank you for your vote!");
     return functionToVoteTwo(project.project_id);
   }
-
+  console.log(project.project_id);
   return (
     <div>
-      <Link
-        key={project.project_id}
-        href={`../dashboard/voting/${project.project_id}`}
-      ></Link>
       <li className="lg:grid lg:grid-cols-4 lg:border-b lg:border-slate-400 lg:w-full border-b lg:mt-2 border-slate-700 pb-2">
-        <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
+        <Link key={{project.project_id}} href={`voting/${project.project_id}`}>
+          <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
+        </Link>
         <p className="col-span-2">{project.short_desc}</p>
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button

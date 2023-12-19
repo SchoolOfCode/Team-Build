@@ -1,19 +1,9 @@
-import Navbar from "@/components/navbar";
-import FetchProjectById from "@/db-components/FetchProjectById";
+import DisplayProjectInfo from "@/components/DisplayProjectInfo";
 
-export default async function ProjectInfofromDash ({ params }) {
-  console.log("voting params", params)
-  const currProjectArrray = await FetchProjectById(params.projectinfo);
-  const currProject = currProjectArrray[0];
-
-
+export default function ProjectInfo({ params }) {
   return (
     <div>
-      <Navbar />
-      <h1>Project Information</h1>
-      <h2>{currProject.title}</h2>
-      <p>{currProject.long_desc}</p>
-      <p>{currProject.link_to_video}</p>
+      <DisplayProjectInfo project_id={params.project_id} />
     </div>
   );
 }

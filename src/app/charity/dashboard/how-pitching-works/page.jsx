@@ -1,9 +1,7 @@
-import Navbar from "@/components/navbar";
 
 export default function HowPitchingWorks() {
   return (
     <section>
-      <Navbar />
       <div className="headerContainer sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-4 md:grid-cols-4 relative">
         <h2 className="subTitle text-center text-2xl font-bold p-2 bg-emerald-300">
           How Pitch works

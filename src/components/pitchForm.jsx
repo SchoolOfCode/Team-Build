@@ -122,7 +122,7 @@ export default function PitchForm() {
                 name="Project_Title"
                 onChange={handleInput}
                 value={registration.Project_Title}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-8 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
                 // placeholder="Project Title:"
                 required
               />
@@ -146,18 +146,7 @@ export default function PitchForm() {
             </div>
             </div>
 
-            <div>
-              <div>
-                <input
-                  name="Video_Link"
-                  onChange={handleInput}
-                  value={registration.Video_Link}
-                  className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  placeholder="YouTube Video Link:"
-                  required
-                />
-              </div>
-            </div>
+            
 
             <div>
               <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
@@ -169,12 +158,27 @@ export default function PitchForm() {
                 name="Long_Descr"
                 onChange={handleInput}
                 value={registration.Long_Descr}
-                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-56 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-48 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
                 required></textarea>
             
             </div>
 
-            <div className=" py-2 mr-1">
+            <div> 
+            <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
+              YouTube Video Link: </label>
+            </div>
+              <div>
+                <input
+                  name="Video_Link"
+                  onChange={handleInput}
+                  value={registration.Video_Link}
+                  className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-8 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                  required
+                />
+              </div>
+            
+
+            {/* <div className=" py-2 mr-1">
               <label className="appearance-none bg-transparent border-b font-bold pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
                 <Link href="/termsandconditions">Terms & Conditions:</Link>
               </label>
@@ -186,7 +190,7 @@ export default function PitchForm() {
                 className="border border-gray-300 rounded-md"
                 required
               />
-            </div>
+            </div> */}
             <button
               type="submit"
               className="w-full bg-red-400 text-white py-2 rounded-md"

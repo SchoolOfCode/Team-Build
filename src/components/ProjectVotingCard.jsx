@@ -24,7 +24,7 @@ export default function ProjectVotingCard(params) {
   //and adds one to the total_score for the project using a database trigger function.
   function handleClickOne() {
     setSubmitted(!submitted);
-    setVoteSubmittedMessage("Vote Submitted!");
+    setVoteSubmittedMessage("Thank you for your vote!");
     return functionToVoteOne(project.project_id);
   }
 
@@ -32,7 +32,7 @@ export default function ProjectVotingCard(params) {
   //and adds two to the total_score for the project using a database trigger function.
   function handleClickTwo() {
     setSubmitted(!submitted);
-    setVoteSubmittedMessage("Vote Submitted!");
+    setVoteSubmittedMessage("Thank you for your vote!");
     return functionToVoteTwo(project.project_id);
   }
 
@@ -43,7 +43,7 @@ export default function ProjectVotingCard(params) {
         href={`../dashboard/voting/${project.project_id}`}
       ></Link>
       <li className="lg:grid lg:grid-cols-4 lg:border-b lg:border-slate-400 lg:w-full border-b border-slate-700 pb-4">
-        <h1 className="col-span-1">{project.title}</h1>
+        <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
         <p className="col-span-2">{project.short_desc}</p>
         <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button
@@ -73,7 +73,11 @@ export default function ProjectVotingCard(params) {
             </span>
             Vote Up More
           </button>
-          {submitted && <p className="">{voteSubmittedMessage}</p>}
+          {submitted && (
+            <p className="bg-emerald-400 p-4 font-bold rounded-md">
+              {voteSubmittedMessage}
+            </p>
+          )}
         </span>
       </li>
     </div>

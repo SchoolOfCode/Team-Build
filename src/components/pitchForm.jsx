@@ -173,7 +173,7 @@ export default function PitchForm() {
                   onChange={handleInput}
                   value={registration.Video_Link}
                   className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-8 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                  required
+                 
                 />
               </div>
             

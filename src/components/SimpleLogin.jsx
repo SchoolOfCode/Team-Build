@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import FetchUserByEmail from "@/db-components/FetchUserByEmail";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function SimpleLogin() {
   const [email, setEmail] = useState("");
@@ -43,7 +44,9 @@ export default function SimpleLogin() {
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mt-3 leading-relaxed">Simple Login</h1>
+      <h1 className="text-4xl font-bold mt-3 leading-relaxed">
+        Log in <span className="bg-emerald-400 py-1 px-2 rounded-md">Here</span>
+      </h1>
       <form
         className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:grid lg:grid-cols-2 lg:gap-10 gap-5"
         method="POST"
@@ -61,14 +64,54 @@ export default function SimpleLogin() {
             required
           />
         </div>
-        <button
-          type="submit"
-          className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
-        >
-          Enter Email
-        </button>
+
+        <input
+          type="text"
+          name="password"
+          onChange={() => {}}
+          value=""
+          className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black py-1 px-2 leading-tight focus:outline-none"
+          placeholder="Password:"
+        />
+
+        <div className="mt-4 text-center">
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Select your role:
+          </label>
+          <select
+            name="options"
+            className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-36 text-black py-1 px-2 leading-tight focus:outline-none"
+          >
+            <option value="" disabled selected>
+              Select here
+            </option>
+            <option value="charity">Charity</option>
+            <option value="developer">Developer</option>
+          </select>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            type="submit"
+            className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
+          >
+            Enter Email
+          </button>
+        </div>
+
         <div className="flex flex-col"></div>
       </form>
+
+      <div>
+        <div className="flex flex-row lg:flex-row justify-center lg:justify-center lg:gap-20 items-center mb-4">
+          <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+            <Link href="/charity/register">Sign up as a Charity</Link>
+          </button>
+          <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+            <Link href="/developers/register">Sign up as a Developer</Link>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

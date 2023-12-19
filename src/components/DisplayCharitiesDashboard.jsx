@@ -40,6 +40,7 @@ useEffect(() => {
     });
   }, []);
 
+  
   return (
     <>
       <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">

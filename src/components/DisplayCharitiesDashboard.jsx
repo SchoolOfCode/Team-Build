@@ -1,9 +1,8 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import FetchRolesByDevId from "@/db-components/FetchRolesByDevId";
 import CharitiesActiveProject from "./CharitiesActiveProject";
 import CharitiesPitch from "./CharitiesPitch";
-
 
 export default function DisplayCharitiesDashboard() {
   // set State on the activeProjects array and the pitchedProjects array for this charity
@@ -20,8 +19,8 @@ export default function DisplayCharitiesDashboard() {
   //  - 1,2,3,5 or 6 for pitched projects
   //  - 7,8 or 9 for active projects
 
-useEffect(() => {
-    const ctyId = localStorage.getItem("userId"); 
+  useEffect(() => {
+    const ctyId = localStorage.getItem("userId");
     FetchRolesByDevId(ctyId).then((data) => {
       const filteredProjects = data.filter((project) =>
         isActiveValue.includes(project.projects.status)
@@ -40,10 +39,9 @@ useEffect(() => {
     });
   }, []);
 
-  
   return (
     <>
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
         <h1 className="subTitle text-xl font-bold">Your Projects</h1>
         <ol>
           {activeProjects.map((activeProject) => {
@@ -57,7 +55,7 @@ useEffect(() => {
         </ol>
       </div>
 
-      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+      <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
         <h1 className="subTitle text-xl font-bold">
           Your Pitches for a new Project
         </h1>

@@ -2,6 +2,7 @@
 import FetchProjectById from "@/db-components/FetchProjectById";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function DisplayProjectInfo(project_id) {
   const [project, setProject] = useState([]);
@@ -38,11 +39,10 @@ export default function DisplayProjectInfo(project_id) {
                 {project.long_desc}
               </p>
             </div>
-            <button className="button border-4 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
-              <Link href="/developers/dashboard/voting/">
-                Back to Dashboard
-              </Link>
-            </button>
+            <button
+              onClick={useRouter.back}
+              className="button border-4 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2"
+            ></button>
           </div>
         </section>
       </div>

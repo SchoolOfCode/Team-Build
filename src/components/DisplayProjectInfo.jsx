@@ -1,16 +1,19 @@
 "use client";
 import FetchProjectById from "@/db-components/FetchProjectById";
 import { useState, useEffect } from "react";
-import Link from "next/link";
+//import Link from "next/link";
+
 
 export default function DisplayProjectInfo(project_id) {
+
   const [project, setProject] = useState([]);
-  console.log(project_id, "Line8 test");
-  useEffect(() => {
+
+
+    useEffect(() => {
     FetchProjectById(project_id).then((data) => setProject(data[0]));
   }, []);
 
-  console.log(project_id);
+ 
   return (
     <>
       <div className="flex flex-col mr-5">
@@ -38,11 +41,10 @@ export default function DisplayProjectInfo(project_id) {
                 {project.long_desc}
               </p>
             </div>
-            <button className="button border-4 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
-              <Link href="/developers/dashboard/voting/">
-                Back to Dashboard
-              </Link>
-            </button>
+            {/* <button
+              onClick={() => router.back()} 
+              className="button border-4 lg:text-red-400 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-lg lg:mt-4 m-2"
+            >Go Back</button> */}
           </div>
         </section>
       </div>

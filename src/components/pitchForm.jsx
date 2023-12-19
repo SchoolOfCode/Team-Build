@@ -34,8 +34,8 @@ export default function PitchForm() {
     const isValidForm =
       registration.Project_Title &&
       registration.Short_Descr &&
-      registration.Long_Descr &&
-      registration.Video_Link;
+      registration.Long_Descr;
+    //    registration.Video_Link;
     return isValidForm;
   };
 
@@ -57,13 +57,13 @@ export default function PitchForm() {
         long_desc: registration.Long_Descr,
         link_to_video: registration.Video_Link,
       });
-     
 
       if (error) {
         console.error(error);
-      
+
         return;
       } else {
+        // if there's no error, carry on trying the next block of code
         try {
           const ctyId = localStorage.getItem("userId");
           const { error2 } = await supabase.from("roles_of_users").insert({
@@ -152,14 +152,14 @@ export default function PitchForm() {
                 Detailed Description:
               </label>
 
-              <input
+              <textarea
                 type="VARCHAR"
                 name="Long_Descr"
                 onChange={handleInput}
                 value={registration.Long_Descr}
                 className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-56 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                required
-              />
+                required></textarea>
+            
             </div>
 
             <div className=" py-2 mr-1">

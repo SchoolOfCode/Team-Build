@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import FetchProjectById from "@/db-components/FetchProjectById";
 
 export default async function ProjectInfofromDash ({ params }) {

@@ -3,17 +3,17 @@ import FetchProjectById from "@/db-components/FetchProjectById";
 import { useState, useEffect } from "react";
 //import Link from "next/link";
 
-
 export default function DisplayProjectInfo(project_id) {
-
   const [project, setProject] = useState([]);
 
+  //destructure project to access link_to_video and if cannot find url, then just use null
+  const { link_to_video } = project || null;
 
-    useEffect(() => {
+
+  useEffect(() => {
     FetchProjectById(project_id).then((data) => setProject(data[0]));
   }, []);
 
- 
   return (
     <>
       <div className="flex flex-col mr-5">
@@ -29,10 +29,15 @@ export default function DisplayProjectInfo(project_id) {
               <p className="text-md lg:text-lg mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed font-style: italic ml-3">
                 {project.short_desc}
               </p>
-
-              <p className="font-bold ml-6">
-                <a href={project.link_to_video}>Click here for pitch video!</a>
-              </p>
+              
+              {/* if the link_to_video is null, don't display the a tag*/}
+              {link_to_video && (
+                <p className="font-bold ml-6">
+                  <a href={project.link_to_video}>
+                    Click here for the pitch video!
+                  </a>
+                </p>
+              )}
             </div>
 
             {/* long description */}

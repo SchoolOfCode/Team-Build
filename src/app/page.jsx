@@ -18,9 +18,14 @@ export default function Testimonials() {
             <p className="text-4xl font-bold mb-10 lg:max-w-2xl lg:mr-60 lg:leading-relaxed leading-1">
             <span className="bg-emerald-300 py-1 px-2 rounded-md">Build</span> is a platform that connects charities with a community of skilled developers.    <br /> 
             </p>
-            <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-              <Link href={"../charity"}>Find out more</Link>{" "}
+            <button className="button bg-red-400 font-bold rounded w-46 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
+              <Link href={"../charity"}>Charities</Link>{" "}
             </button>
+            <p>
+            <button className="button font-bold rounded w-46 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
+              <Link href={"../developers"}>Developers</Link>{" "}
+            </button>
+            </p>
           </div>
         </div>
       </section>

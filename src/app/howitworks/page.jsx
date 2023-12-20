@@ -15,6 +15,7 @@ export default function HowItWorks() {
         <p className="lg:text-4xl text-xl font-bold mb-10 lg:max-w-2xl lg:leading-relaxed mr-6">
           Building Websites, Transforming Lives with Every Line of Code.
         </p>
+
         <button className="hidden lg:block button mr-20 bg-red-400 font-bold rounded w-44 h-10 text-lg lg:h-16 lg:w-56 lg:text-2xl lg:mt-4 mt-2 ml-14 lg:mb-20">
           <Link href={"/charity/register"}>Join us</Link>
         </button>

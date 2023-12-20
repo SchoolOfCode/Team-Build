@@ -10,8 +10,6 @@ export default function DisplayProjectsForVoting() {
   const [projectsForVoting, setProjectsForVoting] = useState([]);
   const [isVotedFor, setIsVotedFor] = useState(false);
 
-
-
   useEffect(() => {
     // First fetch all the votes that this developer has
     const devsId = localStorage.getItem("userId");
@@ -40,9 +38,6 @@ export default function DisplayProjectsForVoting() {
       });
     });
   }, [isVotedFor || undefined]);
-
-
-
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.

@@ -80,9 +80,9 @@ export default function ContactForm() {
         } else if (error.message.includes("HTTP error! Status:")) {
           errorMessage = "Server error. Please try again later.";
         }
-        alert(errorMessage);
+        // alert(errorMessage);
 
-        setError(errorMessage);
+        // setError(errorMessage);
       });
   };
 

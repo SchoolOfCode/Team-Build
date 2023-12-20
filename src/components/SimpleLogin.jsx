@@ -45,7 +45,7 @@ export default function SimpleLogin() {
   return (
     <div className="text-left mx-3 lg:p-10 lg:flex lg:flex-col lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <h1 className="text-4xl font-bold mt-3 leading-relaxed">
-        Sign <span className="bg-emerald-400 py-1 px-2 rounded-md">in</span>
+        Sign <span className="bg-emerald-400 py-1 px-2 rounded-md">up</span>
       </h1>
       <p>Not registered yet? Register below.</p>
 

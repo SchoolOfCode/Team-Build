@@ -11,6 +11,9 @@ export default function DeveloperDashboard() {
             Dashboard
           </span>
         </h1>
+        <p className="ml-4 italic">
+          Click on a project title to find out more about it.
+        </p>
         <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
       </div>
       <DisplayDevelopersDashboard2 />

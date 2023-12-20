@@ -42,7 +42,11 @@ export default function DisplayCharitiesDashboard() {
   return (
     <>
       <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
-        <h1 className="subTitle text-xl font-bold">Your Projects</h1>
+        <h1 className="leading-snug text-lg font-bold lg:text-2xl lg:max-w-3xl lg:leading-snug">
+          <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
+            Your Projects that are currently being built
+          </span>
+        </h1>
         <ol>
           {activeProjects.map((activeProject) => {
             return (
@@ -56,9 +60,12 @@ export default function DisplayCharitiesDashboard() {
       </div>
 
       <div className="section flex flex-col justify-top items-left rounded-lg p-2 m-2  lg:auto mt-4">
-        <h1 className="subTitle text-xl font-bold">
-          Your Pitches for a new Project
+        <h1 className="mt-10 mb-4 leading-snug text-lg font-bold lg:text-2xl lg:max-w-3xl lg:leading-snug">
+          <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
+            Pitches you have submitted for a new project
+          </span>
         </h1>
+
         <ol>
           {pitchedProjects.map((pitchedProjects) => {
             return (

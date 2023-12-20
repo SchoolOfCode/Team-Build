@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import yellowlike from "../../public/yellow-like.png";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //import DeveloperDashboard from '../developers/dashboard/page';
 //import Developers from '../developers/page';
 
@@ -13,10 +13,16 @@ export default function ProjectVotingCard(params) {
   const [submitted, setSubmitted] = useState(false);
   const [voteSubmittedMessage, setVoteSubmittedMessage] = useState("");
 
-    const project = params.project;
- 
-    const functionToVoteOne = params.functionToVoteOne;
+  //Extract the input parameters
+  const project = params.project;
+  const functionToVoteOne = params.functionToVoteOne;
   const functionToVoteTwo = params.functionToVoteTwo;
+
+  // If this project has already been voted for then set the Sumitted Message to display  
+  useEffect(() => {
+  if (project.msg === true) {setSubmitted(!submitted);
+    setVoteSubmittedMessage("Thank you for your vote!");};
+  }, []);
 
   //Function that is invoked when the upvote 1 button is clicked. This inserts a votes intersection table,
   //and adds one to the total_score for the project using a database trigger function.
@@ -41,7 +47,7 @@ export default function ProjectVotingCard(params) {
           <h1 className="col-span-1 text-lg font-bold">{project.title}</h1>
         </Link>
         <p className="col-span-2">{project.short_desc}</p>
-        <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
+          <span className="col-span-1 lg:flex lg:flex-row lg:gap-4 flex justify-evenly">
           <button
             onClick={handleClickOne}
             className={submitted ? "hidden" : ""}

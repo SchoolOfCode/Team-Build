@@ -93,11 +93,11 @@ export default function PitchForm() {
     }
   };
   return (
-    <div className="text-left mx-3 lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+    <div className="lg:h-[calc(100vh-12rem)] lg:bg-slate-50 lg:w-11/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <div className="">
-        <h1 className="text-4xl font-bold mt-3 leading-relaxed">
-          Submit New {""}
-          <span className="bg-emerald-400 py-1 px-2 rounded-md">Pitch</span>
+        <h1 className="lg:text-6xl text-3xl text-center font-bold leading-relaxed lg:text-center lg:mt-10">
+          <span className="bg-emerald-400 py-1 px-2 rounded-md">Pitch</span>{" "}
+          your new Project
         </h1>
         {regSuccess ? (
           <div>
@@ -107,86 +107,62 @@ export default function PitchForm() {
         ) : (
           <div>
             <form
-              className="bg-slate-50 mt-5 tracking-wider flex flex-col w-full lg:flex lg:flex-row justify-evenly lg:gap-10 gap-5"
+              className="bg-slate-50 lg:grid lg:grid-cols-12 lg:h-[calc(100vh-20rem)] flex flex-col justify-between mx-2 mt-5 lg:mt-1"
               method="POST"
               action="https://team-5-final-project-pi.vercel.app/developer/register"
               onSubmit={submitReg}
             >
               {/* div for title */}
-              <div className="flex flex-col">
+              <div className="lg:col-span-4 lg:col-start-2 lg:flex lg:flex-col lg:justify-between mt-10 ">
                 <div>
-                  {/* <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-                Title:{" "}
-              </label> */}
                   <input
                     type="text"
                     name="Project_Title"
                     onChange={handleInput}
                     value={registration.Project_Title}
-                    //className= "appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-8 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none mb-4"
                     placeholder="Project Title:"
                     required
                   />
                 </div>
-
+                {/* div for Video link */}
+                <div>
+                  <input
+                    name="Video_Link"
+                    onChange={handleInput}
+                    value={registration.Video_Link}
+                    className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none mb-4"
+                    placeholder="YouTube Video Link:"
+                  />
+                </div>
                 {/* div for Short Description */}
                 <div>
-                  {/* <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-                Short Description:{" "}
-              </label> */}
+                  <label className="appearance-none border-gray-600 placeholder:text-xl text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none">
+                    Summary of your Project:
+                  </label>
                   <textarea
                     type="text"
                     name="Short_Descr"
                     onChange={handleInput}
                     value={registration.Short_Descr}
-                    className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    // className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-35 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    placeholder="Brief Summary:"
+                    className="appearance-none bg-grey-200 border border-gray-600 bg-slate-50 placeholder:text-gray-600 placeholder:text-xl w-full h-40 text-black mr-3 py-1 px-2 leading-tight focus:outline-none lg:mb-4"
                     required
                   />
                 </div>
-
-                {/* div for Video link */}
-                <div>
-                  {/* <label className="appearance-none border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-                YouTube Video Link:{" "}
-              </label> */}
-                  <input
-                    name="Video_Link"
-                    onChange={handleInput}
-                    value={registration.Video_Link}
-                    //className="appearance-none bg-transparent border border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-8 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none"
-                    placeholder="YouTube Video Link:"
-                  />
-                </div>
               </div>
-              {/* <div className=" py-2 mr-1">
-              <label className="appearance-none bg-transparent border-b font-bold pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none">
-                <Link href="/termsandconditions">Terms & Conditions:</Link>
-              </label>
-              <input
-                type="checkbox"
-                name="t_and_c"
-                onChange={handleInput}
-                value={registration.t_and_c}
-                className="border border-gray-300 rounded-md"
-                required
-              />
-            </div> */}
-              <div className="flex flex-col">
+
+              <div className="lg:col-span-5 lg:col-end-12 lg:flex lg:flex-col lg: justify-between mt-4 lg:mt-10">
                 {/* div for Long Description */}
-                <div className="lg:row-start-1 lg:row-end-4 ">
-                  <label className="appearance-none border-gray-600 placeholder:text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none">
-                    Detailed Description:
+                <div className="">
+                  <label className="appearance-none border-gray-600 text-xl placeholder:text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none">
+                    Put the full details of your project here:
                   </label>
                   <textarea
                     type="VARCHAR"
                     name="Long_Descr"
                     onChange={handleInput}
                     value={registration.Long_Descr}
-                    className="appearance-none bg-grey-200 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full h-48 text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
+                    className="appearance-none bg-grey-200 border border-gray-600 bg-slate-50 placeholder:text-gray-600 placeholder:text-xl w-full h-56 lg:h-96 text-black mr-3 py-1 px-2 leading-tight focus:outline-none mb-4 lg:mb-14"
                     required
                   ></textarea>
                 </div>
@@ -195,7 +171,7 @@ export default function PitchForm() {
                 <div>
                   <button
                     type="submit"
-                    className="w-full bg-red-400 text-white py-2 rounded-md"
+                    className="w-full bg-red-400 text-white py-2 rounded-md mb-4"
                   >
                     Submit Form
                   </button>

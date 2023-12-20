@@ -68,9 +68,7 @@ export default function CharityRegistration() {
 
   // This function validates the registration form, checking if all required fields are filled and the passwords match.
   const validateForm = () => {
-    const isValidEmailFormat = /@/.test(
-      registration.email
-    );
+    const isValidEmailFormat = /@/.test(registration.email);
 
     const isValidForm =
       registration.first_name &&
@@ -171,7 +169,7 @@ export default function CharityRegistration() {
 
             setTimeout(() => {
               router.push("/charity/dashboard");
-            }, 3000);
+            }, 500000);
 
             return;
           }
@@ -318,7 +316,8 @@ export default function CharityRegistration() {
                     className="mr-2 mt-1 "
                     required
                   />
-                  Click here to agree to the <Link href="../termsandconditions" target="_blank">
+                  Click here to agree to the{" "}
+                  <Link href="../termsandconditions" target="_blank">
                     <u>
                       <b className="ml">Terms and Conditions</b>
                     </u>

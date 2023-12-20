@@ -11,7 +11,6 @@ export default function Developers() {
               Developers
             </span>
           </h1>
-
           <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-20 lg:align-bottom lg:w-4/5">
             <p className="text-lg lg:text-2xl font-bold lg:mb-36 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
               Calling all aspiring developers! Join the Build community
@@ -26,6 +25,7 @@ export default function Developers() {
               <Link href={"/developers/register"}>Register</Link>
             </button>
           </div>
+          
         </div>
       </div>
     </div>

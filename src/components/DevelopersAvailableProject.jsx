@@ -18,7 +18,7 @@ export default function DevelopersAvailableProject({
       <p className="col-span-4 flex flex-wrap lg:ml-6">{project.short_desc}</p>
       <span className="col-span-1 grid gap-3">
         <button
-          className="button border-4 border-emerald-500 lg:w-64 lg:h-10 w-44 h-18 text-md text-center text-emerald-500 font-bold justify-self-end"
+          className="button border-4 border-emerald-500 lg:w-64 lg:h-10 w-44 h-18 text-md text-center text-black font-bold justify-self-end"
           onClick={handleClick}
         >
           Register my interest

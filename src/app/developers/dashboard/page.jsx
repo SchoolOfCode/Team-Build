@@ -18,12 +18,16 @@ export default function DeveloperDashboard() {
       </div>
       <DisplayDevelopersDashboard2 />
       <div className="flex flex-row lg:flex-row justify-center lg:justify-center lg:gap-20 items-center mb-4">
-        <button className="button border-4 text-red-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
-          <Link href="./dashboard/how-voting-works">How does voting work?</Link>
-        </button>
-        <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
-          <Link href="./dashboard/voting">Vote Up New Projects</Link>
-        </button>
+        <Link href="./dashboard/how-voting-works">
+          <button className="button border-4 text-black border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+            How does voting work?
+          </button>
+        </Link>
+        <Link href="./dashboard/voting">
+          <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+            Vote Up New Projects
+          </button>
+        </Link>
       </div>
     </div>
   );

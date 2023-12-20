@@ -17,6 +17,7 @@ export default function DisplayProjectsForVoting() {
     const devsId = localStorage.getItem("userId");
     FetchVotesByDevId(devsId).then((data) => {
       const votesArray = data;
+      console.log("votesA", votesArray);
 
       // Now build from the array of Votes above a simple array of project_id's
       const projectIdArray = votesArray.map((entry) => entry.project_id);
@@ -36,10 +37,9 @@ export default function DisplayProjectsForVoting() {
         });
 
         setProjectsForVoting(filteredProjects);
-        console.log(filteredProjects);
       });
     });
-  }, [isVotedFor]);
+  }, [isVotedFor || undefined]);
 
 
 

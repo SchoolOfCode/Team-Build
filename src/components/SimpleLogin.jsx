@@ -25,10 +25,10 @@ export default function SimpleLogin() {
     FetchUserByEmail(email).then((data) => validateUser(data));
 
     // Validate that this user exists and if not send an alert.
-    // If the user does exist then set their id in local.storage and
+    // If the user does exist then set their id in local.storage animationDelay:
     // then redirect to the appropriate dashboard based on user type.
     function validateUser(data) {
-      if (data.length == 0) {
+       if (data.length == 0) {
         alert("please enter a valid email");
       } else {
         localStorage.setItem("userId", data[0].id);
@@ -82,16 +82,16 @@ export default function SimpleLogin() {
             />
           </div>
 
-          <div class="flex flex-col">
+          <div className="flex flex-col">
             <input
               type="text"
               name="password"
               onChange={() => {}}
               value=""
-              class="border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black py-1 px-2 leading-tight focus:outline-none"
+              className="border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black py-1 px-2 leading-tight focus:outline-none"
               placeholder="Password:"
             />
-            <p class="text-sm text-gray-500 mt-1">Forgot Password?</p>
+            <p className="text-sm text-gray-500 mt-1">Forgot Password?</p>
           </div>
         </div>
 

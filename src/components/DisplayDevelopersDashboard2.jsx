@@ -8,6 +8,7 @@ import DevelopersInterestedProject from "./DevelopersInterestedProject";
 import DevelopersAvailableProject from "./DevelopersAvailableProject";
 
 export default function DisplayDevelopersDashboard2() {
+
   // set State on availableProjects array, interestedProjects array and activeProjects array
   // as these can change if the developer presses the I am interested button
   const [availableProjects, setAvailableProjects] = useState([]);
@@ -16,7 +17,8 @@ export default function DisplayDevelopersDashboard2() {
 
   // Display the initial list of projects that this developer is already active in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 4)
-  useEffect(() => {
+  
+  useEffect(() => {    
     const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) =>
       setActiveProjects(data.filter((activeProject) => activeProject.role == 4))
@@ -25,6 +27,7 @@ export default function DisplayDevelopersDashboard2() {
 
   // Display the initial list of projects that this developer has already registered interest in
   // These are projects that have a roles_of_users instance for this developer  with a role of "interested" (value 2)
+ 
   useEffect(() => {
     const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) =>
@@ -37,7 +40,9 @@ export default function DisplayDevelopersDashboard2() {
   // Display the initial list of projects that are "available" for the developer to register interest in
   // These projects that have a status of "Accepted in Principle" to become projects (status of 6), and
   // do not appear already in the list of interested projects.
+ 
   useEffect(() => {
+    
     // First create an array of project_id's of projects that this developer is already interesed in
     const DevsId = localStorage.getItem("userId");
     FetchRolesByDevId(DevsId).then((data) => {
@@ -56,28 +61,31 @@ export default function DisplayDevelopersDashboard2() {
         );
         setAvailableProjects(filteredProjects);
       });
+     
     });
   }, []);
-
-  //const filteredArray = array1.filter((entry) => !array2.includes(entry));
 
   // This function is used to register a developers interest in an available project by:
   // - inserting a users_of_roles table instance to link the developer to the project
   // - calling setAvailableProjects to update State by removing the project added from the list
+
   function regInterestInProject(project_id) {
+    //Get the developers id from internal storage
     const DevsId = localStorage.getItem("userId");
 
+    // Show that the developer has registered interest by inserting a new roles_of_users with role 2,
+    // and then re-Fetch the Interesed projects to pick up this new project
     InsertRolesOfUsers(DevsId, project_id, 2).then(() =>
+    FetchRolesByDevId(DevsId).then((data) =>
+     setInterestedProjects(
+       data.filter((interestedProject) => interestedProject.role == 2)
+     )
+   ));
+   // Remove this project from the available projects list
       setAvailableProjects((prevArray) =>
         prevArray.filter((obj) => obj.project_id !== project_id)
       )
-    );
-
-    FetchRolesByDevId(DevsId).then((data) =>
-      setInterestedProjects(
-        data.filter((interestedProject) => interestedProject.role == 2)
-      )
-    );
+   
     return;
   }
 

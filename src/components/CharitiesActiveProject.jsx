@@ -8,8 +8,10 @@ export default function CharitiesActiveProject({ project }) {
       <Link key={project.project_id} href={`dashboard/${project.project_id}`}>
         <h1 className="col-span-2 font-bold">{project.title}</h1>
       </Link>
-      <p className="ml-4 col-span-4 flex flex-wrap">{project.short_desc}</p>
-      <p status="col-span-3 flex flex-wrap justify-right">
+      <p className="ml-4 col-span-4 mr-5 flex flex-wrap">
+        {project.short_desc}
+      </p>
+      <p status="col-span-1 col-start-5flex flex-wrap text-right">
         {translateStatusToWord(project.status)}
       </p>
     </li>

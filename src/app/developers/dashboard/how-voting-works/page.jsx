@@ -8,35 +8,34 @@ export default function HowVotingWorks() {
           <h1 className="mt-10 leading-snug text-4xl font-bold lg:text-6xl lg:max-w-3xl lg:leading-snug">
             How does Voting{" "}
             <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
-              Works
+              Work?
             </span>
           </h1>
-          <ol className="p-2">
-            <li className="">
+          <ol className="p-2 leading-relaxed">
+            <li className="p-2">
               <p>
-                1. Browse Projects: Explore the list of inspiring projects
-                dedicated to charitable causes.
+              Browse Potential Projects: - Explore the list of inspiring potential projects
+              dedicated to charitable causes. These are yet to be approved by BUILD, and you can have 
+              your say here in which ones we choose to move forward with. 
               </p>
             </li>
             <li className="p-2">
               <p>
-                2. Express Your Preference: - Double Thumbs Up: Strongly support
-                your favourite project. - Thumb Up: Show approval for projects
-                you like. - Thumbs Down: Indicate disinterest in certain
-                projects.
+              Express Your Preference: - Double Thumbs Up means you strongly support
+              your favourite project. Single Thumb Up shows your approval for projects
+              you like. 
               </p>
             </li>
             <li className="p-2">
               <p>
-                3. Vote Responsibly: Your votes shape project priorities. Vote
-                for the projects that truly resonate with you.
+              Vote Responsibly: - Your votes shape project priorities. Vote for the projects 
+              that truly resonate with you.  You can only vote once for any project.
               </p>
             </li>
-
             <li className="p-2">
               <p>
-                4. The Power of Community: The project with the most likes gets
-                priority. Your voice matters in creating positive change!
+              The Power of Community: - It's simple - the project with the most likes gets
+              priority! Your voice matters in creating positive change!
               </p>
             </li>
           </ol>

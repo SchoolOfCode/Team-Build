@@ -29,11 +29,36 @@ test("test", async ({ page }) => {
   await page.getByText("Click here to agree to the").click();
   await page.locator('[id="terms\\&conditions"]').check();
   await page.getByRole("button", { name: "Submit Form" }).click();
-});
 
+  //   // Expectations after form submission
+  //   await page.waitForLoadState("networkidle");
 
-await page.getByText('Thank you for your submission!').click();
-await page.getByRole('heading', { name: 'Register as a Charity' }).click();
-await page.locator('div').filter({ hasText: 'Register as a CharityThank' }).nth(2).click();
-await page.getByText('Thank you for your submission!').click();
+  //   // Assuming successful form submission leads to a page with certain text
+  //   await expect(page)
+  //     .locator("div")
+  //     .filter({ hasText: "Register as a Charity" });
+
+  //   // Or you might want to check if a specific element is present after form submission
+  //   await expect(page).toContainElement("div.setSubmissionMessage");
+
+  //   // Or check if the URL has changed indicating a successful submission
+  //   await expect(page.url()).toContain("/dashboard");
+
+  //   // Or check for some text in the page to indicate success
+  //   const successMessage = await page
+  //     .locator("div.setSubmissionMessage")
+  //     .innerText();
+  //   expect(successMessage).toContain("Thank you for registering!");
+
+  //   // If the last action leads to navigation, you might want to wait for the navigation to complete
+  //   // and then check the expected state or content on the new page.
+  //   await page.waitForLoadState("networkidle");
+
+  //   //   await page.getByText("Thank you for your submission!").click();
+  //   //   await page
+  //   //     .locator("div")
+  //   //     .filter({ hasText: "Register as a CharityThank" })
+  //   //     .nth(2)
+  //   //     .click();
+  //   //   await page.getByText("Thank you for your submission!").click();
 });

@@ -14,7 +14,10 @@ export default function Charity() {
   
   <div className="flex flex-col justify-between lg:flex lg:flex-row-reverse lg:gap-20 lg:align-bottom lg:w-4/5 mt-4">
             <p className="text-lg lg:text-2xl font-bold lg:mb-36 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
-            Do you work for a charity in need of help harnessing the power of technology? We want to help you! 
+            Is your charity in need of help harnessing the power of technology? We want to help you! 
+            </p>
+            <p>
+            Register below to help us help you.
             </p>
             <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4">
               <Link href={"/charity/register"}>Register</Link>

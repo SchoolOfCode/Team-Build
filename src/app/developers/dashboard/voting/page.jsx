@@ -1,5 +1,4 @@
 import DisplayProjectsForVoting from "@/components/DisplayProjectsForVoting";
-import Image from "next/image";
 
 //clear the cache of projects fetched every 5 seconds?
 //export const revalidate = 5;
@@ -18,7 +17,7 @@ export default function VotingPage() {
         <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
       </div>
       <DisplayProjectsForVoting />
-    </div>
+     </div>
   );
 }
 

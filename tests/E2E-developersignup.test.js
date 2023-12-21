@@ -32,4 +32,7 @@ test("test", async ({ page }) => {
   await page.getByText("I agree to the Terms and").click();
   await page.locator('[id="terms\\&conditions"]').check();
   await page.getByRole("button", { name: "Submit Form" }).click();
+
+  await page.waitForLoadState("networkidle");
+  await expect(page.url()).toContain("/register");
 });

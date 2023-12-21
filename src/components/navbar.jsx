@@ -92,7 +92,7 @@ export default function NavbarComponent() {
 
               <li className="">
                 <Link
-                  href="/charity/dashboard"
+                  href="/charity"
                   onClick={() => setNavbar(!navbar)}
                 >
                   CHARITIES
@@ -102,7 +102,7 @@ export default function NavbarComponent() {
 
               <li className="">
                 <Link
-                  href="/developers/dashboard"
+                  href="/developers"
                   onClick={() => setNavbar(!navbar)}
                 >
                   DEVELOPERS

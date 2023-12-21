@@ -13,7 +13,7 @@ export default function VotingPage() {
           <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
             Votes
           </span>{" "}
-          for your favorite projects!
+          for your favorite new projects!
         </h1>
         <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
       </div>

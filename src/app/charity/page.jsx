@@ -16,9 +16,9 @@ export default function Charity() {
             <p className="text-lg lg:text-2xl font-bold lg:mb-36 lg:max-w-2xl lg:mr-24 lg:leading-relaxed">
             Do you work for a charity in need of help harnessing the power of technology? We want to help you! 
             </p>
-            <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4">
-              <Link href={"/charity/register"}>Register</Link>
-            </button>
+            <Link href="/charity/register"><button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4">
+              Register{" "}
+              </button></Link>
           </div>
       
     </div>

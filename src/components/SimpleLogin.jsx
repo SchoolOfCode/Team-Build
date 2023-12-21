@@ -54,12 +54,13 @@ export default function SimpleLogin() {
           Click below to register as:
         </p>
         <span className="flex justify-between lg:mt-4">
-          <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
-            <Link href="/charity/register">Charity</Link>
-          </button>
-          <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
-            <Link href="/developers/register">Developer</Link>
-          </button>
+        <Link href="/charity/register"><button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
+            Charity
+          </button></Link>
+
+          <Link href="/developers/register"><button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
+            Developer
+          </button></Link>
         </span>
       </div>
       <form

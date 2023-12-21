@@ -21,9 +21,9 @@ export default function Developers() {
               Your journey towards meaningful experience starts here — where
               coding meets purpose.
             </p>
-            <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
-              <Link href={"/developers/register"}>Register</Link>
-            </button>
+            <Link href="/developers/register"><button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
+              Register
+            </button></Link>
           </div>
           
         </div>

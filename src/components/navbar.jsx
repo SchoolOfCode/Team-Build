@@ -91,20 +91,14 @@ export default function NavbarComponent() {
               </li>
 
               <li className="">
-                <Link
-                  href="/charity/dashboard"
-                  onClick={() => setNavbar(!navbar)}
-                >
+                <Link href="/charity/" onClick={() => setNavbar(!navbar)}>
                   CHARITIES
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>
               </li>
 
               <li className="">
-                <Link
-                  href="/developers/dashboard"
-                  onClick={() => setNavbar(!navbar)}
-                >
+                <Link href="/developers/" onClick={() => setNavbar(!navbar)}>
                   DEVELOPERS
                 </Link>
                 <hr className="md:hidden ml-36 mt-1 h-1 w-16 bg-emerald-400"></hr>

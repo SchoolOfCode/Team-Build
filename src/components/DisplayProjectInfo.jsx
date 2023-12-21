@@ -1,14 +1,15 @@
 "use client";
 import FetchProjectById from "@/db-components/FetchProjectById";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 //import Link from "next/link";
 
 export default function DisplayProjectInfo(project_id) {
+  const router = useRouter();
   const [project, setProject] = useState([]);
 
   //destructure project to access link_to_video and if cannot find url, then just use null
   const { link_to_video } = project || null;
-
 
   useEffect(() => {
     FetchProjectById(project_id).then((data) => setProject(data[0]));
@@ -29,7 +30,7 @@ export default function DisplayProjectInfo(project_id) {
               <p className="text-md lg:text-lg mb-10 lg:max-w-2xl lg:mr-24 lg:leading-relaxed font-style: italic ml-3">
                 {project.short_desc}
               </p>
-              
+
               {/* if the link_to_video is null, don't display the a tag*/}
               {link_to_video && (
                 <p className="font-bold ml-6">
@@ -46,10 +47,12 @@ export default function DisplayProjectInfo(project_id) {
                 {project.long_desc}
               </p>
             </div>
-            {/* <button
-              onClick={() => router.back()} 
+            <button
+              onClick={() => router.back()}
               className="button border-4 lg:text-red-400 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-lg lg:mt-4 m-2"
-            >Go Back</button> */}
+            >
+              Go Back
+            </button>
           </div>
         </section>
       </div>

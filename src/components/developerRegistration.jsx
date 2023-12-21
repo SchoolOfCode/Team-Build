@@ -320,7 +320,7 @@ export default function DeveloperRegistration() {
             <div>
               <div className="border-b pb-2 border-gray-600 text-md text-gray-600 placeholder:text-xl w-full">
                 I agree to the{" "}
-                <Link href="../termsandconditions" className="ml-1">
+                <Link href="../termsandconditions" className="ml-1" target="_blank">
                   <u>
                     <b>Terms and Conditions</b>
                   </u>

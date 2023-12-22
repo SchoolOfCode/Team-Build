@@ -168,8 +168,8 @@ export default function CharityRegistration() {
             setSubmissionMessage("Thank you for your submission!");
 
             setTimeout(() => {
-              router.push("/charity/dashboard");
-            }, 5000);
+              router.push("/charity/dashboard/how-pitching-works");
+            }, 3000);
 
             return;
           }

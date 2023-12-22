@@ -135,7 +135,7 @@ export default function DisplayDevelopersDashboard2() {
             Projects that you can register your interest in
           </span>
         </h1>
-        <span className="border-b border-black w-11/12 lg:mb-4 my-3"></span>
+        <span className="border-b border-black w-11/12 lg:mb-3 my-3"></span>
         <ol>
           {availableProjects.map((availableProject) => {
             return (

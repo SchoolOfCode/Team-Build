@@ -155,7 +155,7 @@ export default function DeveloperRegistration() {
 
             setTimeout(() => {
               router.push("/developers/dashboard");
-            }, 5000);
+            }, 3000);
 
             return;
           }

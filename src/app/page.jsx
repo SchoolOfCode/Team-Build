@@ -26,11 +26,11 @@ export default function Testimonials() {
               </button>
             </Link>
 
-            {/* <Link href={"../developers"}>
-              <button className="button bg-red-400 font-bold rounded w-56 h-10 text-xl lg:w-56 lg:h-16 lg:text-2xl my-4 lg:mx-4">
-                Developers{" "}
+            <Link href={"../developers"}>
+              <button className="button bg-transparent text-decoration: underline rounded text-stone-600 justify-left lg:w-56 lg:h-10 lg:text-2xl my-4 lg:mx-4">
+                Developers join us here{" "}
               </button>
-            </Link> */}
+            </Link>
           </div>
         </div>
       </section>

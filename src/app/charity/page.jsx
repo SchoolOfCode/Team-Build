@@ -7,7 +7,7 @@ export default function Charity() {
     <div className="flex flex-col">
       <div className="flex-grow">
         <div className="flex flex-col justify-evenly ml-6 lg:flex lg:mx-40 gap-10 mr-4">
-          <h1 className="mt-10 leading-snug text-6xl font-bold lg:text-8xl lg:max-w-lg lg:leading-snug lg:w-1/2">
+          <h1 className="mt-10 leading-snug text-5xl font-bold lg:text-8xl lg:max-w-lg lg:leading-snug lg:w-1/2">
             We want to help{" "}
             <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
               Charities
@@ -23,7 +23,7 @@ export default function Charity() {
               Register your charity now for the opportunity to pitch your
               projects and create your perfect website for free.
             </p>
-            <button className="button bg-red-400 font-bold rounded w-44 h-16 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-10">
+            <button className="button bg-red-400 font-bold rounded w-44 h-10 text-xl lg:w-56 lg:h-16 lg:text-2xl lg:mt-4 mt-20">
               <Link href={"/charity/register"}>Register</Link>
             </button>
           </div>

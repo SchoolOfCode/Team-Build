@@ -1,12 +1,12 @@
 export default function TermsAndConditions() {
   return (
-    <div>
+    <div className="text-left mt-4 mx-3 lg:p-10 lg:flex lg:mx-auto lg:flex-col lg:bg-slate-50 flex justify-between flex-col lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <h1>
         <b>
           <u>Terms and Conditions</u>
         </b>
       </h1>
-      <p>
+      <p className="mt-5">
         Terms and Conditions for Developers: Eligibility: Users must be at least
         18 years old to register on the platform. Junior developers must provide
         accurate information about their skills and experience. Registration and

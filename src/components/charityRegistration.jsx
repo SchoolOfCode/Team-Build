@@ -327,7 +327,7 @@ export default function CharityRegistration() {
             </div>
             <button
               type="submit"
-              className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
+              className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mb-5 "
             >
               Submit Form
             </button>

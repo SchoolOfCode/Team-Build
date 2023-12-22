@@ -49,18 +49,6 @@ export default function SimpleLogin() {
           Log
           <span className="bg-emerald-400 py-1 px-2 rounded-md"> in</span>
         </h1>
-        <p className="text-md ml-2 text-center lg:mt-5 ">
-          <span className="font-bold">Not registered yet? </span>
-          Click below to register as:
-        </p>
-        <span className="flex justify-between lg:mt-4">
-          <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
-            <Link href="/charity/register">Charity</Link>
-          </button>
-          <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
-            <Link href="/developers/register">Developer</Link>
-          </button>
-        </span>
       </div>
       <form
         className="lg:mt-5 tracking-wider flex flex-col lg:w-6/12 gap-2 m-2"
@@ -105,7 +93,20 @@ export default function SimpleLogin() {
           </button>
         </div>
 
-        <div className="flex flex-col"></div>
+        <div className="flex flex-col">
+          <p className="text-sm ml-2 text-left lg:mt-5 ">
+            <span className="font-bold ">Not registered yet? </span>
+            Click below to register as:
+          </p>
+          <span className="flex justify-between lg:mt-4">
+            <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
+              <Link href="/charity/register">Charity</Link>
+            </button>
+            <button className="button border-4 text-black border-red-400 font-bold rounded w-40 h-10 text-sm lg:w-48 lg:text-md lg:mt-4 m-2">
+              <Link href="/developers/register">Developer</Link>
+            </button>
+          </span>
+        </div>
 
         <div className="hidden md:flex items-center gap-2"></div>
       </form>

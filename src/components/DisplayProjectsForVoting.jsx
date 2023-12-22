@@ -5,9 +5,7 @@ import ProjectVotingCard from "./ProjectVotingCard";
 import InsertVote from "../db-components/InsertVote";
 import FetchVotesByDevId from "@/db-components/FetchVotesByDevId";
 
-
 export default function DisplayProjectsForVoting() {
-
   // set State on projects that are available for voting
   const [projectsForVoting, setProjectsForVoting] = useState([]);
   const [isVotedFor, setIsVotedFor] = useState(false);
@@ -57,7 +55,7 @@ export default function DisplayProjectsForVoting() {
 
   return (
     <>
-      <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2  h-40 mt-4">
+      <div className="lg:grid section flex flex-col justify-top items-left rounded-lg p-2 m-2 mt-4">
         <ol>
           {projectsForVoting.map((projectForVoting) => {
             return (
@@ -70,7 +68,7 @@ export default function DisplayProjectsForVoting() {
             );
           })}
         </ol>
-       </div>
+      </div>
     </>
   );
 }

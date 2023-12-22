@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="hidden md:inline-block">
           <Link href="/login">
             <p className="text-zinc-500 underline underline-offset-4 hover:text-grey-900 text-xl">
-              Developers join us here
+              Developers, join us here
             </p>
           </Link>
         </div>
@@ -24,7 +24,7 @@ export default function Footer() {
 
         <div className="md:inline-block">
           <p className="text-zinc-100 lg:text-zinc-500 text-xl">
-            © 2023 Build by School of Code
+            © 2024 Build by Team Build
           </p>
         </div>
 

@@ -47,7 +47,7 @@ export default function SimpleLogin() {
       <div className="lg:flex lg:flex-col lg:justify-center lg:items-center">
         <h1 className="lg:text-7xl text-5xl font-bold mt-3 leading-relaxed text-center">
           Log
-          <span className="bg-emerald-400 py-1 px-2 rounded-md"> in</span>
+          <span className="bg-emerald-400 py-1 px-2 rounded-md">in</span>
         </h1>
       </div>
       <form

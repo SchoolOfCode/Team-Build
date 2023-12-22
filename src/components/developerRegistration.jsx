@@ -171,7 +171,7 @@ export default function DeveloperRegistration() {
   };
 
   return (
-    <div className="text-left mx-3  lg:p-10 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+    <div className="text-left mx-3  lg:p-8 lg:flex lg:bg-slate-50 lg:justify-center lg:align-middle lg:text-xl lg:items-center lg:w-7/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
       <div className="">
         <h1 className="text-4xl font-bold mt-3 leading-relaxed">
           Register as a{" "}
@@ -222,17 +222,7 @@ export default function DeveloperRegistration() {
                 required
               />
             </div>
-            <div>
-              <input
-                type="VARCHAR"
-                name="tech_background"
-                onChange={handleInput}
-                value={registration.tech_background}
-                className="appearance-none bg-transparent border-b pb-2 border-gray-600 placeholder:text-gray-600 placeholder:text-xl w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none"
-                placeholder="Technical Background:"
-                required
-              ></input>
-            </div>
+
             <div>
               <div></div>
 
@@ -281,6 +271,7 @@ export default function DeveloperRegistration() {
                 required
               />
             </div>
+
             <div>
               <select
                 name="hours_range"
@@ -316,32 +307,49 @@ export default function DeveloperRegistration() {
                 className="ml-2"
               />
             </div>
-
             <div>
-              <div className="border-b pb-2 border-gray-600 text-md text-gray-600 placeholder:text-xl w-full">
-                I agree to the{" "}
-                <Link href="../termsandconditions" className="ml-1" target="_blank">
-                  <u>
-                    <b>Terms and Conditions</b>
-                  </u>
-                </Link>
-                <input
-                  type="checkbox"
-                  id="terms&conditions"
-                  name="t_and_c"
-                  onChange={handleChkBoxInput}
-                  value={registration.t_and_c}
-                  className="ml-2"
-                  required
-                />
+              <label className="appearance-none border-gray-600 placeholder:text-xl text-xl w-full text-gray-600 mr-3 py-1 px-2 leading-tight focus:outline-none">
+                Technical Background:
+              </label>
+              <textarea
+                type="text"
+                name="tech_background"
+                onChange={handleInput}
+                value={registration.tech_background}
+                className="appearance-none bg-grey-200 border border-gray-600 bg-slate-50 placeholder:text-gray-600 placeholder:text-xl w-full h-40 text-black mr-3 py-1 px-2 leading-tight focus:outline-none lg:mb-4"
+                required
+              />
+            </div>
+            <div className="flex flex-col justify-between">
+              <div className="flex">
+                <span className="text-sm text-gray-700">
+                  <input
+                    type="checkbox"
+                    id="terms&conditions"
+                    name="t_and_c"
+                    onChange={handleChkBoxInput}
+                    value={registration.t_and_c}
+                    className="mr-2 mt-1 "
+                    required
+                  />
+                  Click here to agree to the{" "}
+                  <Link href="../termsandconditions" target="_blank">
+                    <u>
+                      <b className="ml">Terms and Conditions</b>
+                    </u>
+                  </Link>
+                </span>
+              </div>
+              <div>
+                {" "}
+                <button
+                  type="submit"
+                  className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mb-5 "
+                >
+                  Submit Form
+                </button>
               </div>
             </div>
-            <button
-              type="submit"
-              className="button bg-red-400 font-bold rounded w-36 h-12 text-xl lg:w-56 lg:text-2xl lg:mt-4 mt-4"
-            >
-              Submit Form
-            </button>
 
             {!isValid && (
               <div className="text-red-500">

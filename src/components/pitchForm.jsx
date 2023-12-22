@@ -165,17 +165,15 @@ export default function PitchForm() {
                     className="appearance-none bg-grey-200 border border-gray-600 bg-slate-50 placeholder:text-gray-600 placeholder:text-xl w-full h-56 lg:h-96 text-black mr-3 py-1 px-2 leading-tight focus:outline-none mb-4 lg:mb-14"
                     required
                   ></textarea>
-                </div>
-
-                {/* div for submit button link */}
-                <div>
                   <button
                     type="submit"
-                    className="w-full bg-red-400 text-white py-2 rounded-md mb-4"
+                    className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 "
                   >
                     Submit Form
                   </button>
                 </div>
+
+                {/* div for submit button link */}
               </div>
               {!isValid && (
                 <div className="text-red-500">

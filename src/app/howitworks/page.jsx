@@ -27,7 +27,7 @@ export default function HowItWorks() {
           width={500}
           height={600}
           alt="How it works diagram"
-          className="lg:mt-8 mt-4 w-screen h-auto"
+          className="lg:mt-8 mt-4 lg:w-9/12 lg:h-auto"
         />
       </div>
       <Link href="/charity/register"><button className="lg:hidden button mx-auto bg-red-400 font-bold rounded w-44 h-10 text-lg lg:h-16 lg:w-56 lg:text-2xl lg:mt-4 ml-30 lg:mb-20 flex justify-center items-center">

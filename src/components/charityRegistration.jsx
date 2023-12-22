@@ -169,7 +169,7 @@ export default function CharityRegistration() {
 
             setTimeout(() => {
               router.push("/charity/dashboard");
-            }, 3000);
+            }, 5000);
 
             return;
           }

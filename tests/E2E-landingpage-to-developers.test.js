@@ -12,10 +12,10 @@ test("get started link", async ({ page }) => {
   await page.goto("https://team-build.vercel.app/");
 
   // Click the get started link.
-  await page.getByRole("link", { name: "Find out more" }).click();
+  await page.getByRole("button", { name: "Developers" }).click();
 
   // Expects page to have a heading with the name of Installation.
   await expect(
-    page.getByRole("heading", { name: "How it works" })
+    page.getByRole("heading", { name: "Calling out" })
   ).toBeVisible();
 });

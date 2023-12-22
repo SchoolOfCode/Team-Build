@@ -14,4 +14,5 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('heading', { name: 'Charity Dashboard' }).click();
   await page.getByText('Dashboard').click();
+  //await expect(page.url()).toContain("/register");
 });

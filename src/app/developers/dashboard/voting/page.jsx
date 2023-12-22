@@ -1,12 +1,13 @@
+"use client"
 import DisplayProjectsForVoting from "@/components/DisplayProjectsForVoting";
-
-//clear the cache of projects fetched every 5 seconds?
-//export const revalidate = 5;
+import { useRouter } from "next/navigation";
 
 export default function VotingPage() {
+  const router = useRouter();
+
   return (
-    <div className="lg:overflow-auto lg:mt-[10px] text-left lg:m-auto lg:h-screen lg:bg-slate-50 lg:flex lg:flex-col lg:text-xl lg:w-10/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
-      <div className="flex flex-col justify-center">
+    <div className="lg:overflow-auto lg:mt-[10px] text-left flex flex-col justify-between lg:m-auto lg:h-screen lg:bg-slate-50 lg:flex lg:flex-col lg:text-xl lg:w-10/12 lg:shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] lg:rounded-md">
+      <div className="">
         <h1 className="m-4 leading-snug text-3xl font-bold lg:text-5xl lg:leading-snug">
           Cast your{" "}
           <span className="bg-emerald-400 py-1 px-2 rounded-md mt-2">
@@ -15,8 +16,17 @@ export default function VotingPage() {
           for your favorite new projects!
         </h1>
         <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
+        <DisplayProjectsForVoting />
       </div>
-      <DisplayProjectsForVoting />
+      
+      <div className="flex align-bottom">
+      <button
+          onClick={() => router.back()}
+          className="button border-4 lg:text-black mb-24 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-lg lg:mt-4 m-2"
+        >
+          Return to Dashboard
+        </button>
+        </div>
      </div>
   );
 }

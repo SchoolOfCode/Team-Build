@@ -4,10 +4,10 @@ import FetchProjectsByStatus from "@/db-components/FetchProjectsByStatus";
 import ProjectVotingCard from "./ProjectVotingCard";
 import InsertVote from "../db-components/InsertVote";
 import FetchVotesByDevId from "@/db-components/FetchVotesByDevId";
-import { useRouter } from "next/navigation";
+
 
 export default function DisplayProjectsForVoting() {
-  const router = useRouter();
+
   // set State on projects that are available for voting
   const [projectsForVoting, setProjectsForVoting] = useState([]);
   const [isVotedFor, setIsVotedFor] = useState(false);
@@ -70,13 +70,7 @@ export default function DisplayProjectsForVoting() {
             );
           })}
         </ol>
-        <button
-          onClick={() => router.back()}
-          className="button border-4 lg:text-red-400 text-black-400 border-red-400 font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-lg lg:mt-4 m-2"
-        >
-          Return to Dashboard
-        </button>
-      </div>
+       </div>
     </>
   );
 }

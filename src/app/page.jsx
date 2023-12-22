@@ -27,7 +27,7 @@ export default function Testimonials() {
             </Link>
 
             <Link href={"../developers"}>
-              <button className="button bg-transparent text-decoration: underline rounded text-stone-600 justify-left lg:w-56 lg:h-10 lg:text-2xl my-4 lg:mx-4">
+              <button className="md:hidden button bg-transparent text-decoration: underline rounded text-stone-600 justify-left lg:w-56 lg:h-10 lg:text-2xl my-4 lg:mx-4">
                 Developers join us here{" "}
               </button>
             </Link>

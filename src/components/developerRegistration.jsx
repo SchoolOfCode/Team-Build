@@ -282,13 +282,13 @@ export default function DeveloperRegistration() {
                 required
               >
                 <option value="" disabled>
-                  How many hours can you commit a week?
+                  Hours you can commit each week?
                 </option>
                 <option value="1">1 - 2 hours per week</option>
                 <option value="2">2 - 5 hours per week</option>
                 <option value="3">5 - 10 hours per week</option>
                 <option value="4">10 - 20 hours per week</option>
-                <option value="5">More than 20+ hours per week</option>
+                <option value="5">More than 20 hours per week</option>
               </select>
             </div>
             <div className="flex items-center">

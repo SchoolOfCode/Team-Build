@@ -20,7 +20,7 @@ export default function Testimonials() {
             </p>
           </div>
           <div className="flex flex-col lg:flex-row lg:items-center mb-2 mt-2">
-            <Link href={"../charity"}>
+            <Link href={"/howitworks"}>
               <button className="button bg-red-400 font-bold rounded w-56 h-10 text-xl lg:w-56 lg:h-16 lg:text-2xl my-4 lg:mx-4">
                 Find out more
               </button>

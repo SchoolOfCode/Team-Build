@@ -11,11 +11,7 @@ export default function ModeratorsDashboard() {
             Dashboard
           </span>
         </h1>
-        <p className="ml-4 italic">
-          Click on a project title to find out more about it.
-        </p>
-        <span className="border-b border-black w-11/12 ml-2 mr-2"></span>
-      </div>
+        </div>
       <DisplayModeratorsDashboard />
       <div className="flex flex-row lg:flex-row justify-center lg:justify-center lg:gap-20 items-center mb-4">
         <Link href="./dashboard/how-voting-works">

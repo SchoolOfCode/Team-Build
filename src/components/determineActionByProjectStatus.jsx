@@ -20,7 +20,7 @@ export default function determineActionByProjectStatus(status, button) {
       case 9:
         return "Archive ";
       default:
-        return "unknown";
+        return null;
     }
   }  else {
     switch (status) {
@@ -31,7 +31,7 @@ export default function determineActionByProjectStatus(status, button) {
         case 3:
           return null;
         case 5:
-          return "Refer Back";
+          return "Reject";
         case 6:
           return "Stop Project";
         case 7:
@@ -41,7 +41,7 @@ export default function determineActionByProjectStatus(status, button) {
         case 9:
           return null;
         default:
-          return "unknown";
+          return null;
       }
 
   }

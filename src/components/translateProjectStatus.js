@@ -17,6 +17,8 @@
         return "Project Deployed";
       case 9:
         return "Project Stopped";
+      case 99:
+        return "Archived";
       default:
         return "unknown";
     }

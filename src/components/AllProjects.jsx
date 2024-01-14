@@ -7,9 +7,16 @@ export default function AllProjects({
   project, updateStatusFunc
  }) {
 //This function fires off the code when button 1 is clicked
-function handleClick() {
+function handleClick1() {
   console.log(updateStatusFunc, project.projects.project_id)
-  const newStatus = determineNewStatus(project.projects.status)
+  const newStatus = determineNewStatus(project.projects.status, 1)
+  return updateStatusFunc(project.projects.project_id, newStatus);
+}
+
+//This function fires off the code when button 1 is clicked
+function handleClick2() {
+  console.log(updateStatusFunc, project.projects.project_id)
+  const newStatus = determineNewStatus(project.projects.status, 2)
   return updateStatusFunc(project.projects.project_id, newStatus);
 }
 
@@ -28,14 +35,14 @@ function handleClick() {
       <span className="col-span-1 grid gap-3 mt-4">
         <button
           className="button border-4 border-emerald-500 lg:w-32 lg:h-10 w-44 h-18 text-md text-center text-black font-bold justify-self-end"
-          onClick={handleClick} >
+          onClick={handleClick1} >
           {determineActionByProjectStatus(project.projects.status, 1)}
         </button>
       </span>
       <span className="col-span-1 grid gap-3 mt-4">
         <button
           className="button border-4 border-emerald-500 lg:w-32 lg:h-10 w-44 h-18 text-md text-center text-black font-bold justify-self-end"
-              >
+          onClick={handleClick2} >
          {determineActionByProjectStatus(project.projects.status, 2)}
         </button>
       </span>

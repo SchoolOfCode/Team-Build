@@ -19,11 +19,11 @@ export default function ModeratorsDashboard() {
             Sort
           </button>
         </Link>
-        <Link href="./dashboard/voting">
-          <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+        <button className="button bg-red-400  font-bold rounded w-44 h-10 text-sm lg:w-64 lg:text-md lg:mt-4 m-2">
+        
             Filter
-          </button>
-        </Link>
+        </button>
+        
       </div>
     </div>
   );
